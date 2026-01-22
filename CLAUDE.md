@@ -21,13 +21,6 @@ This is NOT a single-purpose app. It's a **multi-project research platform**. Ea
 |---------|------|-------------|
 | `representantes` | `src/projects/representantes/` | Education & profession data for Spanish parliamentarians (Congreso + Senado) |
 
-### Future Projects (planned)
-
-- Municipal representatives
-- Regional parliaments
-- Public contracts
-- etc.
-
 ## Project Structure
 
 ```
