@@ -9,7 +9,16 @@ const navigation = [
   { name: 'Manifiesto', href: '/manifiesto' },
 ];
 
-export function Header() {
+interface ProjectMetadata {
+  lastUpdated: string;
+  projectName: string;
+}
+
+interface HeaderProps {
+  projectsMetadata?: Record<string, ProjectMetadata>;
+}
+
+export function Header({ projectsMetadata }: HeaderProps) {
   const pathname = usePathname();
 
   // Hide header on homepage
@@ -17,13 +26,24 @@ export function Header() {
     return null;
   }
 
+  // Determine current project from pathname
+  const currentProject = pathname.startsWith('/representantes') ? 'representantes' : null;
+  const projectMeta = currentProject && projectsMetadata?.[currentProject];
+
   return (
     <header className="border-b-3 border-border bg-background sticky top-0 z-50">
       <nav className="mx-auto max-w-7xl px-4">
         <div className="flex h-14 sm:h-16 items-center justify-between">
-          <Link href="/" className="font-heading text-lg sm:text-xl uppercase tracking-tight hover:text-main transition-colors">
-            Datomania!
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link href="/" className="font-heading text-lg sm:text-xl uppercase tracking-tight hover:text-main transition-colors">
+              Datomania!
+            </Link>
+            {projectMeta && (
+              <span className="hidden sm:inline text-[10px] text-muted-foreground font-normal">
+                Datos actualizados {projectMeta.lastUpdated}
+              </span>
+            )}
+          </div>
 
           <div className="flex gap-4 sm:gap-8">
             {navigation.map((item) => {

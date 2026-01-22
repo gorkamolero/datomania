@@ -9,7 +9,9 @@
     "lint": "eslint",
     "test": "vitest",
     "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "research": "tsx src/projects/representantes/scripts/research-worker.ts",
+    "research:dry": "tsx src/projects/representantes/scripts/research-worker.ts --dry-run"
   },
   "dependencies": {
     "@nivo/bar": "^0.99.0",
@@ -40,6 +42,7 @@
     "eslint-config-next": "16.1.4",
     "msw": "^2.12.7",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5",
     "vitest": "^4.0.17"
   }

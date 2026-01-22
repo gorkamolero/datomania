@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Archivo_Black, Space_Grotesk } from 'next/font/google';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import { getMetadata, formatLastUpdated } from '@/projects/representantes/lib/data';
 import './globals.css';
 
 const archivoBlack = Archivo_Black({
@@ -54,12 +55,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Load metadata for each project
+  const representantesMetadata = getMetadata();
+
+  const projectsMetadata = {
+    representantes: {
+      lastUpdated: formatLastUpdated(representantesMetadata.lastUpdated),
+      projectName: 'Representantes',
+    },
+  };
+
   return (
     <html lang="es">
       <body
         className={`${archivoBlack.variable} ${spaceGrotesk.variable} font-sans antialiased min-h-screen flex flex-col`}
       >
-        <Header />
+        <Header projectsMetadata={projectsMetadata} />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

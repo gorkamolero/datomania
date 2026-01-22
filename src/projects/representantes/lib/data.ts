@@ -316,3 +316,45 @@ export function getPartidosFromData(legislature: Legislature = DEFAULT_LEGISLATU
 export function getAvailableLegislatures(): Legislature[] {
   return ['I', 'XV'];
 }
+
+/**
+ * Metadata about the dataset
+ */
+export interface DataMetadata {
+  lastUpdated: string;
+  legislature: string;
+  totalParlamentarios: number;
+  sources: {
+    congreso: string;
+    senado: string;
+  };
+}
+
+const METADATA_PATH = path.join(
+  process.cwd(),
+  'src',
+  'projects',
+  'representantes',
+  'data',
+  'metadata.json'
+);
+
+/**
+ * Get dataset metadata including last update timestamp
+ */
+export function getMetadata(): DataMetadata {
+  const raw = fs.readFileSync(METADATA_PATH, 'utf-8');
+  return JSON.parse(raw) as DataMetadata;
+}
+
+/**
+ * Format date for display (e.g., "22 ene 2025")
+ */
+export function formatLastUpdated(isoDate: string): string {
+  const date = new Date(isoDate);
+  const months = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+  const day = date.getDate();
+  const month = months[date.getMonth()];
+  const year = date.getFullYear();
+  return `${day} ${month} ${year}`;
+}

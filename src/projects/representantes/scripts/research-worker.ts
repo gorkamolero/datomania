@@ -2,193 +2,237 @@
 /**
  * Research Worker Script
  *
- * Runs externally (Pi, GitHub Actions, local) to process the research queue.
- * Fetches queue from API, processes each item, saves results to JSON.
+ * Runs externally (GitHub Actions, Pi, local) to:
+ * 1. Find parlamentarios needing research
+ * 2. Call Perplexity API to get education data
+ * 3. Update the JSON data files
+ * 4. Commit and push to GitHub
  *
  * Usage:
- *   CRON_SECRET=xxx API_BASE_URL=https://your-app.vercel.app npx tsx research-worker.ts
+ *   PERPLEXITY_API_KEY=xxx npx tsx research-worker.ts
  *
- * For local dev:
- *   CRON_SECRET=xxx API_BASE_URL=http://localhost:3000 npx tsx research-worker.ts
- *
- * Outputs results to research-results-{timestamp}.json
+ * Options:
+ *   --dry-run    Don't commit, just show what would change
+ *   --limit N    Only process N items (default: all)
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
+import { execSync } from 'child_process';
 
-const CRON_SECRET = process.env.CRON_SECRET;
-const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
-const DELAY_MS = 2500; // 2.5 seconds between requests to be safe
+// Config
+const PERPLEXITY_API_KEY = process.env.PERPLEXITY_API_KEY;
+const DRY_RUN = process.argv.includes('--dry-run');
+const LIMIT = (() => {
+  const idx = process.argv.indexOf('--limit');
+  return idx !== -1 ? parseInt(process.argv[idx + 1], 10) : Infinity;
+})();
+const DELAY_MS = 2500;
 
-interface QueueItem {
+// Paths
+const DATA_DIR = path.join(process.cwd(), 'src', 'projects', 'representantes', 'data');
+const DATA_FILE = path.join(DATA_DIR, 'parlamentarios_espana_xv.json');
+const METADATA_FILE = path.join(DATA_DIR, 'metadata.json');
+
+// Types
+interface Parlamentario {
   nombre_completo: string;
   camara: 'Congreso' | 'Senado';
   circunscripcion: string;
   partido: string;
-  missing: {
-    estudios: boolean;
-    profesion: boolean;
-  };
+  estudios_raw: string;
+  estudios_nivel: string;
+  profesion_raw: string;
+  profesion_categoria: string;
+  source: string;
+  [key: string]: unknown;
 }
 
-interface QueueResponse {
-  timestamp: string;
-  total: number;
-  queue: QueueItem[];
-}
-
-interface ProcessResponse {
-  success: boolean;
-  nombre_completo: string;
-  research_type: string;
-  found: boolean;
-  result: {
-    raw: string;
-    estudios_nivel?: string;
-    citations: string[];
-  };
-  timestamp: string;
-}
-
-interface ResearchResult {
-  nombre_completo: string;
-  camara: string;
-  found: boolean;
-  estudios_raw?: string;
-  estudios_nivel?: string;
+interface PerplexityResponse {
+  choices: Array<{ message: { content: string } }>;
   citations?: string[];
-  error?: string;
 }
 
-async function fetchQueue(): Promise<QueueItem[]> {
-  const response = await fetch(`${API_BASE_URL}/api/research/queue`, {
-    headers: {
-      Authorization: `Bearer ${CRON_SECRET}`,
-    },
-  });
+// Education classification (same as research.ts)
+const EDUCATION_KEYWORDS: [string, string[]][] = [
+  ['Doctorado', ['doctor', 'phd', 'doctorado', 'tesis doctoral']],
+  ['Master', ['master', 'máster', 'postgrado', 'posgrado', 'mba']],
+  ['FP', ['formación profesional', 'ciclo formativo', 'técnico superior', 'técnico medio', 'módulo profesional']],
+  ['Universitario', [
+    'licenciado', 'licenciatura', 'grado universitario', 'grado en',
+    'ingeniero', 'ingeniería', 'derecho', 'medicina', 'arquitecto',
+    'universidad', 'universitario', 'degree', 'bachelor', 'carrera universitaria',
+  ]],
+  ['Bachillerato', ['bachillerato', 'bachiller', 'bup', 'cou']],
+  ['Secundaria', ['secundaria', 'eso', 'graduado escolar']],
+];
 
-  if (!response.ok) {
-    throw new Error(`Failed to fetch queue: ${response.status}`);
+function classifyEducation(text: string): string {
+  const lower = text.toLowerCase();
+  for (const [level, keywords] of EDUCATION_KEYWORDS) {
+    for (const keyword of keywords) {
+      if (lower.includes(keyword)) return level;
+    }
   }
-
-  const data = (await response.json()) as QueueResponse;
-  return data.queue;
+  return 'No_consta';
 }
 
-async function processItem(item: QueueItem): Promise<ProcessResponse> {
-  const response = await fetch(`${API_BASE_URL}/api/research/process`, {
+function isNoDataResponse(content: string): boolean {
+  const lower = content.toLowerCase();
+  return (
+    lower.includes('no educational information found') ||
+    lower.includes('no information available') ||
+    lower.includes('could not find') ||
+    lower.includes('no data found')
+  );
+}
+
+async function researchEducation(p: Parlamentario): Promise<{ raw: string; nivel: string } | null> {
+  const camaraLabel = p.camara === 'Senado' ? 'senator' : 'member of Congress';
+  const prompt = `What is the educational background of ${p.nombre_completo}, Spanish ${camaraLabel} from ${p.circunscripcion}? Include degrees, universities, and fields of study. If no educational information is found, say "No educational information found."`;
+
+  const response = await fetch('https://api.perplexity.ai/chat/completions', {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${CRON_SECRET}`,
+      Authorization: `Bearer ${PERPLEXITY_API_KEY}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      nombre_completo: item.nombre_completo,
-      camara: item.camara,
-      circunscripcion: item.circunscripcion,
-      research_type: item.missing.estudios ? 'estudios' : 'profesion',
+      model: 'sonar',
+      messages: [{ role: 'user', content: prompt }],
     }),
   });
 
   if (!response.ok) {
-    const error = await response.text();
-    throw new Error(`Failed to process: ${error}`);
+    console.error(`  ✗ Perplexity error: ${response.status}`);
+    return null;
   }
 
-  return response.json();
+  const data = (await response.json()) as PerplexityResponse;
+  const content = data.choices[0]?.message?.content || '';
+
+  if (isNoDataResponse(content)) {
+    return null;
+  }
+
+  const nivel = classifyEducation(content);
+  if (nivel === 'No_consta') {
+    return null;
+  }
+
+  return { raw: content.slice(0, 500), nivel };
+}
+
+function gitExec(cmd: string): string {
+  try {
+    return execSync(cmd, { encoding: 'utf-8', stdio: ['pipe', 'pipe', 'pipe'] }).trim();
+  } catch (error) {
+    console.error(`Git error: ${cmd}`);
+    throw error;
+  }
 }
 
 async function main() {
   console.log('=== Research Worker ===\n');
 
-  if (!CRON_SECRET) {
-    console.error('Error: CRON_SECRET environment variable not set');
+  if (!PERPLEXITY_API_KEY) {
+    console.error('Error: PERPLEXITY_API_KEY not set');
     process.exit(1);
   }
 
-  console.log(`API Base: ${API_BASE_URL}`);
-  console.log('Fetching research queue...\n');
+  if (DRY_RUN) {
+    console.log('🔸 DRY RUN - no changes will be committed\n');
+  }
 
-  // Fetch queue
-  const queue = await fetchQueue();
-  console.log(`Found ${queue.length} items needing research\n`);
+  // Load current data
+  console.log('Loading parlamentarios data...');
+  const parlamentarios: Parlamentario[] = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
+  console.log(`  Total: ${parlamentarios.length}`);
 
-  if (queue.length === 0) {
+  // Find those needing research
+  const needsResearch = parlamentarios.filter((p) => p.estudios_nivel === 'No_consta');
+  console.log(`  Needing research: ${needsResearch.length}`);
+
+  const toProcess = needsResearch.slice(0, LIMIT);
+  console.log(`  Processing: ${toProcess.length}\n`);
+
+  if (toProcess.length === 0) {
     console.log('Nothing to research. Exiting.');
     return;
   }
 
-  // Process each item
-  const results: ResearchResult[] = [];
-  let successCount = 0;
+  // Research each
+  let updatedCount = 0;
+  const updates: string[] = [];
 
-  for (let i = 0; i < queue.length; i++) {
-    const item = queue[i];
-    console.log(`[${i + 1}/${queue.length}] ${item.nombre_completo}`);
+  for (let i = 0; i < toProcess.length; i++) {
+    const p = toProcess[i];
+    console.log(`[${i + 1}/${toProcess.length}] ${p.nombre_completo}`);
 
-    try {
-      // Rate limit
-      if (i > 0) {
-        await new Promise((resolve) => setTimeout(resolve, DELAY_MS));
+    if (i > 0) {
+      await new Promise((r) => setTimeout(r, DELAY_MS));
+    }
+
+    const result = await researchEducation(p);
+
+    if (result) {
+      console.log(`  ✓ Found: ${result.nivel}`);
+      updates.push(`${p.nombre_completo}: ${result.nivel}`);
+
+      // Update in-place
+      const idx = parlamentarios.findIndex((x) => x.nombre_completo === p.nombre_completo);
+      if (idx !== -1) {
+        parlamentarios[idx].estudios_raw = result.raw;
+        parlamentarios[idx].estudios_nivel = result.nivel;
+        parlamentarios[idx].source = 'researched';
+        updatedCount++;
       }
-
-      const response = await processItem(item);
-
-      if (response.found && response.result.estudios_nivel !== 'No_consta') {
-        successCount++;
-        console.log(`  ✓ Found: ${response.result.estudios_nivel}`);
-      } else {
-        console.log(`  ✗ No data found`);
-      }
-
-      results.push({
-        nombre_completo: item.nombre_completo,
-        camara: item.camara,
-        found: response.found,
-        estudios_raw: response.result.raw,
-        estudios_nivel: response.result.estudios_nivel,
-        citations: response.result.citations,
-      });
-    } catch (error) {
-      console.log(`  ✗ Error: ${error instanceof Error ? error.message : 'Unknown'}`);
-      results.push({
-        nombre_completo: item.nombre_completo,
-        camara: item.camara,
-        found: false,
-        error: error instanceof Error ? error.message : 'Unknown error',
-      });
+    } else {
+      console.log('  ✗ No data found');
     }
   }
 
-  // Save results
-  const timestamp = new Date().toISOString().slice(0, 19).replace(/[T:]/g, '-');
-  const outputPath = path.join(process.cwd(), `research-results-${timestamp}.json`);
+  console.log(`\n=== Summary ===`);
+  console.log(`Processed: ${toProcess.length}`);
+  console.log(`Updated: ${updatedCount}`);
 
-  const output = {
-    timestamp: new Date().toISOString(),
-    total_processed: results.length,
-    successful: successCount,
-    results,
-  };
-
-  fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
-
-  // Summary
-  console.log('\n=== Summary ===');
-  console.log(`Total processed: ${results.length}`);
-  console.log(`Found data for: ${successCount}`);
-  console.log(`Results saved to: ${outputPath}`);
-
-  // Print results that can be merged into the data file
-  const toMerge = results.filter(
-    (r) => r.found && r.estudios_nivel && r.estudios_nivel !== 'No_consta'
-  );
-
-  if (toMerge.length > 0) {
-    console.log('\n=== Data to Merge ===');
-    console.log(JSON.stringify(toMerge, null, 2));
+  if (updatedCount === 0) {
+    console.log('\nNo updates to commit.');
+    return;
   }
+
+  console.log('\nUpdates:');
+  updates.forEach((u) => console.log(`  - ${u}`));
+
+  if (DRY_RUN) {
+    console.log('\n🔸 DRY RUN - skipping file write and commit');
+    return;
+  }
+
+  // Write updated data
+  console.log('\nWriting updated data...');
+  fs.writeFileSync(DATA_FILE, JSON.stringify(parlamentarios, null, 2));
+
+  // Update metadata
+  const metadata = JSON.parse(fs.readFileSync(METADATA_FILE, 'utf-8'));
+  metadata.lastUpdated = new Date().toISOString();
+  metadata.totalParlamentarios = parlamentarios.length;
+  fs.writeFileSync(METADATA_FILE, JSON.stringify(metadata, null, 2));
+
+  // Git commit and push
+  console.log('\nCommitting to GitHub...');
+  try {
+    gitExec('git add -A');
+    const commitMsg = `data: update education data for ${updatedCount} parlamentario${updatedCount > 1 ? 's' : ''}\n\n${updates.join('\n')}`;
+    gitExec(`git commit -m "${commitMsg.replace(/"/g, '\\"')}"`);
+    gitExec('git push origin main');
+    console.log('✓ Pushed to GitHub');
+  } catch (error) {
+    console.error('Git commit/push failed:', error);
+    process.exit(1);
+  }
+
+  console.log('\n✅ Done! Vercel will auto-deploy.');
 }
 
 main().catch((error) => {
