@@ -21,22 +21,20 @@ export default function ManifiestoPage() {
 
         <div className="prose prose-lg max-w-none space-y-6 text-foreground">
           <p className="text-xl font-medium">
-            Hay datos públicos que deberían existir pero no existen. Los
-            creamos.
+            Hay datos públicos que deberían estar organizados pero no lo están.
           </p>
 
           <p>
-            Recopilamos información dispersa, la estructuramos y la publicamos
-            en formatos abiertos. Sin agenda. Sin interpretación. Solo datos
-            verificables y sus fuentes.
+            La información existe, dispersa en webs oficiales, portales de
+            transparencia, registros públicos. Nosotros la juntamos, rellenamos
+            los huecos con agentes de investigación, y la publicamos en formatos
+            abiertos.
           </p>
 
           <p>
-            Todo el código es abierto. Todos los datos son descargables. Si ves
-            un error, puedes corregirlo.
+            Con las herramientas actuales esto es trivial. Código abierto, datos
+            descargables, fuentes verificables.
           </p>
-
-          <p className="font-bold">Eso es todo.</p>
         </div>
 
         <div className="mt-12 pt-8 border-t-2 border-border">
