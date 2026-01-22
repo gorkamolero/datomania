@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     'XV legislatura',
     'democracia españa',
   ],
-  authors: [{ name: 'Spanish Flu' }],
+  authors: [{ name: 'Gorka Fernández Molero' }],
   openGraph: {
     type: 'website',
     locale: 'es_ES',

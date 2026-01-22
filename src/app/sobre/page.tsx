@@ -226,7 +226,7 @@ export default function SobrePage() {
             <div className="mt-6">
               <Button asChild>
                 <a
-                  href="https://github.com/spanishflu-est1918/parlamentarios-espana"
+                  href="https://github.com/gorkamolero/datomania"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -327,7 +327,7 @@ export default function SobrePage() {
                   </p>
                   <Button asChild variant="outline">
                     <a
-                      href="https://github.com/spanishflu-est1918/parlamentarios-espana/issues"
+                      href="https://github.com/gorkamolero/datomania/issues"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -365,7 +365,7 @@ export default function SobrePage() {
                 <strong className="text-foreground">Código:</strong> El código
                 fuente está disponible en{' '}
                 <a
-                  href="https://github.com/spanishflu-est1918/parlamentarios-espana"
+                  href="https://github.com/gorkamolero/datomania"
                   className="text-brand underline"
                   target="_blank"
                   rel="noopener noreferrer"

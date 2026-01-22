@@ -267,7 +267,7 @@ export default function MetodologiaPage() {
               detectado errores en los datos o quieres proponer mejoras, abre un
               issue en nuestro{' '}
               <a
-                href="https://github.com/spanishflu-est1918/parlamentarios-espana"
+                href="https://github.com/gorkamolero/datomania"
                 className="text-brand underline"
                 target="_blank"
                 rel="noopener noreferrer"
