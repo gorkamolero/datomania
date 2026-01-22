@@ -43,7 +43,7 @@ function TabsList({ children, className }: TabsListProps) {
   return (
     <div
       className={cn(
-        'flex flex-wrap gap-2 border-b-3 border-border pb-4 mb-6',
+        'flex gap-2 border-b-3 border-border pb-4 mb-6 overflow-x-auto scrollbar-hide',
         className
       )}
       role="tablist"
@@ -69,7 +69,7 @@ function TabsTrigger({ value, children, className }: TabsTriggerProps) {
       aria-selected={isActive}
       onClick={() => setActiveTab(value)}
       className={cn(
-        'px-4 py-2 text-sm font-bold uppercase tracking-wide border-2 border-border transition-all',
+        'px-3 py-2 text-xs sm:px-4 sm:text-sm font-bold uppercase tracking-wide border-2 border-border transition-all whitespace-nowrap flex-shrink-0',
         isActive
           ? 'bg-foreground text-background shadow-[4px_4px_0px_0px_var(--main)]'
           : 'bg-background text-foreground shadow-[4px_4px_0px_0px_#000] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_#000]',
