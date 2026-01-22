@@ -1,429 +1,191 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { computeStats } from '@/projects/representantes/lib/data';
 
 export const metadata: Metadata = {
-  title: 'Metodología - Educación y Profesiones',
-  description:
-    'Metodología de recopilación y clasificación de datos sobre educación y profesiones de los parlamentarios de la XV Legislatura de España.',
+  title: 'Metodología',
+  description: 'Cómo recopilamos los datos de los parlamentarios de la XV Legislatura.',
 };
 
 export default function MetodologiaPage() {
-  const stats = computeStats();
-
   return (
-    <div className="min-h-screen">
-      {/* Header */}
-      <section className="border-b border-border bg-gradient-to-b from-brand/5 to-background py-16 md:py-24">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-6">
-            <Button asChild variant="ghost" size="sm">
-              <Link href="/representantes">
-                ← Volver a Educación y Profesiones
-              </Link>
-            </Button>
+    <div className="min-h-screen py-12">
+      <div className="mx-auto max-w-3xl px-4">
+        <Link
+          href="/representantes"
+          className="text-sm font-bold uppercase tracking-wide text-muted-foreground hover:text-main mb-8 inline-block"
+        >
+          &larr; Volver
+        </Link>
+
+        <h1 className="text-4xl md:text-5xl font-heading mb-8">Metodología</h1>
+
+        {/* Fuentes oficiales */}
+        <section className="mb-12">
+          <h2 className="text-xl font-heading uppercase tracking-tight mb-4">
+            Fuentes Oficiales
+          </h2>
+          <div className="bg-card border-2 border-border p-6 shadow-[4px_4px_0px_0px_#000] space-y-4">
+            <div>
+              <h3 className="font-bold mb-2">Congreso de los Diputados</h3>
+              <p className="text-muted-foreground text-sm mb-2">
+                Datos abiertos en formato JSON actualizados diariamente.
+              </p>
+              <code className="text-xs bg-muted px-2 py-1 border border-border block overflow-x-auto">
+                https://www.congreso.es/es/opendata/diputados
+              </code>
+            </div>
+            <div>
+              <h3 className="font-bold mb-2">Senado</h3>
+              <p className="text-muted-foreground text-sm mb-2">
+                Fichas XML individuales por senador.
+              </p>
+              <code className="text-xs bg-muted px-2 py-1 border border-border block overflow-x-auto">
+                https://www.senado.es/web/ficopendataservlet?tipoFich=1&amp;cod=XXXXX&amp;legis=15
+              </code>
+            </div>
           </div>
-          <h1 className="font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-            Metodología
-          </h1>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Cómo se recopilaron y categorizaron los datos sobre educación y
-            profesiones de los parlamentarios de la XV Legislatura.
+        </section>
+
+        {/* Investigación complementaria */}
+        <section className="mb-12">
+          <h2 className="text-xl font-heading uppercase tracking-tight mb-4">
+            Investigación Complementaria
+          </h2>
+          <div className="bg-muted border-2 border-border p-6 space-y-4">
+            <p>
+              Cuando las fuentes oficiales no incluyen información educativa o
+              profesional, enviamos <strong>agentes de investigación LLM</strong>{' '}
+              a buscar en:
+            </p>
+            <ul className="space-y-2 text-sm">
+              <li className="flex gap-3">
+                <span className="text-main font-bold">→</span>
+                <span>Wikipedia (español, catalán, euskera, gallego)</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-main font-bold">→</span>
+                <span>LinkedIn</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-main font-bold">→</span>
+                <span>Webs de partidos políticos</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-main font-bold">→</span>
+                <span>Portales municipales y autonómicos</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-main font-bold">→</span>
+                <span>Hemerotecas digitales</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Campo source */}
+        <section className="mb-12">
+          <h2 className="text-xl font-heading uppercase tracking-tight mb-4">
+            Trazabilidad
+          </h2>
+          <p className="mb-4">
+            Cada parlamentario tiene un campo <code className="bg-muted px-1 border border-border">source</code>:
           </p>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none">
-            {/* Data Sources */}
-            <div className="mb-12">
-              <h2 className="font-serif text-2xl font-semibold">
-                Fuentes de datos
-              </h2>
-              <p className="mt-4 text-muted-foreground">
-                Los datos se obtuvieron de las páginas web oficiales del
-                Congreso de los Diputados y el Senado, que publican la
-                información biográfica de cada parlamentario:
-              </p>
-              <ul className="mt-4 space-y-2">
-                <li>
-                  <a
-                    href="https://www.congreso.es"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-brand hover:underline"
-                  >
-                    Congreso de los Diputados
-                  </a>{' '}
-                  - Fichas biográficas de diputados
-                </li>
-                <li>
-                  <a
-                    href="https://www.senado.es"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-brand hover:underline"
-                  >
-                    Senado
-                  </a>{' '}
-                  - Fichas biográficas de senadores
-                </li>
-              </ul>
-              <p className="mt-4 text-sm text-muted-foreground">
-                Los datos se recopilaron mediante scraping automatizado de las
-                páginas oficiales, extrayendo la información de educación y
-                trayectoria profesional publicada en cada ficha.
-              </p>
-            </div>
-
-            {/* Nivel de Estudios */}
-            <div className="mb-12">
-              <h2 className="font-serif text-2xl font-semibold">
-                Clasificación de nivel educativo
-              </h2>
-              <p className="mt-4 text-muted-foreground">
-                Los estudios de cada parlamentario se clasificaron en cinco
-                categorías según el nivel educativo declarado:
-              </p>
-              <div className="mt-6 space-y-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Universitario</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      Parlamentarios que han completado estudios universitarios
-                      de grado, licenciatura, máster o doctorado. Incluye
-                      títulos de universidades españolas y extranjeras
-                      homologados.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">
-                      Universitario (inferido)
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      Parlamentarios cuya profesión declarada requiere
-                      necesariamente estudios universitarios (por ejemplo,
-                      abogados, médicos, ingenieros) pero cuya ficha biográfica
-                      no especifica explícitamente el título universitario. Esta
-                      categoría permite capturar información cuando la fuente no
-                      está completa.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">FP / Técnico</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      Formación profesional, técnico superior, técnico
-                      especialista, o equivalentes. Incluye ciclos formativos de
-                      grado medio y superior, así como formaciones técnicas no
-                      universitarias.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Secundario</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      Educación secundaria, bachillerato, graduado escolar, ESO
-                      o equivalente como máximo nivel de estudios declarado.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">No consta</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      No se dispone de información sobre el nivel de estudios en
-                      la ficha biográfica oficial, o la información es
-                      insuficiente para realizar una clasificación.
-                    </p>
-                  </CardContent>
-                </Card>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-card border-2 border-border p-4 shadow-[4px_4px_0px_0px_#000]">
+              <div className="font-heading text-main text-lg">official</div>
+              <div className="text-sm text-muted-foreground">
+                Datos extraídos directamente de Congreso/Senado
               </div>
             </div>
-
-            {/* Categoría Profesional */}
-            <div className="mb-12">
-              <h2 className="font-serif text-2xl font-semibold">
-                Clasificación de categoría profesional
-              </h2>
-              <p className="mt-4 text-muted-foreground">
-                Las profesiones previas a la carrera política se agruparon en
-                siete categorías según el tipo de actividad:
-              </p>
-              <div className="mt-6 space-y-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">
-                      Profesionales liberales
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      Abogados, médicos, economistas, arquitectos, ingenieros,
-                      consultores, psicólogos y otras profesiones que requieren
-                      titulación universitaria y generalmente se ejercen de
-                      forma autónoma o en despachos profesionales.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Funcionarios</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      Empleados públicos: funcionarios de la administración
-                      central, autonómica o local, profesores de educación
-                      pública, policías, militares, jueces y fiscales.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Empresarios</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      Propietarios o directivos de empresas, autónomos en
-                      sectores comerciales, industriales o de servicios,
-                      agricultores y ganaderos propietarios de explotaciones.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Carrera política</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      Personas cuya actividad principal ha sido la política o
-                      cargos en partidos políticos, sindicatos u organizaciones
-                      sociales. Se incluyen asesores políticos y trabajadores de
-                      estructuras partidarias.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Trabajo de oficina</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      Empleados en trabajos administrativos, técnicos o de
-                      gestión en el sector privado que no son profesionales
-                      liberales. Incluye administrativos, técnicos, empleados de
-                      banca y seguros.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Trabajo manual</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      Trabajadores manuales cualificados y no cualificados:
-                      obreros, mecánicos, electricistas, albañiles, trabajadores
-                      del sector servicios (hostelería, comercio, limpieza,
-                      etc.).
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">No consta</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      No se dispone de información suficiente sobre la profesión
-                      previa en la ficha biográfica oficial.
-                    </p>
-                  </CardContent>
-                </Card>
+            <div className="bg-card border-2 border-border p-4 shadow-[4px_4px_0px_0px_#000]">
+              <div className="font-heading text-main text-lg">researched</div>
+              <div className="text-sm text-muted-foreground">
+                Datos obtenidos por agentes de investigación
               </div>
-            </div>
-
-            {/* Limitaciones */}
-            <div className="mb-12">
-              <h2 className="font-serif text-2xl font-semibold">
-                Limitaciones y cobertura de datos
-              </h2>
-              <p className="mt-4 text-muted-foreground">
-                La calidad y completitud de los datos dependen de la información
-                publicada en las fichas oficiales. Algunas limitaciones a tener
-                en cuenta:
-              </p>
-              <div className="mt-6 space-y-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">
-                      Información incompleta
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-2 text-sm text-muted-foreground">
-                    <p>
-                      No todos los parlamentarios proporcionan información
-                      completa sobre su educación y trayectoria profesional. El{' '}
-                      {Math.round(
-                        (stats.cobertura.estudios_sin_datos / stats.total) * 100
-                      )}
-                      % de los parlamentarios no tienen datos de nivel educativo
-                      disponibles.
-                    </p>
-                    <p>
-                      En el caso de las profesiones, el{' '}
-                      {Math.round(
-                        (stats.cobertura.profesion_sin_datos / stats.total) * 100
-                      )}
-                      % no tienen información suficiente para clasificar.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">
-                      Heterogeneidad de formatos
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-sm text-muted-foreground">
-                    Las fichas biográficas no siguen un formato estandarizado.
-                    Algunos parlamentarios proporcionan información muy
-                    detallada (títulos, universidades, fechas), mientras que
-                    otros solo mencionan brevemente su profesión o estudios.
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">
-                      Clasificación subjetiva
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-sm text-muted-foreground">
-                    La asignación de categorías profesionales implica cierto
-                    grado de interpretación, especialmente para trayectorias
-                    complejas o múltiples profesiones. En estos casos se ha
-                    priorizado la actividad más reciente o más relevante según
-                    el contexto.
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">
-                      Inferencias en educación
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-sm text-muted-foreground">
-                    La categoría &quot;Universitario (inferido)&quot; se basa en
-                    el supuesto de que ciertas profesiones colegiadas requieren
-                    titulación universitaria. Aunque esto es generalmente
-                    correcto, puede haber excepciones o casos donde el título se
-                    obtuvo en otro país con regulaciones diferentes.
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-
-            {/* Update Info */}
-            <div className="mb-12">
-              <h2 className="font-serif text-2xl font-semibold">
-                Actualización de datos
-              </h2>
-              <Card className="mt-6">
-                <CardHeader>
-                  <CardTitle className="text-lg">Última actualización</CardTitle>
-                  <CardDescription>
-                    Los datos se actualizaron por última vez el{' '}
-                    <span className="font-medium text-foreground">
-                      21 de enero de 2026
-                    </span>
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="text-sm text-muted-foreground">
-                  <p>
-                    Los datos corresponden a los parlamentarios activos en la XV
-                    Legislatura de las Cortes Generales (2023-actualidad). La
-                    información se recopila de las fichas oficiales publicadas
-                    en el momento de la actualización y puede cambiar si los
-                    parlamentarios actualizan sus perfiles.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Transparency */}
-            <div className="mb-12">
-              <h2 className="font-serif text-2xl font-semibold">
-                Transparencia y código abierto
-              </h2>
-              <p className="mt-4 text-muted-foreground">
-                Este proyecto es de código abierto. Los scripts de recopilación
-                y clasificación de datos están disponibles para revisión,
-                permitiendo verificar la metodología y reproducir el análisis.
-              </p>
-              <p className="mt-4 text-muted-foreground">
-                Si detectas algún error o inconsistencia en los datos, puedes
-                reportarlo a través del repositorio del proyecto.
-              </p>
-            </div>
-
-            {/* CTA */}
-            <div className="mt-12 flex flex-wrap gap-3">
-              <Button asChild>
-                <Link href="/representantes/parlamentarios">
-                  Ver parlamentarios
-                </Link>
-              </Button>
-              <Button asChild variant="outline">
-                <Link href="/representantes/explorar">
-                  Explorar datos
-                </Link>
-              </Button>
-              <Button asChild variant="outline">
-                <Link href="/api/representantes/parlamentarios">
-                  Acceder a la API
-                </Link>
-              </Button>
             </div>
           </div>
+        </section>
+
+        {/* Clasificaciones */}
+        <section className="mb-12">
+          <h2 className="text-xl font-heading uppercase tracking-tight mb-4">
+            Clasificaciones
+          </h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-bold mb-3">Nivel Educativo</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
+                {[
+                  { code: 'Universitario', desc: 'Título universitario declarado' },
+                  { code: 'Universitario_inferido', desc: 'Profesión que requiere título' },
+                  { code: 'FP_Tecnico', desc: 'Formación profesional' },
+                  { code: 'Secundario', desc: 'Bachillerato o ESO' },
+                  { code: 'Estudios_incompletos', desc: 'Sin completar' },
+                  { code: 'No_consta', desc: 'Sin información' },
+                ].map((item) => (
+                  <div key={item.code} className="bg-muted border border-border p-2">
+                    <code className="text-xs text-main">{item.code}</code>
+                    <div className="text-xs text-muted-foreground">{item.desc}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h3 className="font-bold mb-3">Categoría Profesional</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
+                {[
+                  { code: 'Profesional_liberal', desc: 'Abogados, médicos, etc.' },
+                  { code: 'Funcionario', desc: 'Empleados públicos' },
+                  { code: 'Empresario', desc: 'Propietarios, directivos' },
+                  { code: 'Politica', desc: 'Carrera política' },
+                  { code: 'Oficina', desc: 'Trabajo administrativo' },
+                  { code: 'Manual', desc: 'Trabajo manual' },
+                  { code: 'No_consta', desc: 'Sin información' },
+                ].map((item) => (
+                  <div key={item.code} className="bg-muted border border-border p-2">
+                    <code className="text-xs text-main">{item.code}</code>
+                    <div className="text-xs text-muted-foreground">{item.desc}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Actualización */}
+        <section className="mb-12">
+          <h2 className="text-xl font-heading uppercase tracking-tight mb-4">
+            Actualización
+          </h2>
+          <div className="bg-foreground text-background p-6">
+            <p className="mb-2">
+              <strong>Frecuencia:</strong> Mensual (cron automatizado)
+            </p>
+            <p className="mb-2">
+              <strong>Trigger:</strong> Solo si hay cambios en la composición oficial
+            </p>
+            <p>
+              <strong>Política:</strong> Parlamentarios ya investigados no se re-procesan
+            </p>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <div className="flex flex-wrap gap-4">
+          <Link
+            href="/representantes"
+            className="px-6 py-3 bg-main text-background font-bold uppercase tracking-wide border-2 border-border shadow-[4px_4px_0px_0px_#000] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_#000] transition-all"
+          >
+            Ver datos &rarr;
+          </Link>
+          <Link
+            href="/api/representantes/export?format=json"
+            className="px-6 py-3 bg-background text-foreground font-bold uppercase tracking-wide border-2 border-border shadow-[4px_4px_0px_0px_#000] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_#000] transition-all"
+          >
+            Descargar JSON
+          </Link>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
