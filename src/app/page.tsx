@@ -16,7 +16,7 @@ export default function HomePage() {
     <div className="min-h-screen py-12">
       <div className="mx-auto max-w-4xl px-4">
         <h1 className="text-5xl md:text-7xl font-heading mb-4">
-          Datomania
+          Datomania!
         </h1>
         <p className="text-xl font-medium text-muted-foreground mb-16">
           Datos públicos que deberían existir en España.
