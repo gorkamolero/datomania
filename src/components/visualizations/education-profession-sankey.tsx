@@ -5,7 +5,7 @@ import type {
   Parlamentario,
   EstudiosNivel,
   ProfesionCategoria,
-} from '@/types/parlamentario';
+} from '@/projects/representantes/types/parlamentario';
 
 interface EducationProfessionSankeyProps {
   parlamentarios: Parlamentario[];

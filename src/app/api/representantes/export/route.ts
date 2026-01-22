@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getParlamentarios } from '@/lib/data';
+import { getParlamentarios } from '@/projects/representantes/lib/data';
 
 /**
  * GET /api/representantes/export

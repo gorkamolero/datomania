@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { computeStats } from '@/lib/data';
+import { computeStats } from '@/projects/representantes/lib/data';
 
 export const metadata: Metadata = {
   title: 'Metodología - Educación y Profesiones',

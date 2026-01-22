@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { computeStats } from '@/lib/data';
+import { computeStats } from '@/projects/representantes/lib/data';
 
 /**
  * GET /api/representantes/stats

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { getAllPartidos } from '@/data/partidos';
-import { getPartidosFromData } from '@/lib/data';
+import { getAllPartidos } from '@/projects/representantes/data/partidos';
+import { getPartidosFromData } from '@/projects/representantes/lib/data';
 
 /**
  * GET /api/partidos

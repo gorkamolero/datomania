@@ -4,7 +4,7 @@ import type {
   Camara,
   EstudiosNivel,
   ProfesionCategoria,
-} from '@/types/parlamentario';
+} from '@/projects/representantes/types/parlamentario';
 
 /**
  * Compute statistics from a filtered array of parlamentarios

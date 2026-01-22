@@ -1,7 +1,7 @@
 'use client';
 
 import { ResponsivePie } from '@nivo/pie';
-import type { ProfesionCategoria } from '@/types/parlamentario';
+import type { ProfesionCategoria } from '@/projects/representantes/types/parlamentario';
 
 interface ProfessionPieChartProps {
   data: Record<ProfesionCategoria, number>;

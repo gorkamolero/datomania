@@ -1,4 +1,4 @@
-import type { Partido } from '@/types/parlamentario';
+import type { Partido } from '@/projects/representantes/types/parlamentario';
 
 /**
  * Spanish political party colors for the XV Legislatura

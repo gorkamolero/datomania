@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { getParlamentarios, getCircunscripciones, getPartidosFromData } from '@/lib/data';
+import { getParlamentarios, getCircunscripciones, getPartidosFromData } from '@/projects/representantes/lib/data';
 import { ParlamentariosTable } from './parlamentarios-table';
 
 export const metadata: Metadata = {

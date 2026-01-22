@@ -1,6 +1,6 @@
 'use client';
 
-import { Parlamentario } from '@/types/parlamentario';
+import { Parlamentario } from '@/projects/representantes/types/parlamentario';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 

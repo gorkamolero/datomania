@@ -1,7 +1,7 @@
 'use client';
 
 import { ResponsiveBar } from '@nivo/bar';
-import type { EstudiosNivel } from '@/types/parlamentario';
+import type { EstudiosNivel } from '@/projects/representantes/types/parlamentario';
 
 interface EducationBarChartProps {
   data: Record<EstudiosNivel, number>;

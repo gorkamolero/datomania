@@ -1,7 +1,7 @@
 'use client';
 
 import { ResponsiveBar } from '@nivo/bar';
-import { getPartido } from '@/data/partidos';
+import { getPartido } from '@/projects/representantes/data/partidos';
 
 interface PartyDistributionProps {
   data: Record<string, number>;

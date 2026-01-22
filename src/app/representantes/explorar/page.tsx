@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { InteractiveDashboard } from './interactive-dashboard';
-import { getParlamentarios, getPartidosFromData } from '@/lib/data';
-import type { Camara } from '@/types/parlamentario';
+import { getParlamentarios, getPartidosFromData } from '@/projects/representantes/lib/data';
+import type { Camara } from '@/projects/representantes/types/parlamentario';
 
 export const metadata = {
   title: 'Explorar datos - Educación y Profesión | Parlamentarios España',

@@ -1,4 +1,4 @@
-import { getParlamentarios, getCircunscripciones, getPartidosFromData } from '@/lib/data';
+import { getParlamentarios, getCircunscripciones, getPartidosFromData } from '@/projects/representantes/lib/data';
 import { RepresentantesTabs } from './representantes-tabs';
 
 export const metadata = {

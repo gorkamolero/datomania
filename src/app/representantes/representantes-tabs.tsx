@@ -10,7 +10,7 @@ import { ProfessionPieChart } from '@/components/charts/profession-pie-chart';
 import { PartyDistribution } from '@/components/charts/party-distribution';
 import { ParlamentariosTable } from './parlamentarios/parlamentarios-table';
 import { computeStatsFromData } from './explorar/compute-stats';
-import type { Parlamentario } from '@/types/parlamentario';
+import type { Parlamentario } from '@/projects/representantes/types/parlamentario';
 
 interface RepresentantesTabsProps {
   parlamentarios: Parlamentario[];

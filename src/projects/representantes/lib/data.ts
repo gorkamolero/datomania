@@ -8,13 +8,13 @@ import type {
   Camara,
   EstudiosNivel,
   ProfesionCategoria,
-} from '@/types/parlamentario';
-import { getPartidoColor } from '@/data/partidos';
+} from '@/projects/representantes/types/parlamentario';
+import { getPartidoColor } from '@/projects/representantes/data/partidos';
 
 /**
  * Path to the data file
  */
-const DATA_PATH = path.join(process.cwd(), 'src', 'data', 'json', 'parlamentarios_espana_xv.json');
+const DATA_PATH = path.join(process.cwd(), 'src', 'projects', 'representantes', 'data', 'parlamentarios_espana_xv.json');
 
 /**
  * Load raw data from JSON file

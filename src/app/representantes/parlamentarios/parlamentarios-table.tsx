@@ -25,7 +25,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import type { Parlamentario } from '@/types/parlamentario';
+import type { Parlamentario } from '@/projects/representantes/types/parlamentario';
 
 // Labels for display
 const ESTUDIOS_LABELS: Record<string, string> = {

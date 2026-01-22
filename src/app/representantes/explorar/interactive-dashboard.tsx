@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import type { Parlamentario, Camara, ParlamentarioFilters } from '@/types/parlamentario';
+import type { Parlamentario, Camara, ParlamentarioFilters } from '@/projects/representantes/types/parlamentario';
 import { EducationBarChart } from '@/components/charts/education-bar-chart';
 import { ProfessionPieChart } from '@/components/charts/profession-pie-chart';
 import { PartyDistribution } from '@/components/charts/party-distribution';

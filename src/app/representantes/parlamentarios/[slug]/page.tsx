@@ -10,7 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { getParlamentarios, getParlamentarioBySlug } from '@/lib/data';
+import { getParlamentarios, getParlamentarioBySlug } from '@/projects/representantes/lib/data';
 
 interface PageProps {
   params: Promise<{ slug: string }>;

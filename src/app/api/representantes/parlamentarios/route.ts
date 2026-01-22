@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { filterParlamentarios } from '@/lib/data';
-import type { ParlamentarioFilters } from '@/types/parlamentario';
+import { filterParlamentarios } from '@/projects/representantes/lib/data';
+import type { ParlamentarioFilters } from '@/projects/representantes/types/parlamentario';
 
 /**
  * GET /api/representantes/parlamentarios

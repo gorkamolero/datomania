@@ -26,6 +26,9 @@ export type ProfesionCategoria =
   | 'Politica'
   | 'No_consta';
 
+// Data source tracking
+export type DataSource = 'official' | 'researched';
+
 /**
  * Raw parlamentario data as stored in JSON
  */
@@ -41,6 +44,8 @@ export interface ParlamentarioRaw {
   profesion_categoria: ProfesionCategoria;
   fecha_alta: string;
   url_ficha: string;
+  bio_oficial?: string;
+  source: DataSource;
 }
 
 /**

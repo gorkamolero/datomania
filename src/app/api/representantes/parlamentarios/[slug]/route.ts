@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getParlamentarioBySlug } from '@/lib/data';
+import { getParlamentarioBySlug } from '@/projects/representantes/lib/data';
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
