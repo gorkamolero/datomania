@@ -28,19 +28,19 @@ export default function MetodologiaPage() {
             <div>
               <h3 className="font-bold mb-2">Congreso de los Diputados</h3>
               <p className="text-muted-foreground text-sm mb-2">
-                Datos abiertos en formato JSON actualizados diariamente.
+                Open Data JSON con biografías. Patrón: <code className="text-xs">odsDiputadosXX__*.json</code>
               </p>
               <code className="text-xs bg-muted px-2 py-1 border border-border block overflow-x-auto">
-                https://www.congreso.es/es/opendata/diputados
+                https://www.congreso.es/webpublica/opendata/diputados/
               </code>
             </div>
             <div>
               <h3 className="font-bold mb-2">Senado</h3>
               <p className="text-muted-foreground text-sm mb-2">
-                Fichas XML individuales por senador.
+                XML con fichas individuales. <code className="text-xs">tipoFich=10</code> (lista) + <code className="text-xs">tipoFich=1</code> (ficha)
               </p>
               <code className="text-xs bg-muted px-2 py-1 border border-border block overflow-x-auto">
-                https://www.senado.es/web/ficopendataservlet?tipoFich=1&amp;cod=XXXXX&amp;legis=15
+                https://www.senado.es/web/ficopendataservlet?tipoFich=10&amp;legis=15
               </code>
             </div>
           </div>
@@ -49,13 +49,13 @@ export default function MetodologiaPage() {
         {/* Investigación complementaria */}
         <section className="mb-12">
           <h2 className="text-xl font-heading uppercase tracking-tight mb-4">
-            Investigación Complementaria
+            Investigación con IA
           </h2>
           <div className="bg-muted border-2 border-border p-6 space-y-4">
             <p>
               Cuando las fuentes oficiales no incluyen información educativa o
-              profesional, enviamos <strong>agentes de investigación LLM</strong>{' '}
-              a buscar en:
+              profesional, usamos <strong>Perplexity AI</strong> (modelo sonar)
+              para investigar en tiempo real:
             </p>
             <ul className="space-y-2 text-sm">
               <li className="flex gap-3">
@@ -64,7 +64,7 @@ export default function MetodologiaPage() {
               </li>
               <li className="flex gap-3">
                 <span className="text-main font-bold">→</span>
-                <span>LinkedIn</span>
+                <span>LinkedIn y perfiles profesionales</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-main font-bold">→</span>
@@ -76,9 +76,12 @@ export default function MetodologiaPage() {
               </li>
               <li className="flex gap-3">
                 <span className="text-main font-bold">→</span>
-                <span>Hemerotecas digitales</span>
+                <span>Hemerotecas y medios de comunicación</span>
               </li>
             </ul>
+            <p className="text-xs text-muted-foreground mt-4">
+              La IA busca datos verificables con fuentes citables. Los resultados se revisan antes de incorporarse.
+            </p>
           </div>
         </section>
 
@@ -155,18 +158,45 @@ export default function MetodologiaPage() {
         {/* Actualización */}
         <section className="mb-12">
           <h2 className="text-xl font-heading uppercase tracking-tight mb-4">
-            Actualización
+            Actualización Automática
           </h2>
-          <div className="bg-foreground text-background p-6">
-            <p className="mb-2">
-              <strong>Frecuencia:</strong> Mensual (cron automatizado)
-            </p>
-            <p className="mb-2">
-              <strong>Trigger:</strong> Solo si hay cambios en la composición oficial
+          <div className="bg-foreground text-background p-6 space-y-3">
+            <p>
+              <strong>Cron diario:</strong> Comprueba cambios en Congreso.es y Senado.es
             </p>
             <p>
-              <strong>Política:</strong> Parlamentarios ya investigados no se re-procesan
+              <strong>Detección:</strong> Nuevos parlamentarios o cambios en composición
             </p>
+            <p>
+              <strong>Investigación:</strong> Solo para nuevos perfiles sin datos educativos
+            </p>
+            <p>
+              <strong>Endpoint:</strong>{' '}
+              <code className="text-main bg-background/20 px-1">/api/cron/check-updates</code>
+            </p>
+          </div>
+        </section>
+
+        {/* Legislaturas */}
+        <section className="mb-12">
+          <h2 className="text-xl font-heading uppercase tracking-tight mb-4">
+            Legislaturas Disponibles
+          </h2>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-card border-2 border-border p-4 shadow-[4px_4px_0px_0px_#000]">
+              <div className="font-heading text-main text-2xl">I</div>
+              <div className="text-sm font-bold">1979-1982</div>
+              <div className="text-xs text-muted-foreground mt-1">
+                615 parlamentarios. Primera legislatura democrática.
+              </div>
+            </div>
+            <div className="bg-card border-2 border-border p-4 shadow-[4px_4px_0px_0px_#000]">
+              <div className="font-heading text-main text-2xl">XV</div>
+              <div className="text-sm font-bold">2023-presente</div>
+              <div className="text-xs text-muted-foreground mt-1">
+                599 parlamentarios. Legislatura actual.
+              </div>
+            </div>
           </div>
         </section>
 
