@@ -10,7 +10,7 @@ import { EducationBarChart } from '@/components/charts/education-bar-chart';
 import { ProfessionPieChart } from '@/components/charts/profession-pie-chart';
 import { PartyDistribution } from '@/components/charts/party-distribution';
 import { ParlamentariosTable } from './parlamentarios/parlamentarios-table';
-import { computeStatsFromData } from './explorar/compute-stats';
+import { computeStatsFromData } from './lib/compute-stats';
 import type { Parlamentario, Legislature } from '@/projects/representantes/types/parlamentario';
 import { LEGISLATURE_INFO } from '@/projects/representantes/types/parlamentario';
 interface RepresentantesTabsProps {
