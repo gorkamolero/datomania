@@ -68,7 +68,10 @@ export function RepresentantesTabs({
               {stats.total} Parlamentarios
             </h1>
             <p className="text-xl font-medium text-muted-foreground">
-              {legislatureInfo.name} ({legislatureInfo.years}). Todos los datos públicos.
+              {legislatureInfo.name} ({legislatureInfo.years}).{' '}
+              <Link href="/representantes/metodologia" className="text-main hover:underline">
+                Ver metodología
+              </Link>
             </p>
           </div>
 
