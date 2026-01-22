@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Metodología - Cómo recopilamos los datos',
-  description: 'Fuentes oficiales: Congreso.es, Senado.es. APIs públicas, scraping ético, verificación cruzada. Código abierto.',
+  title: 'Metodología Representantes - Fuentes y proceso',
+  description: 'Cómo recopilamos datos de 599 parlamentarios: APIs de Congreso.es y Senado.es, clasificación de educación y profesión, verificación cruzada.',
 };
 
 export default function MetodologiaPage() {

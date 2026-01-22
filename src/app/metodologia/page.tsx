@@ -4,9 +4,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-  title: 'Metodología',
+  title: 'Metodología Datomania! - Principios y estándares',
   description:
-    'Metodología general de Parlamentarios España. Transparencia en la recopilación, verificación y publicación de datos sobre parlamentarios españoles.',
+    'Cómo trabajamos en Datomania!: fuentes oficiales, código abierto, datos verificables. Nuestros principios de transparencia radical.',
 };
 
 export default function MetodologiaPage() {
