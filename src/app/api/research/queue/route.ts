@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getParlamentarios } from '@/projects/representantes/lib/data';
+import { buildResearchQueue } from '@/projects/representantes/lib/research';
 
 const CRON_SECRET = process.env.CRON_SECRET;
 
@@ -18,23 +19,7 @@ export async function GET(request: NextRequest) {
 
   try {
     const data = getParlamentarios();
-
-    const queue = data
-      .filter(
-        (p) =>
-          p.estudios_nivel === 'No_consta' ||
-          p.profesion_categoria === 'No_consta'
-      )
-      .map((p) => ({
-        nombre_completo: p.nombre_completo,
-        camara: p.camara,
-        circunscripcion: p.circunscripcion,
-        partido: p.partido,
-        missing: {
-          estudios: p.estudios_nivel === 'No_consta',
-          profesion: p.profesion_categoria === 'No_consta',
-        },
-      }));
+    const queue = buildResearchQueue(data);
 
     return NextResponse.json({
       timestamp: new Date().toISOString(),
