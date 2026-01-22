@@ -101,7 +101,7 @@ export function RepresentantesTabs({
           <TabsTrigger value="profesion">Profesión</TabsTrigger>
           <TabsTrigger value="partidos">Partidos</TabsTrigger>
           <TabsTrigger value="datos">Datos</TabsTrigger>
-          <TabsTrigger value="comparar" className="ml-2 sm:ml-4 bg-main/10">I vs XV</TabsTrigger>
+          <TabsTrigger value="comparar" className="ml-2 sm:ml-4">I vs XV</TabsTrigger>
         </TabsList>
 
         {/* RESUMEN TAB */}
