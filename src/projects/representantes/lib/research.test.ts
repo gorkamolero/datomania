@@ -74,25 +74,21 @@ describe('Research Cron Job Integration Tests', () => {
   });
 
   describe('Perplexity API research (requires PERPLEXITY_API_KEY)', () => {
-    it('calls Perplexity API and gets education research results', async () => {
+    it('researches a known politician with education data (Pedro Sánchez)', async () => {
       if (!PERPLEXITY_API_KEY) {
         console.log('\n⚠️  Skipping: PERPLEXITY_API_KEY not set');
         return;
       }
 
-      if (!parlamentarioNeedingResearch) {
-        console.log('\n⚠️  Skipping: No parlamentario found needing research');
-        return;
-      }
-
-      console.log(`\n🔬 Researching: ${parlamentarioNeedingResearch.nombre_completo}`);
+      // Pedro Sánchez is well-known - Perplexity should find his PhD
+      console.log('\n🔬 Researching: Pedro Sánchez Pérez-Castejón');
+      console.log('   Expected: PhD in Economics (well documented)');
       console.log('   Calling Perplexity API...');
 
-      // Call the EXACT same function the cron uses
       const result = await researchParlamentario({
-        nombre_completo: parlamentarioNeedingResearch.nombre_completo,
-        camara: parlamentarioNeedingResearch.camara,
-        circunscripcion: parlamentarioNeedingResearch.circunscripcion,
+        nombre_completo: 'Sánchez Pérez-Castejón, Pedro',
+        camara: 'Congreso',
+        circunscripcion: 'Madrid',
         research_type: 'estudios',
         perplexityApiKey: PERPLEXITY_API_KEY,
       });
@@ -102,17 +98,43 @@ describe('Research Cron Job Integration Tests', () => {
       console.log(`   Found data: ${result.found}`);
       console.log(`   Classified level: ${result.result.estudios_nivel || 'N/A'}`);
       console.log(`   Citations: ${result.result.citations.length}`);
-      console.log(`\n   Raw response (truncated):\n   "${result.result.raw.slice(0, 300)}..."`);
+      console.log(`\n   Raw response (truncated):\n   "${result.result.raw.slice(0, 500)}..."`);
 
       expect(result.success).toBe(true);
-      expect(result.nombre_completo).toBe(parlamentarioNeedingResearch.nombre_completo);
-      expect(result.research_type).toBe('estudios');
+      expect(result.found).toBe(true);
+      expect(result.result.estudios_nivel).toBeDefined();
+      console.log(`   ✅ Found education level: ${result.result.estudios_nivel}`);
+    }, 30000);
 
-      // Result should have classification or indicate no data
-      if (result.found) {
-        expect(result.result.estudios_nivel).toBeDefined();
+    it('returns no data for parlamentario with no public education info', async () => {
+      if (!PERPLEXITY_API_KEY) {
+        console.log('\n⚠️  Skipping: PERPLEXITY_API_KEY not set');
+        return;
       }
-    }, 30000); // 30s timeout for API call
+
+      // Julia Parra has no education info in public records
+      console.log('\n🔬 Researching: Parra Aparicio, Julia');
+      console.log('   Expected: No education info available online');
+      console.log('   Calling Perplexity API...');
+
+      const result = await researchParlamentario({
+        nombre_completo: 'Parra Aparicio, Julia',
+        camara: 'Congreso',
+        circunscripcion: 'Alicante/Alacant',
+        research_type: 'estudios',
+        perplexityApiKey: PERPLEXITY_API_KEY,
+      });
+
+      console.log('\n📋 Perplexity API Response:');
+      console.log(`   Success: ${result.success}`);
+      console.log(`   Found data: ${result.found}`);
+      console.log(`   Citations: ${result.result.citations.length}`);
+      console.log(`\n   Raw response (truncated):\n   "${result.result.raw.slice(0, 400)}..."`);
+
+      expect(result.success).toBe(true);
+      expect(result.found).toBe(false);
+      console.log('   ✅ Correctly identified: no education data available');
+    }, 30000);
   });
 
   describe('Data protection - never overwrite existing data', () => {
