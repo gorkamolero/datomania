@@ -2,21 +2,18 @@
 # Deploy to Vercel after push completes
 # Only deploys to production when pushing to main
 
-# Get current branch
 branch=$(git rev-parse --abbrev-ref HEAD)
 
 if [ "$branch" = "main" ]; then
-  # Run deploy in background after push completes
   (
-    sleep 3  # Wait for push to finish
-    # Verify push succeeded by checking if local matches remote
+    sleep 3
     git fetch origin main --quiet
     local_sha=$(git rev-parse HEAD)
     remote_sha=$(git rev-parse origin/main)
 
     if [ "$local_sha" = "$remote_sha" ]; then
       echo "🚀 Deploying to Vercel..."
-      vercel --prod --token="$VERCEL_TOKEN"
+      vercel --prod
     fi
   ) &
 fi
