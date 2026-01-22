@@ -34,6 +34,7 @@ const ESTUDIOS_LABELS: Record<string, string> = {
   FP_Tecnico: 'FP/Técnico',
   Secundario: 'Secundario',
   No_consta: 'No consta',
+  Estudios_incompletos: 'Incompletos',
 };
 
 const PROFESION_LABELS: Record<string, string> = {

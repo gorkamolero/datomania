@@ -12,9 +12,9 @@ import type {
 import { getPartidoColor } from '@/data/partidos';
 
 /**
- * Path to the data folder (outside web/, in the project root)
+ * Path to the data file
  */
-const DATA_PATH = path.join(process.cwd(), '..', 'output', 'parlamentarios_espana_xv.json');
+const DATA_PATH = path.join(process.cwd(), 'src', 'data', 'json', 'parlamentarios_espana_xv.json');
 
 /**
  * Load raw data from JSON file
@@ -157,6 +157,7 @@ export function computeStats(): EducacionStats {
     Secundario: 0,
     No_consta: 0,
     Universitario_inferido: 0,
+    Estudios_incompletos: 0,
   };
 
   const por_profesion_categoria: Record<ProfesionCategoria, number> = {

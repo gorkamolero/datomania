@@ -10,24 +10,24 @@ interface ProfessionPieChartProps {
 
 // Human-readable labels for profession categories
 const PROFESSION_LABELS: Record<ProfesionCategoria, string> = {
-  Manual: 'Trabajo manual',
+  Manual: 'Manual',
   Oficina: 'Oficina',
   Funcionario: 'Funcionario',
-  Profesional_liberal: 'Profesional liberal',
+  Profesional_liberal: 'Prof. liberal',
   Empresario: 'Empresario',
   Politica: 'Política',
   No_consta: 'No consta',
 };
 
-// Color scheme for professions
+// Neobrutalist color scheme - high contrast, bold
 const PROFESSION_COLORS: Record<ProfesionCategoria, string> = {
-  Manual: '#8b5cf6', // Purple
-  Oficina: '#3b82f6', // Blue
-  Funcionario: '#10b981', // Green
-  Profesional_liberal: '#f59e0b', // Amber
-  Empresario: '#ef4444', // Red
-  Politica: '#ec4899', // Pink
-  No_consta: '#6b7280', // Gray
+  Profesional_liberal: '#FF5C00', // Main orange
+  Funcionario: '#000000', // Black
+  Politica: '#3B82F6', // Blue
+  Empresario: '#10B981', // Green
+  Oficina: '#F59E0B', // Amber
+  Manual: '#8B5CF6', // Purple
+  No_consta: '#CCCCCC', // Grey
 };
 
 export function ProfessionPieChart({
@@ -36,13 +36,14 @@ export function ProfessionPieChart({
 }: ProfessionPieChartProps) {
   // Transform data for Nivo
   const chartData = Object.entries(data)
-    .filter(([, value]) => value > 0) // Only include categories with values
+    .filter(([, value]) => value > 0)
     .map(([key, value]) => ({
       id: PROFESSION_LABELS[key as ProfesionCategoria],
       label: PROFESSION_LABELS[key as ProfesionCategoria],
       value,
       color: PROFESSION_COLORS[key as ProfesionCategoria],
-    }));
+    }))
+    .sort((a, b) => b.value - a.value);
 
   return (
     <div className={className} style={{ height: '400px' }}>
@@ -50,24 +51,18 @@ export function ProfessionPieChart({
         data={chartData}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
         innerRadius={0.5}
-        padAngle={0.7}
-        cornerRadius={3}
+        padAngle={2}
+        cornerRadius={0}
         activeOuterRadiusOffset={8}
         colors={{ datum: 'data.color' }}
-        borderWidth={1}
-        borderColor={{
-          from: 'color',
-          modifiers: [['darker', 0.2]],
-        }}
+        borderWidth={2}
+        borderColor="#000000"
         arcLinkLabelsSkipAngle={10}
-        arcLinkLabelsTextColor="hsl(var(--foreground))"
+        arcLinkLabelsTextColor="#000000"
         arcLinkLabelsThickness={2}
-        arcLinkLabelsColor={{ from: 'color' }}
+        arcLinkLabelsColor="#000000"
         arcLabelsSkipAngle={10}
-        arcLabelsTextColor={{
-          from: 'color',
-          modifiers: [['darker', 2]],
-        }}
+        arcLabelsTextColor="#FFFFFF"
         legends={[
           {
             anchor: 'bottom',
@@ -78,27 +73,25 @@ export function ProfessionPieChart({
             itemsSpacing: 0,
             itemWidth: 100,
             itemHeight: 18,
-            itemTextColor: 'hsl(var(--foreground))',
+            itemTextColor: '#000000',
             itemDirection: 'left-to-right',
             itemOpacity: 1,
             symbolSize: 12,
-            symbolShape: 'circle',
+            symbolShape: 'square',
           },
         ]}
         role="img"
         theme={{
           text: {
             fontSize: 12,
-            fill: 'hsl(var(--foreground))',
+            fontWeight: 600,
+            fill: '#000000',
           },
-          tooltip: {
-            container: {
-              background: 'hsl(var(--background))',
-              color: 'hsl(var(--foreground))',
-              fontSize: 12,
-              borderRadius: '8px',
-              boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
-              border: '1px solid hsl(var(--border))',
+          legends: {
+            text: {
+              fontSize: 11,
+              fontWeight: 500,
+              fill: '#000000',
             },
           },
         }}

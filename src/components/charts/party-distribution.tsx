@@ -29,54 +29,45 @@ export function PartyDistribution({ data, className }: PartyDistributionProps) {
         keys={['count']}
         indexBy="partido"
         layout="horizontal"
-        margin={{ top: 20, right: 30, bottom: 50, left: 120 }}
+        margin={{ top: 20, right: 30, bottom: 50, left: 100 }}
         padding={0.3}
         valueScale={{ type: 'linear' }}
         indexScale={{ type: 'band', round: true }}
         colors={(bar) => {
           const partido = chartData.find((p) => p.partido === bar.indexValue);
-          return partido?.color ?? '#A0A0A0';
+          return partido?.color ?? '#CCCCCC';
         }}
-        borderColor={{
-          from: 'color',
-          modifiers: [['darker', 1.6]],
-        }}
+        borderWidth={2}
+        borderColor="#000000"
         axisTop={null}
         axisRight={null}
         axisBottom={{
-          tickSize: 5,
-          tickPadding: 5,
+          tickSize: 0,
+          tickPadding: 10,
           tickRotation: 0,
-          legend: 'Número de parlamentarios',
-          legendPosition: 'middle',
-          legendOffset: 40,
         }}
         axisLeft={{
-          tickSize: 5,
-          tickPadding: 5,
+          tickSize: 0,
+          tickPadding: 10,
           tickRotation: 0,
-          legend: 'Partido',
-          legendPosition: 'middle',
-          legendOffset: -110,
         }}
+        enableGridX={true}
+        gridXValues={5}
         labelSkipWidth={12}
         labelSkipHeight={12}
-        labelTextColor={{
-          from: 'color',
-          modifiers: [['darker', 1.6]],
-        }}
+        labelTextColor="#000000"
         role="img"
         tooltip={({ indexValue, value, color }) => {
           const partido = chartData.find((p) => p.partido === indexValue);
           return (
             <div
               style={{
-                padding: '12px 16px',
-                background: 'hsl(var(--background))',
-                color: 'hsl(var(--foreground))',
-                border: '1px solid hsl(var(--border))',
-                borderRadius: '8px',
-                boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+                padding: '8px 12px',
+                background: '#FFFEF0',
+                color: '#000000',
+                border: '2px solid #000000',
+                boxShadow: '4px 4px 0px 0px #000000',
+                fontWeight: 600,
               }}
             >
               <div
@@ -91,8 +82,8 @@ export function PartyDistribution({ data, className }: PartyDistributionProps) {
                   style={{
                     width: '12px',
                     height: '12px',
-                    borderRadius: '50%',
                     background: color,
+                    border: '1px solid #000',
                   }}
                 />
                 <strong>{partido?.partido_full ?? indexValue}</strong>
@@ -106,26 +97,23 @@ export function PartyDistribution({ data, className }: PartyDistributionProps) {
         theme={{
           text: {
             fontSize: 12,
-            fill: 'hsl(var(--foreground))',
+            fontWeight: 600,
+            fill: '#000000',
           },
           axis: {
-            legend: {
-              text: {
-                fontSize: 14,
-                fill: 'hsl(var(--foreground))',
-                fontWeight: 500,
-              },
-            },
             ticks: {
               text: {
-                fill: 'hsl(var(--muted-foreground))',
+                fontSize: 11,
+                fontWeight: 500,
+                fill: '#000000',
               },
             },
           },
           grid: {
             line: {
-              stroke: 'hsl(var(--border))',
+              stroke: '#000000',
               strokeWidth: 1,
+              strokeDasharray: '4 4',
             },
           },
         }}

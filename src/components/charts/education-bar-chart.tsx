@@ -13,17 +13,20 @@ const EDUCATION_LABELS: Record<EstudiosNivel, string> = {
   Universitario: 'Universitario',
   FP_Tecnico: 'FP / Técnico',
   Secundario: 'Secundaria',
-  Universitario_inferido: 'Universitario (inferido)',
+  Universitario_inferido: 'Univ. (inferido)',
   No_consta: 'No consta',
+  Estudios_incompletos: 'Incompletos',
 };
 
 export function EducationBarChart({ data, className }: EducationBarChartProps) {
-  // Transform data for Nivo
-  const chartData = Object.entries(data).map(([key, value]) => ({
-    nivel: EDUCATION_LABELS[key as EstudiosNivel],
-    count: value,
-    nivel_id: key,
-  }));
+  // Transform data for Nivo, sorted by count descending
+  const chartData = Object.entries(data)
+    .map(([key, value]) => ({
+      nivel: EDUCATION_LABELS[key as EstudiosNivel],
+      count: value,
+      nivel_id: key,
+    }))
+    .sort((a, b) => b.count - a.count);
 
   return (
     <div className={className} style={{ height: '400px' }}>
@@ -31,63 +34,51 @@ export function EducationBarChart({ data, className }: EducationBarChartProps) {
         data={chartData}
         keys={['count']}
         indexBy="nivel"
-        margin={{ top: 20, right: 30, bottom: 80, left: 60 }}
+        margin={{ top: 20, right: 30, bottom: 100, left: 60 }}
         padding={0.3}
         valueScale={{ type: 'linear' }}
         indexScale={{ type: 'band', round: true }}
-        colors={{ scheme: 'blues' }}
-        borderColor={{
-          from: 'color',
-          modifiers: [['darker', 1.6]],
-        }}
+        colors="#FF5C00"
+        borderWidth={2}
+        borderColor="#000000"
         axisTop={null}
         axisRight={null}
         axisBottom={{
-          tickSize: 5,
-          tickPadding: 5,
+          tickSize: 0,
+          tickPadding: 10,
           tickRotation: -45,
-          legend: 'Nivel educativo',
-          legendPosition: 'middle',
-          legendOffset: 70,
         }}
         axisLeft={{
-          tickSize: 5,
-          tickPadding: 5,
+          tickSize: 0,
+          tickPadding: 10,
           tickRotation: 0,
-          legend: 'Número de parlamentarios',
-          legendPosition: 'middle',
-          legendOffset: -50,
         }}
+        enableGridY={true}
+        gridYValues={5}
         labelSkipWidth={12}
         labelSkipHeight={12}
-        labelTextColor={{
-          from: 'color',
-          modifiers: [['darker', 1.6]],
-        }}
+        labelTextColor="#000000"
         role="img"
         theme={{
           text: {
             fontSize: 12,
-            fill: 'hsl(var(--foreground))',
+            fontWeight: 600,
+            fill: '#000000',
           },
           axis: {
-            legend: {
-              text: {
-                fontSize: 14,
-                fill: 'hsl(var(--foreground))',
-                fontWeight: 500,
-              },
-            },
             ticks: {
               text: {
-                fill: 'hsl(var(--muted-foreground))',
+                fontSize: 11,
+                fontWeight: 500,
+                fill: '#000000',
               },
             },
           },
           grid: {
             line: {
-              stroke: 'hsl(var(--border))',
+              stroke: '#000000',
               strokeWidth: 1,
+              strokeDasharray: '4 4',
             },
           },
         }}

@@ -189,8 +189,9 @@ function calculateSeatPositions(parlamentarios: Parlamentario[]): Seat[] {
       seatInPartido++;
 
       const angle = startAngle - i * angleStep;
-      const x = centerX + radius * Math.cos(angle);
-      const y = centerY - radius * Math.sin(angle);
+      // Round to 2 decimal places to prevent hydration mismatch from floating-point precision
+      const x = Math.round((centerX + radius * Math.cos(angle)) * 100) / 100;
+      const y = Math.round((centerY - radius * Math.sin(angle)) * 100) / 100;
 
       seats.push({
         parlamentario,

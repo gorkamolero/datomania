@@ -13,7 +13,8 @@ export type EstudiosNivel =
   | 'FP_Tecnico'
   | 'Secundario'
   | 'No_consta'
-  | 'Universitario_inferido';
+  | 'Universitario_inferido'
+  | 'Estudios_incompletos';
 
 // Profession category classifications
 export type ProfesionCategoria =

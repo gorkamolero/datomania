@@ -24,6 +24,7 @@ export function computeStatsFromData(
     Secundario: 0,
     No_consta: 0,
     Universitario_inferido: 0,
+    Estudios_incompletos: 0,
   };
 
   const por_profesion_categoria: Record<ProfesionCategoria, number> = {

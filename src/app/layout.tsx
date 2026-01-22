@@ -18,8 +18,8 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Datocracia',
-    template: '%s | Datocracia',
+    default: 'Datomania',
+    template: '%s | Datomania',
   },
   description:
     'Datos públicos que deberían existir en España. Proyectos de datos abiertos sobre transparencia, política, y más.',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_ES',
-    siteName: 'Datocracia',
+    siteName: 'Datomania',
   },
 };
 

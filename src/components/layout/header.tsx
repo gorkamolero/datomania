@@ -5,19 +5,24 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 
 const navigation = [
-  { name: 'Proyectos', href: '/' },
   { name: 'Representantes', href: '/representantes' },
+  { name: 'Manifiesto', href: '/manifiesto' },
 ];
 
 export function Header() {
   const pathname = usePathname();
+
+  // Hide header on homepage
+  if (pathname === '/') {
+    return null;
+  }
 
   return (
     <header className="border-b-3 border-border bg-background sticky top-0 z-50">
       <nav className="mx-auto max-w-7xl px-4">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="font-heading text-xl uppercase tracking-tight hover:text-main transition-colors">
-            Datocracia
+            Datomania
           </Link>
 
           <div className="flex gap-8">

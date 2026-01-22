@@ -16,7 +16,7 @@ export default function HomePage() {
     <div className="min-h-screen py-12">
       <div className="mx-auto max-w-4xl px-4">
         <h1 className="text-5xl md:text-7xl font-heading mb-4">
-          Datocracia
+          Datomania
         </h1>
         <p className="text-xl font-medium text-muted-foreground mb-16">
           Datos públicos que deberían existir en España.
@@ -46,9 +46,14 @@ export default function HomePage() {
           ))}
         </div>
 
-        <p className="text-sm font-bold uppercase tracking-wide text-muted-foreground mt-16">
-          Más proyectos de datos próximamente.
-        </p>
+        <div className="mt-16 flex items-center gap-6">
+          <Link
+            href="/manifiesto"
+            className="text-sm font-bold uppercase tracking-wide text-muted-foreground hover:text-main transition-colors"
+          >
+            Por qué hacemos esto &rarr;
+          </Link>
+        </div>
       </div>
     </div>
   );

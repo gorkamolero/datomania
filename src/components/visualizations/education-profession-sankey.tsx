@@ -18,6 +18,7 @@ const EDUCATION_LABELS: Record<EstudiosNivel, string> = {
   Secundario: 'Secundario',
   No_consta: 'Sin datos',
   Universitario_inferido: 'Univ. (inferido)',
+  Estudios_incompletos: 'Incompletos',
 };
 
 const PROFESSION_LABELS: Record<ProfesionCategoria, string> = {
@@ -36,6 +37,7 @@ const EDUCATION_COLORS: Record<EstudiosNivel, string> = {
   Secundario: '#06b6d4',
   No_consta: '#94a3b8',
   Universitario_inferido: '#60a5fa',
+  Estudios_incompletos: '#f97316',
 };
 
 const PROFESSION_COLORS: Record<ProfesionCategoria, string> = {
