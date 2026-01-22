@@ -17,10 +17,10 @@ export default function ParlamentariosPage() {
     <div className="min-h-screen py-8 md:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="font-serif text-3xl font-semibold tracking-tight text-foreground">
+          <h1 className="text-3xl md:text-4xl font-heading uppercase tracking-tight">
             Parlamentarios
           </h1>
-          <p className="mt-2 text-muted-foreground">
+          <p className="mt-2 text-muted-foreground font-medium">
             {parlamentarios.length} parlamentarios de la XV Legislatura del
             Congreso de los Diputados y el Senado.
           </p>
