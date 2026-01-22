@@ -3,9 +3,9 @@ import { RepresentantesTabs } from './representantes-tabs';
 import type { Legislature } from '@/projects/representantes/types/parlamentario';
 
 export const metadata = {
-  title: 'Representantes - Parlamentarios España',
+  title: '599 Parlamentarios de España - I vs XV Legislatura',
   description:
-    'Parlamentarios de España. Compara la I Legislatura (1979) con la XV Legislatura (2023). Datos de educación, profesión, partido y circunscripción.',
+    '45 años de democracia comparados: I Legislatura (1979) vs XV Legislatura (2023). Educación, profesión, partidos. ¿Cuántos tienen carrera? ¿Cuántos son políticos profesionales?',
 };
 
 export default function RepresentantesPage() {

@@ -4,9 +4,9 @@ import { getParlamentarios, getPartidosFromData, compareLegislatures } from '@/p
 import type { Camara } from '@/projects/representantes/types/parlamentario';
 
 export const metadata = {
-  title: 'Explorar datos - Educación y Profesión | Parlamentarios España',
+  title: 'Explorar Parlamentarios - Dashboard Interactivo',
   description:
-    'Explora de forma interactiva los datos sobre educación y trayectorias profesionales de los parlamentarios españoles. Compara la I Legislatura (1979) con la XV Legislatura (2023).',
+    'Dashboard interactivo: filtra por partido, cámara, educación. Visualiza flujos de educación a profesión. Compara 1979 vs 2023.',
 };
 
 export default function ExplorarPage() {

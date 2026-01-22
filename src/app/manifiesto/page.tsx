@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Manifiesto',
+  title: 'Manifiesto - Por qué hicimos esto',
   description:
-    'Por qué hemos hecho esto. O cómo descubrimos que saber si tu diputado terminó la carrera es más difícil que conseguir una cita en el médico de cabecera.',
+    'Saber si tu diputado terminó la carrera es más difícil que conseguir cita en el médico. Eso tiene que cambiar.',
 };
 
 export default function ManifiestoPage() {

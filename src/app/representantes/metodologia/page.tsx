@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Metodología',
-  description: 'Cómo recopilamos los datos de los parlamentarios de la XV Legislatura.',
+  title: 'Metodología - Cómo recopilamos los datos',
+  description: 'Fuentes oficiales: Congreso.es, Senado.es. APIs públicas, scraping ético, verificación cruzada. Código abierto.',
 };
 
 export default function MetodologiaPage() {

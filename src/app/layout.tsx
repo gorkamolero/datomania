@@ -18,24 +18,34 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Datomania',
-    template: '%s | Datomania',
+    default: 'Datomania! - Datos públicos que deberían existir',
+    template: '%s | Datomania!',
   },
   description:
-    'Datos públicos que deberían existir en España. Proyectos de datos abiertos sobre transparencia, política, y más.',
+    'Los datos públicos que deberían existir en España pero no existen. Parlamentarios, educación, profesiones, partidos. Transparencia radical.',
   keywords: [
-    'parlamentarios',
-    'españa',
-    'congreso',
-    'senado',
+    'parlamentarios españa',
+    'congreso diputados',
+    'senado españa',
     'datos abiertos',
-    'transparencia',
+    'transparencia política',
+    'educación parlamentarios',
+    'I legislatura',
+    'XV legislatura',
+    'democracia españa',
   ],
   authors: [{ name: 'Spanish Flu' }],
   openGraph: {
     type: 'website',
     locale: 'es_ES',
-    siteName: 'Datomania',
+    siteName: 'Datomania!',
+    title: 'Datomania! - Datos públicos que deberían existir',
+    description: 'Los datos públicos que deberían existir en España pero no existen. Parlamentarios, educación, profesiones, partidos.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Datomania!',
+    description: 'Los datos públicos que deberían existir en España pero no existen.',
   },
 };
 

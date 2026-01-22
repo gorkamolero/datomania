@@ -3,9 +3,9 @@ import { getParlamentarios, getCircunscripciones, getPartidosFromData } from '@/
 import { ParlamentariosTable } from './parlamentarios-table';
 
 export const metadata: Metadata = {
-  title: 'Parlamentarios',
+  title: 'Lista de Parlamentarios - Buscar y Filtrar',
   description:
-    'Lista completa de parlamentarios de la XV Legislatura con datos de educación y profesión.',
+    'Busca cualquier parlamentario español. Filtra por partido, cámara, circunscripción, nivel educativo. 599 perfiles con datos verificados.',
 };
 
 export default function ParlamentariosPage() {

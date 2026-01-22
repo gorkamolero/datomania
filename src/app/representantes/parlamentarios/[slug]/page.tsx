@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: parlamentario.nombre_completo,
-    description: `Perfil de ${parlamentario.nombre_completo}, ${parlamentario.partido} - ${parlamentario.camara}. Educación y profesión.`,
+    title: `${parlamentario.nombre_completo} - ${parlamentario.partido}`,
+    description: `${parlamentario.nombre_completo} (${parlamentario.partido}) - ${parlamentario.camara} por ${parlamentario.circunscripcion}. Estudios: ${parlamentario.estudios_nivel.replace(/_/g, ' ')}. Profesión: ${parlamentario.profesion_categoria.replace(/_/g, ' ')}.`,
   };
 }
 
