@@ -97,9 +97,9 @@ export function EducationProfessionSankey({
     .sort((a, b) => (profTotals.get(b as ProfesionCategoria) || 0) - (profTotals.get(a as ProfesionCategoria) || 0)) as ProfesionCategoria[];
 
   // Calculate positions
-  const height = 500;
-  const eduHeight = height - 40;
-  const profHeight = height - 40;
+  const height = 520;
+  const eduHeight = height - 60;
+  const profHeight = height - 60;
 
   // Position nodes
   const eduPositions: Record<string, { y: number; height: number }> = {};
@@ -130,8 +130,8 @@ export function EducationProfessionSankey({
   const sortedFlows = [...flows].sort((a, b) => b.value - a.value);
 
   return (
-    <div className="w-full overflow-x-auto">
-      <svg viewBox="0 0 800 550" className="w-full min-w-[600px]" preserveAspectRatio="xMidYMid meet">
+    <div className="w-full overflow-x-auto overflow-y-visible">
+      <svg viewBox="0 0 800 580" className="w-full min-w-[600px]" preserveAspectRatio="xMidYMid meet">
         {/* Education labels (left) */}
         {sortedEdu.map((edu) => {
           const pos = eduPositions[edu];
