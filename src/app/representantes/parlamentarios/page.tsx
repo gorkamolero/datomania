@@ -1,0 +1,37 @@
+import { Metadata } from 'next';
+import { getParlamentarios, getCircunscripciones, getPartidosFromData } from '@/lib/data';
+import { ParlamentariosTable } from './parlamentarios-table';
+
+export const metadata: Metadata = {
+  title: 'Parlamentarios',
+  description:
+    'Lista completa de parlamentarios de la XV Legislatura con datos de educación y profesión.',
+};
+
+export default function ParlamentariosPage() {
+  const parlamentarios = getParlamentarios();
+  const circunscripciones = getCircunscripciones();
+  const partidos = getPartidosFromData();
+
+  return (
+    <div className="min-h-screen py-8 md:py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-8">
+          <h1 className="font-serif text-3xl font-semibold tracking-tight text-foreground">
+            Parlamentarios
+          </h1>
+          <p className="mt-2 text-muted-foreground">
+            {parlamentarios.length} parlamentarios de la XV Legislatura del
+            Congreso de los Diputados y el Senado.
+          </p>
+        </div>
+
+        <ParlamentariosTable
+          parlamentarios={parlamentarios}
+          circunscripciones={circunscripciones}
+          partidos={partidos}
+        />
+      </div>
+    </div>
+  );
+}
