@@ -1,17 +1,23 @@
 import { Suspense } from 'react';
 import { InteractiveDashboard } from './interactive-dashboard';
-import { getParlamentarios, getPartidosFromData } from '@/projects/representantes/lib/data';
+import { getParlamentarios, getPartidosFromData, compareLegislatures } from '@/projects/representantes/lib/data';
 import type { Camara } from '@/projects/representantes/types/parlamentario';
 
 export const metadata = {
   title: 'Explorar datos - Educación y Profesión | Parlamentarios España',
   description:
-    'Explora de forma interactiva los datos sobre educación y trayectorias profesionales de los parlamentarios españoles. Filtra por cámara, partido, nivel educativo y más.',
+    'Explora de forma interactiva los datos sobre educación y trayectorias profesionales de los parlamentarios españoles. Compara la I Legislatura (1979) con la XV Legislatura (2023).',
 };
 
 export default function ExplorarPage() {
-  const parlamentarios = getParlamentarios();
-  const partidos = getPartidosFromData();
+  // Load both legislatures
+  const parlamentariosXV = getParlamentarios('XV');
+  const parlamentariosI = getParlamentarios('I');
+  const partidosXV = getPartidosFromData('XV');
+  const partidosI = getPartidosFromData('I');
+
+  // Pre-compute comparison stats
+  const comparison = compareLegislatures('I', 'XV');
 
   const camaras: Camara[] = ['Congreso', 'Senado'];
 
@@ -20,16 +26,24 @@ export default function ExplorarPage() {
       <div className="mb-8">
         <h1 className="text-4xl font-bold mb-4">Explorar datos</h1>
         <p className="text-lg text-muted-foreground">
-          Utiliza los filtros para explorar y analizar los datos sobre educación
-          y trayectorias profesionales de los parlamentarios españoles.
+          Compara la composición del Parlamento español entre la I Legislatura (1979-1982)
+          y la XV Legislatura (2023-presente). Analiza la evolución en educación,
+          profesión y representación política.
         </p>
       </div>
 
       <Suspense fallback={<div>Cargando datos...</div>}>
         <InteractiveDashboard
-          initialData={parlamentarios}
+          dataByLegislature={{
+            I: parlamentariosI,
+            XV: parlamentariosXV,
+          }}
+          partidosByLegislature={{
+            I: partidosI,
+            XV: partidosXV,
+          }}
+          comparison={comparison}
           camaras={camaras}
-          partidos={partidos}
         />
       </Suspense>
     </div>

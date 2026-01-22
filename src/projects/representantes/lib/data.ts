@@ -8,102 +8,111 @@ import type {
   Camara,
   EstudiosNivel,
   ProfesionCategoria,
+  Legislature,
 } from '@/projects/representantes/types/parlamentario';
 import { getPartidoColor } from '@/projects/representantes/data/partidos';
 
 /**
- * Path to the data file
+ * Data file paths per legislature
  */
-const DATA_PATH = path.join(process.cwd(), 'src', 'projects', 'representantes', 'data', 'parlamentarios_espana_xv.json');
+const DATA_PATHS: Record<Legislature, string> = {
+  I: path.join(process.cwd(), 'src', 'projects', 'representantes', 'data', 'parlamentarios_espana_i.json'),
+  XV: path.join(process.cwd(), 'src', 'projects', 'representantes', 'data', 'parlamentarios_espana_xv.json'),
+};
+
+const DEFAULT_LEGISLATURE: Legislature = 'XV';
 
 /**
- * Load raw data from JSON file
- * This runs at build time (server-side only)
+ * Load raw data from JSON file for a specific legislature
  */
-function loadRawData(): ParlamentarioRaw[] {
-  const raw = fs.readFileSync(DATA_PATH, 'utf-8');
+function loadRawData(legislature: Legislature = DEFAULT_LEGISLATURE): ParlamentarioRaw[] {
+  const raw = fs.readFileSync(DATA_PATHS[legislature], 'utf-8');
   return JSON.parse(raw) as ParlamentarioRaw[];
 }
 
 /**
  * Generate URL-safe slug from a name
- *
- * "García Pérez, Juan Antonio" → "garcia-perez-juan-antonio"
  */
 export function generateSlug(nombre: string): string {
   return nombre
     .toLowerCase()
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '') // Remove diacritics
+    .replace(/[\u0300-\u036f]/g, '')
     .replace(/[ñ]/g, 'n')
     .replace(/[ç]/g, 'c')
-    .replace(/[^a-z0-9\s-]/g, '') // Remove special chars
+    .replace(/[^a-z0-9\s-]/g, '')
     .trim()
-    .replace(/\s+/g, '-') // Spaces to hyphens
-    .replace(/-+/g, '-'); // Collapse multiple hyphens
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
 }
 
 /**
- * Generate unique ID from camara + slug
+ * Generate unique ID from legislature + camara + slug
  */
-function generateId(camara: Camara, slug: string): string {
+function generateId(legislature: Legislature, camara: Camara, slug: string): string {
   const prefix = camara === 'Congreso' ? 'c' : 's';
-  return `${prefix}-${slug}`;
+  return `${legislature.toLowerCase()}-${prefix}-${slug}`;
 }
 
 /**
  * Transform raw JSON data into enriched Parlamentario objects
  */
-function enrichParlamentarios(raw: ParlamentarioRaw[]): Parlamentario[] {
+function enrichParlamentarios(raw: ParlamentarioRaw[], legislature: Legislature): Parlamentario[] {
   return raw.map((p) => {
     const slug = generateSlug(p.nombre_completo);
     return {
       ...p,
-      id: generateId(p.camara, slug),
+      id: generateId(legislature, p.camara, slug),
       slug,
       partido_color: getPartidoColor(p.partido),
     };
   });
 }
 
-// Cache the enriched data (computed once at module load)
-let _parlamentariosCache: Parlamentario[] | null = null;
+// Cache per legislature
+const _cache: Record<Legislature, Parlamentario[] | null> = {
+  I: null,
+  XV: null,
+};
 
 /**
- * Get all parlamentarios (enriched with computed fields)
- *
- * This reads from static JSON at build time for SSG
+ * Get all parlamentarios for a legislature (enriched with computed fields)
  */
-export function getParlamentarios(): Parlamentario[] {
-  if (!_parlamentariosCache) {
-    _parlamentariosCache = enrichParlamentarios(loadRawData());
+export function getParlamentarios(legislature: Legislature = DEFAULT_LEGISLATURE): Parlamentario[] {
+  if (!_cache[legislature]) {
+    _cache[legislature] = enrichParlamentarios(loadRawData(legislature), legislature);
   }
-  return _parlamentariosCache;
+  return _cache[legislature]!;
 }
 
 /**
- * Get a single parlamentario by slug
+ * Get a single parlamentario by slug (searches default legislature)
  */
 export function getParlamentarioBySlug(
-  slug: string
+  slug: string,
+  legislature: Legislature = DEFAULT_LEGISLATURE
 ): Parlamentario | undefined {
-  return getParlamentarios().find((p) => p.slug === slug);
+  return getParlamentarios(legislature).find((p) => p.slug === slug);
 }
 
 /**
  * Get a single parlamentario by ID
  */
-export function getParlamentarioById(id: string): Parlamentario | undefined {
-  return getParlamentarios().find((p) => p.id === id);
+export function getParlamentarioById(
+  id: string,
+  legislature: Legislature = DEFAULT_LEGISLATURE
+): Parlamentario | undefined {
+  return getParlamentarios(legislature).find((p) => p.id === id);
 }
 
 /**
  * Filter parlamentarios based on criteria
  */
 export function filterParlamentarios(
-  filters: ParlamentarioFilters
+  filters: ParlamentarioFilters,
+  legislature: Legislature = DEFAULT_LEGISLATURE
 ): Parlamentario[] {
-  let result = getParlamentarios();
+  let result = getParlamentarios(legislature);
 
   if (filters.camara) {
     result = result.filter((p) => p.camara === filters.camara);
@@ -141,10 +150,10 @@ export function filterParlamentarios(
 }
 
 /**
- * Compute aggregate statistics for the dataset
+ * Compute aggregate statistics for a legislature
  */
-export function computeStats(): EducacionStats {
-  const parlamentarios = getParlamentarios();
+export function computeStats(legislature: Legislature = DEFAULT_LEGISLATURE): EducacionStats {
+  const parlamentarios = getParlamentarios(legislature);
 
   const por_camara: Record<Camara, number> = {
     Congreso: 0,
@@ -176,19 +185,26 @@ export function computeStats(): EducacionStats {
   let profesion_con_datos = 0;
 
   for (const p of parlamentarios) {
-    // Count by camara
     por_camara[p.camara]++;
 
-    // Count by education level
-    por_estudios_nivel[p.estudios_nivel]++;
+    // Map education levels
+    if (p.estudios_nivel in por_estudios_nivel) {
+      por_estudios_nivel[p.estudios_nivel]++;
+    } else {
+      // Handle legacy data with different category names
+      const mapped = mapEducationLevel(p.estudios_nivel);
+      por_estudios_nivel[mapped]++;
+    }
 
-    // Count by profession category
-    por_profesion_categoria[p.profesion_categoria]++;
+    // Map profession categories
+    if (p.profesion_categoria in por_profesion_categoria) {
+      por_profesion_categoria[p.profesion_categoria]++;
+    } else {
+      por_profesion_categoria['No_consta']++;
+    }
 
-    // Count by party
     por_partido[p.partido] = (por_partido[p.partido] || 0) + 1;
 
-    // Coverage stats
     if (p.estudios_nivel !== 'No_consta') {
       estudios_con_datos++;
     }
@@ -214,25 +230,89 @@ export function computeStats(): EducacionStats {
 }
 
 /**
- * Get all unique values for a field (for filter dropdowns)
+ * Map education level strings to standard categories
+ */
+function mapEducationLevel(level: string): EstudiosNivel {
+  const mapping: Record<string, EstudiosNivel> = {
+    'Doctorado': 'Universitario',
+    'Master': 'Universitario',
+    'Universitario': 'Universitario',
+    'FP': 'FP_Tecnico',
+    'Bachillerato': 'Secundario',
+    'Secundaria': 'Secundario',
+  };
+  return mapping[level] || 'No_consta';
+}
+
+/**
+ * Compare statistics between two legislatures
+ */
+export interface LegislatureComparison {
+  legislature1: Legislature;
+  legislature2: Legislature;
+  stats1: EducacionStats;
+  stats2: EducacionStats;
+  changes: {
+    total_change: number;
+    universitario_pct_change: number;
+    no_consta_pct_change: number;
+  };
+}
+
+export function compareLegislatures(
+  leg1: Legislature,
+  leg2: Legislature
+): LegislatureComparison {
+  const stats1 = computeStats(leg1);
+  const stats2 = computeStats(leg2);
+
+  const uni1_pct = (stats1.por_estudios_nivel.Universitario / stats1.total) * 100;
+  const uni2_pct = (stats2.por_estudios_nivel.Universitario / stats2.total) * 100;
+
+  const nc1_pct = (stats1.por_estudios_nivel.No_consta / stats1.total) * 100;
+  const nc2_pct = (stats2.por_estudios_nivel.No_consta / stats2.total) * 100;
+
+  return {
+    legislature1: leg1,
+    legislature2: leg2,
+    stats1,
+    stats2,
+    changes: {
+      total_change: stats2.total - stats1.total,
+      universitario_pct_change: uni2_pct - uni1_pct,
+      no_consta_pct_change: nc2_pct - nc1_pct,
+    },
+  };
+}
+
+/**
+ * Get all unique values for a field
  */
 export function getUniqueValues<K extends keyof Parlamentario>(
-  field: K
+  field: K,
+  legislature: Legislature = DEFAULT_LEGISLATURE
 ): Parlamentario[K][] {
-  const values = new Set(getParlamentarios().map((p) => p[field]));
+  const values = new Set(getParlamentarios(legislature).map((p) => p[field]));
   return Array.from(values).sort() as Parlamentario[K][];
 }
 
 /**
- * Get all unique circunscripciones (provinces)
+ * Get all unique circunscripciones
  */
-export function getCircunscripciones(): string[] {
-  return getUniqueValues('circunscripcion') as string[];
+export function getCircunscripciones(legislature: Legislature = DEFAULT_LEGISLATURE): string[] {
+  return getUniqueValues('circunscripcion', legislature) as string[];
 }
 
 /**
  * Get all unique partidos
  */
-export function getPartidosFromData(): string[] {
-  return getUniqueValues('partido') as string[];
+export function getPartidosFromData(legislature: Legislature = DEFAULT_LEGISLATURE): string[] {
+  return getUniqueValues('partido', legislature) as string[];
+}
+
+/**
+ * Get available legislatures
+ */
+export function getAvailableLegislatures(): Legislature[] {
+  return ['I', 'XV'];
 }

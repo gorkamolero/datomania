@@ -1893,14 +1893,14 @@
     "partido": "PSOE",
     "grupo_parlamentario": "Grupo Parlamentario Socialista",
     "circunscripcion": "Pontevedra",
-    "estudios_raw": "",
-    "estudios_nivel": "No_consta",
+    "estudios_raw": "Based on the search results provided, **Luis Antonio Gómez Piña has studies in politics and economics**[7]. However, the specific universities where he obtained these degrees and additional details about his educational background are not provided in these search results.\n\nThe search results confirm he was a member of Congress (diputado) in the Spanish Parliament[6][8] and later served in the Galician Parliament[6][7], but they do not contain comprehensive information about his formal educationa",
+    "estudios_nivel": "Universitario",
     "profesion_raw": "Empleado de una empresa privada del ámbito de los servicios públicos",
     "profesion_categoria": "Politica",
     "fecha_alta": "11/02/2025",
     "url_ficha": "https://www.congreso.es/busqueda-de-diputados?p_p_id=diputadomodule&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view",
     "bio_oficial": "Alcalde de A Cañiza desde 2019, mandato que revalidó en 2023 con mayoría absoluta. Anteriormente fue concejal y portavoz municipal entre 1991 y 2012, y nuevamente desde 2015. También fue diputado en el Parlamento de Galicia durante la VIII Legislatura.\n  \nEmpleado de una empresa privada del ámbito de los servicios públicos, se encuentra actualmente en situación de excedencia.\n  \nEn el PSdeG-PSOE ha desempeñado distintas responsabilidades orgánicas a nivel local, comarcal, provincial y autonómico. Ha formado parte de la Comisión Executiva Nacional Galega y ocupa en la actualidad la Secretaría de Organización provincial de Pontevedra.\n  \nEstá casado y tiene un hijo y una hija.",
-    "source": "official"
+    "source": "researched"
   },
   {
     "camara": "Congreso",
@@ -5256,7 +5256,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=10148&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "LICENCIADO EN DERECHO POR LA UNIVERSIDAD COMPLUTENSE DE MADRID"
   },
   {
     "camara": "Senado",
@@ -5270,7 +5271,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "28/07/2022",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=10154&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Abogado"
   },
   {
     "camara": "Senado",
@@ -5284,7 +5286,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=10216&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Arquitecto por la Escuela Técnica Superior de Arquitectura de Madrid (1979)\nArquitecto del Servicio de Monumentos de la Dirección General de Bellas Artes del Ministerio de Cultura (1979-1980)\nArquitecto Territorial de Patrimonio Histórico de la Junta de Castilla y León den Salamanca (1984-1987)\nDirector General de Patrimonio y Promoción Cultural de la Junta de Castilla y León (1987-1990)\nJefe de la División de Rehabilitación del Casco Antiguo del Ayuntamiento de Madrid (1990-1991)\nDirector de Rehabilitación del Casco Antiguo del Ayuntamiento de Madrid (1991-1994)"
   },
   {
     "camara": "Senado",
@@ -5298,7 +5301,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=12676&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "-. Licenciada en Derecho por la Universidad Autónoma de Madrid\n-. Diplomada en Defensa Nacional por el Centro Superior de Estudios de la Defensa Nacional ( CESEDEN)\n-.Curso Superior en Dirección de Campañas Electorales ( ICADE)\n-.Abogada de profesión. Ejercicio de la abogacía en  bufete propio ( 1988-1998 ). Actualmente no ejerciente.\n-.Catedrática Extraordinaria en Liderazgo, Gestión y Dirección de Empresas por la UCAM.\n-. Directora de la Cátedra Internacional Mujer, Empresa y Deporte de la UCAM.\n-. Socia del Instituto de Liderazgo Político S.L.-\n-.Docente del Instituto de Liderazgo Político S.L."
   },
   {
     "camara": "Senado",
@@ -5312,7 +5316,8 @@
     "profesion_categoria": "Empresario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=12693&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciada en Ciencias Políticas y Sociología, Universidad Complutense de Madrid.\nHe sido Gerente del Centro Mujer y Casa de Acogida de Mujeres Maltratadas."
   },
   {
     "camara": "Senado",
@@ -5326,7 +5331,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=12839&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Abogado"
   },
   {
     "camara": "Senado",
@@ -5340,7 +5346,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=12970&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Maestro de Primaria\n\nCasado, una hija y tres hijos"
   },
   {
     "camara": "Senado",
@@ -5354,7 +5361,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=13785&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciada en Ciencia Bilógicas; Diplomada en Sanidad; Diplomada en Defensa Nacional; Funcionario de Carrera de la Administración Civil del Estado, Especialidad Sanidad Ambiental; Docente, Investigadora y Jefe de Servicio de Sanidad Ambiental e Higiene de los Alimentos, ICS de JJCC C.LM; Cofundadora y Presidenta de la SESA; Experto Tecnológico y Experto Educativo del Ministerio de Educación."
   },
   {
     "camara": "Senado",
@@ -5362,13 +5370,14 @@
     "partido": "PP",
     "grupo_parlamentario": "GRUPO PARLAMENTARIO POPULAR EN EL SENADO",
     "circunscripcion": "Parlamento de Andalucía",
-    "estudios_raw": "Senador por la Comunidad Autónoma de Andalucía.",
-    "estudios_nivel": "No_consta",
+    "estudios_raw": "Based on the search results provided, **Jesús Caicedo Bernabé holds a degree in Law (Licenciado en Derecho)**[3]. However, the specific university where he obtained this degree is not mentioned in the available sources.\n\nThe search results do not provide information about any other degrees, universities, or additional fields of study beyond this Law degree.",
+    "estudios_nivel": "Universitario",
     "profesion_raw": "empresario",
     "profesion_categoria": "Empresario",
     "fecha_alta": "27/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=13989&legis=15",
-    "source": "researched"
+    "source": "researched",
+    "bio_oficial": "Senador por la Comunidad Autónoma de Andalucía."
   },
   {
     "camara": "Senado",
@@ -5382,7 +5391,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=14005&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Carmela Silva nació en Vigo el 26 de noviembre de 1960. \nEs licenciada en Derecho Económico y es maestra.\nFue diputada en el Congreso de los Diputados por la provincia de Pontevedra, en el que ocupó diferentes puestos como los de vocal de la Diputación Permanente, de la Comisión de Hacienda y Administraciones Públicas y de la Comisión de Fomento, así como adscrita a la Comisión de Educación y Deporte, de la que también fue vocal, secretaria segunda de la Comisión de Reglamento y secretaria segunda de la Mesa del Congreso de los Diputados.\nEntre febrero y marzo de 2015 fue relatora del Proyecto de ley de nacionalidad española sefardí de España (121/99).\nTambién fue senadora, nombrada, además, portavoz de la cámara alta, convirtiéndose en la primera mujer socialista en ocupar este puesto en el Senado.\nA nivel nacional fue asesora parlamentaria del Ministerio de Agricultura y secretaria ejecutiva de Emigración del PSOE.\nEn 2015 fue la primera mujer en ocupar la presidencia de la Diputación Provincial de Pontevedra. Cargo que ocupó hasta 2023. \nEn la actualidad es Presidenta del PSdG y 1ª Teniente de Alcalde del Ayuntamiento de Vigo y concejala de Patrimonio Histórico, Cultura, Igualdad y Normalización Lingüística."
   },
   {
     "camara": "Senado",
@@ -5396,7 +5406,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=14066&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Funcionaria en el Ayuntamiento de Pamplona. Titulo de Magisterio Universidad de Zaragoza.\nMiembro de la ejecutiva de Unión del Pueblo Navarro (UPN) desde 2017"
   },
   {
     "camara": "Senado",
@@ -5410,7 +5421,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=14081&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciado en Derecho."
   },
   {
     "camara": "Senado",
@@ -5424,7 +5436,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=14087&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Catedrático de Universidad (Universidad De Santiago de Compostela). Doctor en Ciencias Económicas y Empresariales (Premio extraordinario de Doctorado). Miembro de la Real Academia de Ciencias Económicas y Financieras de España.\nConselleiro de Medio Ambiente de la Xunta de Galicia (2003-2005). Vicepresidente 2 de la Xunta de Galicia (2004-2005)\nPortavoz del Grupo Parlamentario Popular en el Senado (2011-2018)"
   },
   {
     "camara": "Senado",
@@ -5438,7 +5451,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=14145&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Médico de Atención Primaria del SERGAS en el Concello de Cartelle."
   },
   {
     "camara": "Senado",
@@ -5452,7 +5466,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=14247&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Economista por la Universidad de Valladolid.\nMáster en Gerencia de Mediana y Pequeña Empresa.\nCurso de Liderazgo en Gestión Pública por el IESE.\nPrograma de Comercio Exterior por la Cámara de Comercio de Madrid.\nProfesora de Análisis de Balance.\nGerente Empresa de Comunicación Local.\nTécnico Asesor de la Junta de Castilla y León."
   },
   {
     "camara": "Senado",
@@ -5466,7 +5481,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=14265&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Doctor en Derecho, sobresaliente Cum Laude. Diploma de Estudios Avanzados. Diplomado Universitario en Formación del Profesorado. Experto Universitario en Criminología. Diplomado en Altos Estudios de la Defensa, CESEDEN. Abogado (no ejerciente). Funcionario de la Administración Local."
   },
   {
     "camara": "Senado",
@@ -5480,7 +5496,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=14445&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Diplomado en Empresas y Actividades Turísticas.\nMáster en Gestión Turística y Hotelera."
   },
   {
     "camara": "Senado",
@@ -5494,7 +5511,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "28/07/2022",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=14685&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Abogado"
   },
   {
     "camara": "Senado",
@@ -5508,7 +5526,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "28/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=14987&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciado en Derecho por la Universidad de Valencia. \nCursos de Doctorado en Derecho Constitucional , Autonómico y Derecho Mercantil.\nMiembro del Ilustre Colegio de Abogados de Valencia.\n\nSecretario de Estado de la Seguridad Social 2000-2003.\nDiputado autonómico en Les Corts Valencianes en las VII y VIII Legislaturas.\nConseller de Economía , Hacienda , Empleo y Grandes Proyectos 2003-2011.\nVicepresidente Segundo del Consell de la Generalitat Valenciana 2007-2011.\nPresidente del Instituto Valenciano de Investigaciones Económicas 2003-2011.\nPresidente del Instituto Valenciano de Estadística 2003-2011.\nPresidente de la Ciudad de las Artes y las Ciencias S.A. 2003-2011.\nPresidente de la Sociedad de Proyectos Temáticos de la Comunitat Valenciana 2003-2011."
   },
   {
     "camara": "Senado",
@@ -5522,7 +5541,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "27/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=15205&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "ABOGADO. Separado, una hija. Presidente de Diputación de Almería desde 1995 al 2003. Alcalde de Almeria desde 2003 a noviembre 2015. Senador desde 2011."
   },
   {
     "camara": "Senado",
@@ -5536,7 +5556,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "01/09/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=15234&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "FARMACEUTICO"
   },
   {
     "camara": "Senado",
@@ -5550,7 +5571,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=15295&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciada en Derecho\nAlcaldesa de Jerez de la Frontera desde 17 de junio de 2023"
   },
   {
     "camara": "Senado",
@@ -5564,7 +5586,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=15317&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Funcionaria Junta de Castilla y León"
   },
   {
     "camara": "Senado",
@@ -5578,7 +5601,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=15333&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Assessor lingüístic.\nRegidor a l¿Ajuntament de Girona 1995-2007.\nVicepresident de la Diputació de Girona i responsable de Cooperació Municipal. 1995-1999.\nDiputat de Cultura a la Diputació de Girona. 1999-2003.\nResponsable de nombroses campanyes electorals a la demarcació de Girona.\nAdjunt a la presidència de Junts a la vegueria de Girona.\nConseller nacional de Junts per elecció del Congrés."
   },
   {
     "camara": "Senado",
@@ -5592,7 +5616,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "28/07/2022",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=15565&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "--"
   },
   {
     "camara": "Senado",
@@ -5606,7 +5631,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=16586&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Diplomado en Pedagogía Terapéutica . Secretario General Psoe de la provincia Badajoz. Diputado autonómico en el Parlamento Extremeño."
   },
   {
     "camara": "Senado",
@@ -5620,7 +5646,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=16685&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "PROFESOR MERCANTIL\nAUDITOR-CENSOR JURADO DE CUENTAS"
   },
   {
     "camara": "Senado",
@@ -5634,7 +5661,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=16969&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Maestro de Primaria"
   },
   {
     "camara": "Senado",
@@ -5648,7 +5676,8 @@
     "profesion_categoria": "Empresario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=16989&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Estudios de Ingeniería Técnica Industrial\nEmpresaria \nPuericultora"
   },
   {
     "camara": "Senado",
@@ -5662,7 +5691,8 @@
     "profesion_categoria": "Oficina",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=16999&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Auxiliar de clínica\nFinalizando los estudios de Ciencia Política y Admón\nAlcaldesa de Cisneros (Palencia) en la actualidad"
   },
   {
     "camara": "Senado",
@@ -5676,7 +5706,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=17027&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciada en medicina \nMáster en Ayuda Internacional Humanitaria\nMáster en gerontología"
   },
   {
     "camara": "Senado",
@@ -5690,7 +5721,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=17028&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciada en Ciencias Económicas y Empresariales por la EHU-UPV\nResponsable de Administración y Secretaría de GAIKUNTZA (En excedencia forzosa)"
   },
   {
     "camara": "Senado",
@@ -5704,7 +5736,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=17045&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciado en antropología social y cultural"
   },
   {
     "camara": "Senado",
@@ -5718,7 +5751,8 @@
     "profesion_categoria": "Manual",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=17057&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Ganadero,  fundador de la Cooperativa Aprodeza y presidente durante una década. \nAlcalde de Lalín desde hace 30 años y actualmente en el cargo. \nVicepresidente de la Diputación de Pontevedra durante 20 años\nPresidente de la FEGAMP ( Federacion Galega de Municipios y Provincias) durante  4 años"
   },
   {
     "camara": "Senado",
@@ -5732,7 +5766,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=17147&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Nacido en Logroño (3 de febrero de 1959). Desde muy joven reside en Algeciras, donde cursa estudios de Bachillerato en el Colegio Salesianos.\n\nLicenciado en Medicina y Cirugía por la Universidad de Granada, desarrolla su actividad laboral como médico.\n\nEn su trayectoria profesional, ha desempeñado, y en algunos casos todavía desempeña cargos de:\n\n- Presidente de la Asociación Española de Centros Médicos (Asecemp) desde el año 1990.\n- Vocal del Comité Organizador del Congreso Nacional de Centros de Reconocimiento de Conductores para la Seguridad Vial (Recosevial) celebrado en Salamanca en el año 1990.\n- Presidente del Comité Organizador de Recosevial en Toledo (1994), Sevilla (1997), Oviedo (2001) y Córdoba (2004).\n- Ponente en el varias ediciones del Congreso de Seguridad Vial a nivel internacional celebradas en Bogotá (Colombia), Lima (Perú), Bruselas (Bélgica) y Atenas (Grecia).\n- Coautor del Curso de Psicología para Postgraduados Especificos sobre Reconocimiento de Conductores del Intras (Instituto Universitario de Tráfico y Seguridad Vial de Valencia).\n- Firmante y promotor del Proyecto LEHO de Investigación sobre las Condiciones Psicofísicas de los Conductores (integrado por el Ministerio de Transportes de Luxemburgo, CBR (Holanda), y Asecemp), cofinanciado por la Unión Europea.\n- Firmante de los acuerdos de colaboración de LEHO con Agile para el Estudio de las Condiciones Psicofísicas de los Conductores Ancianos.\n- Ponente en el Foro Contra la Violencia Vial, organizado por el Ministerio de Sanidad, en el año 2007.\n- Nombrado en enero 2011 miembro del Comité asesor del Departamento de Medicina Preventiva y Salud Pública."
   },
   {
     "camara": "Senado",
@@ -5746,7 +5781,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=17150&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Catedrática de Economía financiera. Universidad de Salamanca. Máster en Finanzas por la Universidad de Cambridge. \nExperta en gobierno corporativo, finanzas de los mercados, género y economía, etc... Recientemente incorporada al mapa de autoras (de creación literaria) de Castilla y León, es autora de la novela gráfica, exposición y obra teatral contra la violencia de género \"Un beso en la frente·, el proyecto de educación financiera para niños \"El bosque de la economía\" o el libro de difusión Género y economía, entre otros.\nHa coordinado los másters de gestión cutural y de empresas de TV de la Universidad de Salamanca, entre otros. Habla varios idiomas. \nEn el Senado ha sido portavoz de asuntos económicos y función pública por el GPP y miembro temporal de la dioutación permanente."
   },
   {
     "camara": "Senado",
@@ -5760,7 +5796,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=17353&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Diplomado en Relaciones Laborales y Licenciado en Ciencias del Trabajo por la Universidad de Granada. Alcalde de Cabra desde 2011 a la actualidad."
   },
   {
     "camara": "Senado",
@@ -5774,7 +5811,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "26/07/2024",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=17369&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Politòloga. Funcionaria cuerpo superior Generalitat de Catalunya"
   },
   {
     "camara": "Senado",
@@ -5788,7 +5826,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=17565&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciado en Ciencias Físicas. Profesor de secundaria de Matemáticas."
   },
   {
     "camara": "Senado",
@@ -5802,7 +5841,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=17765&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "LETRADO DE LOS COLEGIOS DE ABOGADOS DE MURCIA Y DE CARTAGENA (DESDE 1994, ACTUALMENTE NO EJERCIENTE)\nALCALDE DE LA UNIÓN (2007-2014)\nCONSEJERO DE FOMENTO DE LA REGIÓN DE MURCIA (2014-2016)\nDIPUTADO EN EL CONGRESO (2016-2017)\nDELEGADO DEL GOBIERNO DE ESPAÑA EN LA REGIÓN DE MURCIA (2017-2018)\nSENADOR AUTONÓMICO POR LA REGIÓN DE MURCIA (2018-2019)\nDIRECTOR GENERAL INSTITUTO DE TURISMO DE LA REGIÓN DE MURCIA (2019)\nSENADOR ELECTO POR LA REGIÓN DE MURCIA (DESDE 2019)"
   },
   {
     "camara": "Senado",
@@ -5816,7 +5856,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=17785&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Abogada"
   },
   {
     "camara": "Senado",
@@ -5830,7 +5871,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=17805&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Ingeniero de Caminos, Canales y Puertos\nIngeniero Técnico de Obras Públicas\nMáster Executive MBA"
   },
   {
     "camara": "Senado",
@@ -5844,7 +5886,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "28/07/2022",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=17965&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciada en Derecho por la Universidad de Sevilla, especialidad en Derecho Público.\nAbogada y Gestor Administrativo (no ejerciente en la actualidad)."
   },
   {
     "camara": "Senado",
@@ -5858,7 +5901,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18069&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Durante dos legislaturas consecutivas en la Cámara Alta, he ejercido de portavoz del Grupo Vasco en las comisiones de Defensa, Asuntos Económicos y Transformación Digital, Asuntos Exteriores y en las Comisiones Mixtas Congreso-Senado de Asuntos de la Unión Europea y de control de RTVE.\nSoy licenciado en Ciencias de la Información, formación que completé con una Diplomatura en Derecho Europeo por la Universidad de Lovaina y un Máster en Gestión de Empresas y en Competitividad de Empresas y de Territorios en la Universidad de Deusto. Entre 1989 y 1995 desarrollé mi labor en la Oficina de Euskadi en Bruselas, que posteriormente se convirtió en la Delegación de Euskadi ante las Instituciones europeas, y después, hasta 1999, fui funcionario de la Unión Europea. Desde 2001 hasta mi llegada al Senado, en 2019, fui parlamentario vasco por Gipuzkoa."
   },
   {
     "camara": "Senado",
@@ -5872,7 +5916,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18086&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Graduado en Derecho por la Universidad de Valladolid \nPrograma de Liderazgo Público en Emprendimiento e innovación por DEUSTO - ICADE\nPremio al Compromiso Universitario"
   },
   {
     "camara": "Senado",
@@ -5886,7 +5931,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18088&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Abogado (No ejerciente)/ Gestor Sanitario.\nLicenciado en Derecho por la Universidad de Salamanca.\nDirector de Gestión y Servicios Generales del Gerencia de Atención Primaria de Salamanca 1999-2007.\nGerente de Atención Primaria Sacyl en Salamanca 2007-2016.\nDiplomado en Gestión y Control Económico Financiero de Servicios Sanitarios en la Escuela Nacional de Sanidad (Instituto de Salud Carlos III).\nEspecialización en Alta Dirección y Gestión de Instituciones Sanitarias (IESE) Business School Universidad de Navarra.\nActualmente Secretario de Envejecimiento Activo y Políticas de Cuidados del Partido Popular. Afiliado al PP desde 1992 con diferentes puestos de responsabilidad en Nuevas Generaciones del PP. Dentro del Partido Popular de Salamanca también he desempeñado los cargos de Vicesecretario de Acción Electoral, Organización, Relaciones con la Sociedad y Acción Parlamentaria y Comunicación."
   },
   {
     "camara": "Senado",
@@ -5900,7 +5946,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18090&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Vicente Azpitarte Pérez (Granada, 1983). Periodista y Senador de la XIII y XV Legislatura. Entre 2019 y 2023 ejerció como Delegado del Gobierno de la Junta de Andalucia en Madrid. Como periodista fue Jefe de Prensa de la Selección nacional de Baloncesto; trabajó durante una década para el Grupo Libertad Digital-esRadio como Jefe de Deportes y colaboró asiduamente para medios de comunicación como Ondacero o El Mundo. Fue portavoz de Deportes en el Senado y miembro de la PESC (Política Exterior de Seguridad Común). Ha sido profesor en diferentes másters y ha sido nombrado profesor máster Honoris Causa por la Escuela de Comunicación de Granada (ESCO) donde egresó también en periodismo. Es autor de la biografía traducida a numerosos idiomas del jugador del Real Madrid, Luka Modric."
   },
   {
     "camara": "Senado",
@@ -5914,7 +5961,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18098&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Abogado"
   },
   {
     "camara": "Senado",
@@ -5928,7 +5976,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18100&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Profesión: \n\nAbogado, especialista en Análisis de Datos y Transformación Digital, formado en Carazo & Carazo Abogados, 1995, Jaén, y en U.B. & Kollegen, 1996-1997, Munich.\nInglés y Alemán\nProfesor de Comercio Español en la Europäische Betriebswirtschafts Akademie (perteneciente a la EBS International) en 1996,1997.\nSecretario Interventor del Ayuntamiento de Aldeaquemada (Jaén), desde 1.999 a 2.004\nSecretario Consejo Administración Cárnicas de Aldeaquemada, S.L. \nMiembro de Asamblea Caja de Ahorros de Jaén\nAbogado en Márquez & Hermoso, desde 1998 a 2012.\n\n\nFormación:\nLicenciado en Derecho por la Facultad de Ciencias Sociales y Jurídicas de la Universidad de Jaén (1989-1994)\nCursos de Doctorado de Derecho Público y Privado Especial, Universidad de Jaén, 1998-1999\nData Analytics Executive Program en Instituto Superior del Desarrollo de Internet (ISDI)\nDigital Business Executive Program en Instituto Superior del Desarrollo de Internet (ISDI)\nPrograma de Liderazgo Público en emprendimiento e innovación en Deusto Business School (Madrid)\n\nOtros cargos ocupados:\nPortavoz de Alimentación en la Comisión de Agricultura, Pesca y Alimentación del Senado (XIV legislatura)\nVocal en la comisión mixta de seguridad nacional (XIV legislatura)\nVocal en la comisión de justicia del Senado (XIV legislatura)\nVocal en la comisión de Industria, Comercio y Turismo (XIV legislatura)\nConsejero de EPASSA\nConsejero y Presidente de SOMUVISA\nConsejero y Presidente del Plan Urban en Jaén\nConsejero de SOMUCISA\nConsejero y Presidente de la Sociedad Mixta Nuevo Jaén\nTeniente de Alcalde de Urbanismo, Empleo, Desarrollo Local y Medio Ambiente de Jaén\nConcejal de Urbanismo de Jaén\nPresidente de la Gerencia de Urbanismo de Jaén\nPresidente de la Comisión de Medio Ambiente, Comercio y Sanidad\nPresidente de la Agenda 21 de Jaén"
   },
   {
     "camara": "Senado",
@@ -5942,7 +5991,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18101&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "LICENCIADO EN ECONOMÍA POR LA UNIVERSIDAD DE SALAMANCA\nECONOMISTA DE LA COMISIÓN NACIONAL DEL MERCADO DE VALORES (CNMV) EN EXCEDENCIA"
   },
   {
     "camara": "Senado",
@@ -5956,7 +6006,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18102&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Ingeniero Agrónomo"
   },
   {
     "camara": "Senado",
@@ -5970,7 +6021,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18103&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "DOCTOR EN DERECHO POR LA UNED, 2018. Programa de Doctorado en la Unión Europea, bajo el título \"El BCE en el proceso de construcción de la UE: propuestas de reforma\"\nLICENCIADO EN DERECHO POR LA UNIVERSIDAD DE SALAMANCA 187-1992.\nMASTER EN TRIBUTACIÓN Y ASESORIA FISCAL (CEP), 1993.\nMASTER UNIVERSITARIO EN UNIÓN EUROPEA POR LA UNED 2012-2013\nABOGADO EN EJERCICIO 1993 a 2003 y en la actualidad.\nSocio \"off Conunsel\" del despacho de abogados FUSTER-FABRA ABOGADOS, año 2020-2023\nPROFESOR-COLABORADOR EN LA UNIVERSIDAD EUROPEA DE MADRID 2021-2023.\nPROFESOR IMPARTIENDO CLASES NO PERMANENTES EN CENTRO PRIVADOS DE FORMACION Y UNIVERSIDADES PRIVADAS.\n\"EL BANCO CENTRAL EUROPEO: PROPUESTAS DE REFORMA\", Libro editado por la editorial Tecnos, con prólogo de D. Luis de Guindos, Vicepresidente del BCE.\nDiversos artículos y publicaciones en revistas de Derecho, así como en revistas y periódicos de naturaleza política."
   },
   {
     "camara": "Senado",
@@ -5984,7 +6036,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18111&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "LICENCIADO EN DERECHO\nFUNCIONARIO A1 DE LA JUNTA DE ANDALUCIA"
   },
   {
     "camara": "Senado",
@@ -5998,7 +6051,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18115&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Economista"
   },
   {
     "camara": "Senado",
@@ -6012,7 +6066,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18118&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "ADMINISTRACIÓN DE EMPRESA FAMILIAR"
   },
   {
     "camara": "Senado",
@@ -6026,7 +6081,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18125&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciada en Ciencias Políticas y de la Administración, Máster en derechos de las mujeres, género y ciudadanía y en Cooperación internacional para el desarrollo. Es vicesecretaria general de Acción Política y Sectorial en la Ejecutiva Nacional de Esquerra Republicana."
   },
   {
     "camara": "Senado",
@@ -6040,7 +6096,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18186&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Funcionaria del Cuerpo Técnico de la Administración de la Comunidad Autónoma de Extremadura desde junio de 2001.\nHa desempeñado funciones en diferentes categorías, desde técnico de base a Jefa de Servicio de Ayudas y Regulación de Mercados en las áreas de Política Agraria Comunitaria y Desarrollo Rural, participando en la gestión de diferentes fondos europeos y asesoramiento en varias Reformas de la Política Agraria Comunitaria abarcando áreas de gestión, entre las que se incluyen la regulación de la intervención de mercados en productos vegetales y ganaderos; la gestión de ayudas directas y a las estructuras cooperativas y asociativas para los sectores del tabaco, vino, tomate de transformación, frutas y hortalizas, forrajes, entre otros; siendo experta nacional en representación de Extremadura en diferentes órganos de coordinación del Ministerio de Agricultura con las Comunidades Autónomas hasta agosto de 2011. A partir de julio de 2012 responsabilidades de gestión como Jefa de Sección de Programas y Proyectos Europeos en la Dirección General de Desarrollo Rural y responsable del Gabinete de Proyectos Europeos."
   },
   {
     "camara": "Senado",
@@ -6054,7 +6111,8 @@
     "profesion_categoria": "Oficina",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18187&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Técnica Función Administrativa del Servicio Andaluz de Salud de la Junta de Andalucía\nLicenciada en Derecho por la Facultad de Derecho de la Universidad de Córdoba"
   },
   {
     "camara": "Senado",
@@ -6068,7 +6126,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18190&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciado en Derecho. Máster en Derecho y Administración Local. Abogado no ejerciente. He sido Secretario de Política Estudiantil y posteriormente de Política Municipal en Juventudes Socialistas de Andalucía así como responsable de Formación en la Ejecutiva Federal de las Juventudes Socialistas de España.\nDesempeñé el cargo de Secretario de Política Municipal del PSOE de Jaén. \nActualmente ejerzo mi responsabilidad como Secretario de Campañas y Actos Públicos del PSOE de Andalucía.\nDesempeñé el cargo de Director de Equipamientos, Logística y Tecnología en la Agencia Pública Andaluza de Educación y Formación de la Junta de Andalucía.\nParlamentario andaluz de la X Legislatura (2015-2018), ejercí como portavoz del PSOE en la Comisión de Justicia e Interior.\nSenador por Jaén (2019-2023). Portavoz de Ciencia"
   },
   {
     "camara": "Senado",
@@ -6082,7 +6141,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18193&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciada en Filología Inglesa por la ULPGC. \nDe 2003-2004 estuve como Auxiliar de conersación de Español en un colegio en Londres.\nDesde 2006 soy Funcionaria de carrera de Enseñanza Secundaria. Tengo mi plaza en el IES San Diego de Alcalá, donde impartí clases como profesora de inglés hasta el 2015. He sido jefa de departamento y coordinadora de proyectos COMENIUS.\n\nEntre 2015-2019 fui Concejala en el Ayuntamiento de Puerto del Rosario, ostentando las áreas de Turismo, Playas, Salud Pública, Aguas y Transportes. \n\nMi formación complementaria, entre otros cursos, es la siguiente:\n\n- Diploma de Estudios Avanzados (DEA) en Neurolingüística por la UNED\n- Máster en GestiónPública y liderazgo Institucional por la Universidad de Vigo.\n- Máster en Ccoperación Internacional al Desarrollo: Gestión y Dirección de Proyectos\n- Programa Ejecutivo de Gobernanza en el Sector Público de ESADE\n- Programa posgraduado Especialización en Relaciones Internacionales, Geopolítica y Gobernanza Global de la UOC.\n- Curso Monográfico del CESEDEN (Ciberseguridad)"
   },
   {
     "camara": "Senado",
@@ -6096,7 +6156,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18200&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciado En Derecho por la Universidad de la Laguna (Tenerife) (1977 -1982)\nFiscal Sustituto Lanzarote y Fuerteventura (1983)\nAbogado en ejercicio (1984 -2019)\nSecretario Insular de PSOE Lanzarote (2000-2008)\nMiembro de la Ejecutiva Regional del PSOE Canarias (2000-2015)\nPortavoz del Grupo Parlamentario Socialista en el Parlamento de Canarias. (2011 - 2015)"
   },
   {
     "camara": "Senado",
@@ -6110,7 +6171,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18204&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Llevo con humildad la responsabilidad de haber estado durante tres mandatos consecutivos al frente del Ayuntamiento de Utebo (Zgz), donde pude desarrollar mi vocación de servicio público en la administración local, la administración más cercana a la ciudadanía. Las políticas progresistas impulsadas desde el consistorio tuvieron como objetivo en todo momento ser generadoras de igualdad entre mis vecinas y vecinos, máxime en un momento marcado por la que fue una profunda crisis económica.\nMilitante de base desde mi juventud, acepto en 2003 presentarme a las elecciones municipales tomando posesión en junio de ese año y desempeñando mi actividad política durante ese mandato al frente de la concejalía de obras.\nFuncionario de carrera en situación de servicios especiales, anteriormente desarrollé mi actividad laboral en el área de deportes de la citada localidad.\nAl conocimiento que ambas experiencias laborales me han aportado sobre la administración pública, hay que sumar lo aprendido en mi anterior actividad en la empresa privada.\nVinculada mi vida laboral al ámbito deportivo, he procurado extrapolar los valores que imprime la intensa práctica del deporte a la vida política: esfuerzo, compromiso, entusiasmo, superación y solidaridad.\nDurante la pasada legislatura he ensanchado mi vocación de servicio público desde mi labor en la Cámara Alta; un honor que pesa.\nAgradecido a la ciudadanía por depositar de nuevo su confianza en mi persona, mi compromiso con los valores que represento como socialista siguen más vivos que nunca y me acompañarán en mi labor en el Senado al servicio de las españolas y de los españoles en defensa del estado de bienestar y, por ende, de una sociedad más igualitaria y más justa."
   },
   {
     "camara": "Senado",
@@ -6124,7 +6186,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18205&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Catedrático de filosofía"
   },
   {
     "camara": "Senado",
@@ -6138,7 +6201,8 @@
     "profesion_categoria": "Empresario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18207&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Jesús Caro Adanero\n\nFecha de nacimiento: 15/10/1965\n\nAyuntamiento de Pajares de Adaja\n1991-1999\nAlcalde\n\n1995-1999\nAlcalde\n\n1999-2003\nAlcalde\n\nAyuntamiento de Pajares de Adaja / Diputación de Ávila\n2003-2007\nAlcalde / Viceportavoz y Portavoz\n\n2007-2011\nAlcalde / Diputado\n\n2011-2015\nAlcalde / Diputado\n\n2015-2019\nAlcalde / Portavoz"
   },
   {
     "camara": "Senado",
@@ -6152,7 +6216,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18221&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "NACIDA EN ZARAGOZA EN 1970, RESIDO EN GEA DE ALBARRACÍN (TERUEL), LOCALIDAD DE LA QUE DESCIENDO DESDE HACE 22 AÑOS. DIPLOMADA EN RELACIONES LABORALES, HE DESARROLLADO MI VIDA PROFESIONAL TRABAJANDO EN TEMAS DE EMPLEO E INSERCION LABORAL CON COLECTIVOS VULNERABLES EN CC.OO. ARAGON, Y EN ASOCIACIÓN TUROLENSE DE INMIGRANTES SOLIDARIOS, Y EN PROYECTOS RELACIONADOS CON EL RETO DEMOGRÁFICO Y PROYECTOS EUROPEOS EN LA DIPUTACIÓN PROVINCIA DE TERUEL. HE COGESTIONADO NEGOCIO FAMILIAR DEDICADO A ALOJAMIENTOS TURISTICOS Y RESTAURACIÓN EN LA SIERRA DE ALBARRACÍN. DESDE MARZO DE 2020 HASTA LA ACTUALIDAD HE SIDO ASESORA DE LA DELEGACIÓN DEL GOBIERNO DE ESPAÑA EN ARAGÓN, CON DESTINO COMO JEFA DEL GABINETE DE LA SUBDELEGACIÓN DEL GOBIERNO EN TERUEL."
   },
   {
     "camara": "Senado",
@@ -6166,7 +6231,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18222&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Funcionario del Cuerpo General de Gestión del Estado A-2 en excedencia\nFuncionario del Cuerpo Superior de la Junta de Castilla y León A-1 en servicios especiales\nAbogado colegiado no ejerciente"
   },
   {
     "camara": "Senado",
@@ -6180,7 +6246,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "26/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18226&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Profesor Titular de la Universidad de La Laguna\nArquitecto Técnico en Ejecución de Obras por la Universidad de La Laguna en el año 1995\nIngeniero de Organización Industrial por la Universidad Politécnica de Catalunya en el año 2011\nTitulado Superior en Gestión de la Edificación por la Universidad Politécnica de Catalunya en el año 2011\nIngeniero de la Edificación por la Universidad Camilo José Cela en el año 2011\nMáster Oficial en Desarrollo Regional, Formación y Empleo por la Universidad de La Laguna en el año 2014\nMáster Oficial en Energías Renovables por la Universidad Internacional de Valencia"
   },
   {
     "camara": "Senado",
@@ -6194,7 +6261,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18228&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "DIPLOMADA EN PROFESORADO DE EGB, \nFUNCIONARIA DE LA DIPUTACIÓN PROVINCIAL DE CUENCA, GRUPO A2, TÉCNICO DE DESARROLLO LOCAL"
   },
   {
     "camara": "Senado",
@@ -6208,7 +6276,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18240&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Asesora Jurídica en Urbanismo y Vivienda y Directora de la Oficina de Gestión Urbanística de la Mancomunidad de Municipios Tajo Salor, con curso superior de Urbanismo de la UEX y conocimientos en sociología, microeconomía y macroeconomía"
   },
   {
     "camara": "Senado",
@@ -6222,7 +6291,8 @@
     "profesion_categoria": "Empresario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18243&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciado en Ciencias Políticas y Sociología por la Universidad Complutense de Madrid. Diplomado en el Curso de Defensa Nacional del CESEDEN.\nEntre 2004 y 2011 desempeñó las siguientes responsabilidades: Director del Gabinete de la Secretaria de Estado de Inmigración y Emigración; Director del Gabinete de la Secretaria de Estado de Función Pública y Director del Gabinete del Ministro de la Presidencia.\nEntre 2018 y 2019 Director de Asuntos Institucionales de la Presidencia del Gobierno.\nSenador por Lugo en las Legislaturas XIII y XIV.\nHa sido presidente de la Comisión de Asuntos Iberoamericanos y de la Comisión de Defensa del Senado.\nPortavoz adjunto del Grupo Parlamentario Socialista del Senado."
   },
   {
     "camara": "Senado",
@@ -6236,7 +6306,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18247&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciado (1999) y Doctor en Derecho (2005) por la Universidad Pública de Navarra. Profesor Titular de Derecho Constitucional de la Universidad de Cantabria y Profesor-tutor del CA a la UNED en Cantabria.\nPara su formación ha obtenido diversas becas predoctorales y postdoctorales, entre las que destacará la concedida por el Congreso de los Diputados.\nSu línea principal de investigación es el estudio de las libertades de expresión y de información, si bien también ha trabajado sobre otras cuestiones como, por ejemplo, transfuguismo parlamentario, partidos políticos, derecho electoral, autonomía del paciente, etc.\nAutor de varias monografías, entre la que destacará la denominada Los límites de las libertades de expresión e información en el Estado social y democrático de Derecho. Además, ha publicado artículos en Teoría y Realidad Constitucional, Revista de Derecho Político, Revista de Estudios Políticos, Revista General de Derecho Constitucional, Revista jurídica de Navarra, etc.; así como varios capítulos en libros colectivos en diversas editoriales jurídicas de prestigio como, por ejemplo, Aranzadi, Civitas-Thomson, Tirant lo Blanch, etc.\nHa participado en distintos proyectos de investigación financiados por el Ministerio de Economía y Competitividad y por entidades privadas. Asimismo ha presentado estudios en Congresos nacionales e internacionales."
   },
   {
     "camara": "Senado",
@@ -6250,7 +6321,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18249&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Senador electo por Gipuzkoa"
   },
   {
     "camara": "Senado",
@@ -6264,7 +6336,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18285&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "MAESTRO\nJUBILADO"
   },
   {
     "camara": "Senado",
@@ -6278,7 +6351,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18295&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Profesora de EGB \nConsultora de emprendizaje \nPresidenta de la Asociación de Mujeres Empresarias de Araba/Álava de 2005 a 2017\nPresidenta de la Federación Alavesa de Ciclismo de 2016 a la actualidad"
   },
   {
     "camara": "Senado",
@@ -6292,7 +6366,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18297&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Formación en Nutrición Humana y Dietética \nEstudios de la licenciatura Farmacia\nDiplomada en Defensa Nacional"
   },
   {
     "camara": "Senado",
@@ -6306,7 +6381,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18298&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Master en mediación y resolución de conflictos\nGrado en Magisterio\nDiplomado en altos estudios de la Defensa Nacional por el CESEDEN (XLVIII Curso Nacional por el CESEDEN en 2023)"
   },
   {
     "camara": "Senado",
@@ -6334,7 +6410,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18311&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Profesión: Graduado Social."
   },
   {
     "camara": "Senado",
@@ -6348,7 +6425,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "27/09/2024",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18505&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Economista. En excedencia como técnico de desarrollo empresarial."
   },
   {
     "camara": "Senado",
@@ -6362,7 +6440,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18725&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Nacido en Valle Gran Rey (La Gomera) en 1992. Estudié el Grado en Derecho y el Master de acceso a la Abogacía en la Universidad de La Laguna, en Tenerife. \nHe sido Senador por la Isla de La Gomera en las legislaturas XIII, XIV y actualmente en la XV legislatura."
   },
   {
     "camara": "Senado",
@@ -6376,7 +6455,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "11/05/2022",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18865&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "ECONOMISTA"
   },
   {
     "camara": "Senado",
@@ -6390,7 +6470,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19046&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciado en Medicina por la Universidad de Zaragoza (1975-1981).\nMIR UROLOGÍA HCU de Zaragoza (1982-1987).\nMedico Especialista en Urología.\nDoctor en Medicina por la Universidad de Zaragoza (1990) Apto Cum Laude por Unanimidad.\nMedico Adjunto de Urología en LLerena- Zafra (Badajoz).\nMédico Adjunto de Urología en Leganés. \nMédico Adjunto de Urología en Barbastro.\nJefe de Sección de Urologia en Calatayud desde 2001.\nPublicaciones en Revistas Nacionales e Internacionales. \nComunicaciones en Congresos Nacionales e Internacionales.\nCursos de Gestión Sanitaria IESE."
   },
   {
     "camara": "Senado",
@@ -6404,7 +6485,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19051&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciado en Derecho por la Universidad de León\nAbogado del Ilustre Colegio Provincial de Abogados de León\nSenador por León XIV Legislatura\nAlcalde del Ayuntamiento de León 2015- 2019\nConsejero de Fomento de la Junta de Castilla y León en la VI y VII Legislatura (2003-2011) y de Fomento y Medio Ambiente en la VIII Legislatura (2011 - 2015)\nSecretario General de la Consejería de Economía y Hacienda de la Junta de Castilla y León 1999 - 2003\nJefe de la Asesoría Jurídica del Procurador del Común de Castilla y León 1995 - 1999"
   },
   {
     "camara": "Senado",
@@ -6418,7 +6500,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19057&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "GRADUADO SOCIAL DIPLOMADO\nGRADO EN RELACIONES LABORALES Y RECURSOS HUMANOS\nMASTER EN DIRECCIÓN DE PERSONAL Y RECURSOS HUMANOS\nTÉCNICO ESPECIALISTA EN INFORMÁTICA DE GRSTIÓN"
   },
   {
     "camara": "Senado",
@@ -6432,7 +6515,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19060&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Politóloga \n\n2015-2019 Concejala Ayuntamiento de Ferrol\n2019 Asesora Diputación Provincial de A Coruña"
   },
   {
     "camara": "Senado",
@@ -6446,7 +6530,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19062&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Arquitecta, titulada superior en las especialidades de Edificación y de Urbanismo.\nFuncionaria de carrera, perteneciente al cuerpo de Arquitectos de la Hacienda Pública del Estado.\nDiplomada en Alta Dirección por el Instituto Nacional de Administración Pública."
   },
   {
     "camara": "Senado",
@@ -6460,7 +6545,8 @@
     "profesion_categoria": "Empresario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19063&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Alcalde de Torrejón de Ardoz de junio de 2007 a junio de 2015\nConsejero de Transportes, Vivienda e Infraestructuras de junio de 2015 a septiembre de 2017\nConsejero de M. Ambiente, Ord. Territorio y Adm. Local de septiembre de 2017 a mayo de 2018\nVicepresidente, Consejero de Presidencia y Portavoz del Gobierno de mayo de 2018 a agosto de 2019\nPresidente en funciones de la Comunidad de Madrid de abril de 2019 a agosto de 2019. \nDiputado en la Asamblea de Madrid de junio de 2015 a enero de 2020. \nSenador electo por la Comunidad de Madrid desde noviembre de 2019. \nPresidente del Senado desde agosto de 2023."
   },
   {
     "camara": "Senado",
@@ -6474,7 +6560,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19065&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Ingeniero Técnico Industrial Mecánico por la Universidad de La Rioja\nMáster en Comunicación y Marketing Político por la UNIR"
   },
   {
     "camara": "Senado",
@@ -6488,7 +6575,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19165&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Profesor de secundaria y profesor asociado del Departamento de Pedagogía de la URV. Licenciado en Psicología y en Psicopedagogía. Inició la carrera política el 2015 como concejal en el Ayuntamiento de Tortosa.\n\nSenador en el Senado de España desde noviembre de 2019 por el Grupo Partido Socialista Obrero Español. Fue designado por el Parlamento de Cataluña como Senador el 27 de noviembre de 2019 hasta el 15 de setiembre de 2021. En aquel momento era concejal del Ayuntamiento de Tortosa, cargo del cual dimitió cuando fue nombrado Senador.¿ Como miembro de la XIV legislatura del Senado formo parte como Vicepresidente primero de la Comisión de Ciencia, Innovación y Universidades. Portavoz de Pesca de la Comisión de Agricultura, Pesca y Alimentación. Portavoz de Formación Profesional de la Comisión de Educación y Formación Profesional, Vocal de la Comisión Mixta para el estudio de los problemas de las adicciones y Adscrito a la Comisión de Transición Ecológica. Ha sido ponente del Proyecto de Ley Orgánica por la cual se modifica la Ley Orgánica 2/2006, de 3 de mayo, de Educación.¿\n\nActualmente es Senador por Tarragona y Primer Secretario de la Federación del Partit dels Socialistes de Catalunya en las Tierras del Ebro."
   },
   {
     "camara": "Senado",
@@ -6502,7 +6590,8 @@
     "profesion_categoria": "Empresario",
     "fecha_alta": "27/09/2025",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19185&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Nací en Peñaullán, Pravia, el 21 de marzo de 1962. Soy licenciada en Geografía por la Universidad de Oviedo (1985). \nMe afilié al PSOE en el año 1989 y, desde entonces, milito en la Agrupación Socialista de Pravia. Participé en su Comisión Ejecutiva (1990 ¿ 2018) y fui la Secretaria General entre 1993 y 1996. \nMiembro del Comité Autonómico de la Federación Socialista Asturiana entre 1991 y 2008.\nParticipé en las candidaturas del PSOE a nivel municipal, autonómico y estatal. \nFormé parte de la primera corporación de signo socialista en el Ayuntamiento de Pravia (1991), fui diputada autonómica por la circunscripción occidental y senadora de designación autonómica.\nDurante doce años presidí el Parlamento de Asturias. \nEn dos legislaturas formé parte del Gobierno de Asturias como consejera competente en materia de agricultura, ganadería y pesca marítima, de agroalimentación, de política forestal, de desarrollo rural y de recursos naturales. \nEntre 2023 y 2025 fui directora general de Igualdad.\nEn la XIV legislatura del Senado presidí la Comisión Especial de Seguimiento del Pacto de Estado contra la Violencia de Género. \nCargos institucionales: concejala del Ayuntamiento de Pravia entre 1991 y 1999 (concejala delegada de Educación y Cultura, concejala delegada de Servicios Sociales y portavoz del Grupo Municipal); diputada autonómica entre 1995 y 2015 (presidenta de la Comisión de Peticiones, portavoz de Infraestructuras; presidenta de la Junta General del Principado entre 1999 y 2011; consejera de Desarrollo Rural y Recursos naturales entre 2012 y 2019; senadora de designación autonómica desde noviembre de 2019 (presidenta de la Comisión de seguimiento del Pacto de Estado contra la Violencia de Género y ponente del dictamen de la comisión); directora general de Igualdad del Gobierno de Asturias entre 2023 y 2025."
   },
   {
     "camara": "Senado",
@@ -6516,7 +6605,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19285&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Nacido en Purchena en 1980.\nSecretario de Organización del PSOE de Almería \nSenador por el PSOE de Almería desde 2019\nMiembro del Consejo de Administración de la Radio Televisión de Andalucía (RTVA)\nLicenciado en Ciencias Políticas y de la Administración por la Universidad de Granada.\nHa sido educador de menores en el Centro de Menores Tierras de Oria donde conserva su plaza. \nEn 2007 fue elegido concejal de Juventud y Deporte del Ayuntamiento de Purchena, donde en 2015 también ostentó el cargo de concejal de Desarrollo Local y Cultura, y en 2019 fue, igualmente, concejal de la corporación. \nHa sido delegado territorial de Medio Ambiente y Ordenación del Territorio entre 2015 y 2017 y delegado territorial de Fomento y Vivienda desde entonces hasta octubre de 2018.\nHa sido miembro de diferentes asociaciones juveniles, estudiantiles, ambientales y culturales."
   },
   {
     "camara": "Senado",
@@ -6530,7 +6620,8 @@
     "profesion_categoria": "Empresario",
     "fecha_alta": "27/09/2024",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19365&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "GERENTE PARZONERIAS DE ENTZIA E ITURRIETA  ( En Excedencia) \nING.T.AGRÓNOMO"
   },
   {
     "camara": "Senado",
@@ -6544,7 +6635,8 @@
     "profesion_categoria": "Empresario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19405&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "-Licenciado en Ciencias Políticas y de la Administración \n-Diplomado en Gestión y Administración Pública\n-Director Insular de Cultura, Educación y Patrimonio (Cime) 2012-2015"
   },
   {
     "camara": "Senado",
@@ -6558,7 +6650,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "26/07/2024",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19465&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Actualmente, soy Teniente de Alcalde de Sant Joan Despí (Barcelona), donde he sido alcalde desde 2006 a 2021.\nTambién he sido Vicepresidente de Movilidad, Transportes y Sostenibilidad del Área Metropolitana de Barcelona.\nActualmente, soy Presidente de la Red de Ciudades por la Bicicleta de España."
   },
   {
     "camara": "Senado",
@@ -6572,7 +6665,8 @@
     "profesion_categoria": "Manual",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19605&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "ACTIVIDAD GANADERA"
   },
   {
     "camara": "Senado",
@@ -6586,7 +6680,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "10/05/2025",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19625&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Corredor de seguros generales, asesor fiscal, exalcalde de Oroso (A Coruña), actualmente jubilado INSS."
   },
   {
     "camara": "Senado",
@@ -6600,7 +6695,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "27/09/2024",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19685&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Trabajador Administración Foral de Bizkaia"
   },
   {
     "camara": "Senado",
@@ -6614,7 +6710,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19705&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "FUNCIONARIO DE CARRERA-CUERPO DE LETRADOS DE LA COMUNIDAD DE CASTILLA Y LEÓN.\nLETRADO JEFE DE LA DELEGACIÓN TERRITORIAL DE LA JUNTA DE CASTILLA Y LEON EN SORIA (DESDE 2000)"
   },
   {
     "camara": "Senado",
@@ -6628,7 +6725,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "11/05/2022",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19725&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "MIEMBRO DE LA JUNTA DIRECTIVA DEL PP REGIONAL DE CASTILLA Y LEÓN 2021\nPRESIDENTE COMITÉ ELECTORAL PROVINCIAL\nVICESECRETARIO DE POLÍTICA MUNICIPAL DEL PP PROVINCIAL 2017-2021"
   },
   {
     "camara": "Senado",
@@ -6656,7 +6754,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "14/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19799&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Carla Delgado Gómez, conocida como Carla Antonelli, nacida en Güímar, Tenerife en el 1959, es una histórica activista por los derechos de las personas transexuales en España. Protagonizó el primer documental de España sobre transexualidad, censurado en 1980 y posteriormente emitido en Televisión Española un año después. \n\nPrimera mujer trans diputada en España, activista por los derechos del colectivo LGTBIQ+ desde 1977. Trabajó en el programa electoral de Zapatero para el Matrimonio Igualitario, y fue impulsora de la Ley de Identidad de Género del 2007. Una de las promotoras de la Ley Integral Trans Estatal y ponente de las leyes autonómicas Trans y LGTBIQ+ de la Comunidad de Madrid en 2016. Diputada en la Asamblea 2011/2021, con el PSOE, donde defendió los derechos de las familias, menores, VIH y al colectivo de personas Trans y LGTBIQ+ al que orgullosamente ha manifestado que pertenece.\n\nEn 2023, se convierte en diputada independiente como número cinco por la lista de Más Madrid, resultando electa en las elecciones autonómicas del 28 de mayo.\n\nHa recibido numerosos premios por su trayectoria en defensa de la igualdad, y ha impartido numerosas charlas en universidades, colectivos LGTB, centros sociales y centros educativos, tanto en España como en América Latina."
   },
   {
     "camara": "Senado",
@@ -6670,7 +6769,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "20/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19800&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Periodista"
   },
   {
     "camara": "Senado",
@@ -6684,7 +6784,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "14/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19802&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Politólogo"
   },
   {
     "camara": "Senado",
@@ -6698,7 +6799,8 @@
     "profesion_categoria": "Oficina",
     "fecha_alta": "14/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19803&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "DIPLOMADA EN TURISMO"
   },
   {
     "camara": "Senado",
@@ -6726,7 +6828,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "14/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19805&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Bachelor of Sciencie in Communication Sciencie (Journalism) 1992-1996. University Of Wales (Cardiff)"
   },
   {
     "camara": "Senado",
@@ -6754,7 +6857,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "14/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19807&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Técnico de Hacienda del Estado desde el año 2010\nLicenciado en derecho y licenciado en administración y dirección de empresas por la universidad Autónoma de Madrid"
   },
   {
     "camara": "Senado",
@@ -6768,7 +6872,8 @@
     "profesion_categoria": "Empresario",
     "fecha_alta": "21/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19809&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Gerente Administrador de empresas agrícolas, hasta la toma de posesión como Diputado en la Asamblea de Extremadura."
   },
   {
     "camara": "Senado",
@@ -6782,7 +6887,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19810&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "-Licenciada en Derecho por la Universidad de Santiago de Compostela.\n-Funcionaria del Cuerpo de Superior de la Xunta de Galicia desde 1993 ( actualmente es Servicios Especiales)\n-Diploma de Directivo de la Xunta de Galicia\n-Puestos directivos en la Xunta de Galicia: \nSubdirectora de Personal de la Consellería de Educación ( noviembre 1999- octubre 2000) \nJefa de Servicio de Gestión Administrativa de la Consellería de Cultura (octubre 2000- 2005) :\nJefa del Área Provincial del Instituto Galego da Vivenda e Solo en A Coruña (desde 2009-en la actualidad en situación de Servicios Especiales) :\n-Consejera de Xestur Coruña, S.A. (2009-2015).\n-Consejera de Edar de Bens \n-Consejera de EMALCSA (2015-2023) \n-Consejera de EMVSA ( 2019-2023)\n-Consejera de Afigal (2019-2023)"
   },
   {
     "camara": "Senado",
@@ -6796,7 +6902,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19811&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Casado, 2 hijas. Licenciado en derecho, Procurador de los tribunales"
   },
   {
     "camara": "Senado",
@@ -6810,7 +6917,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19812&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciado en Ciencias Políticas y Gestión Pública \nMaster en Administración de Empresas. Executive MBA.\nPostgrado Emprendimiento y Liderazgo Corporativo. Deusto Business School \nDirectivo de empresa"
   },
   {
     "camara": "Senado",
@@ -6824,7 +6932,8 @@
     "profesion_categoria": "Empresario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19813&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Empresaria del sector agrícola."
   },
   {
     "camara": "Senado",
@@ -6838,7 +6947,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19815&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "LICENCIADA EN DERECHO."
   },
   {
     "camara": "Senado",
@@ -6852,7 +6962,8 @@
     "profesion_categoria": "Empresario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19816&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Licenciada en Ciencias Empresariales por la Universidad Pontificia de Comillas.  He desempeñado mi actividad profesional en departamentos financieros de distintas empresas y sectores como MEFF Renta Variable S.A., Universidad Cardenal Herrera Ceu, Viveros Huerto del Cura S.A., Oficina Arquitectura Contemporánea, slp; Tecnocemento, y Fundación Museo del Calzado.\n\nEn 2015, 2019 y 2023 formé parte de la Corporación Municipal del Ayuntamiento de Elda, en la oposición, pero con la encomienda de dirigir y gestionar la entidad de Museo del Calzado."
   },
   {
     "camara": "Senado",
@@ -6866,7 +6977,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19817&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Funcionaria en el Excmo. Ayuntamiento de Orihuela.\nConcejal en el Excmo. Ayuntamiento de Orihuela.\nDiputada Autonómica en las Cortes Valencianas.\nFVMP\nEurodiputada en el Parlamento Europeo del GPPE"
   },
   {
     "camara": "Senado",
@@ -6880,7 +6992,8 @@
     "profesion_categoria": "Funcionario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19818&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Diplomada en magisterio en la especialidad de Educación Primaria por la Universidad de Granada 2002-2005\n\nAfiliada al partido Popular desde 2011"
   },
   {
     "camara": "Senado",
@@ -6894,7 +7007,8 @@
     "profesion_categoria": "Empresario",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19819&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Empresario de instalaciones electricas."
   },
   {
     "camara": "Senado",
@@ -6908,7 +7022,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19820&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Economista. Colegio de Economistas de Asturias.\nConsultor."
   },
   {
     "camara": "Senado",
@@ -6936,7 +7051,8 @@
     "profesion_categoria": "Profesional_liberal",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19823&legis=15",
-    "source": "researched"
+    "source": "official",
+    "bio_oficial": "Ingeniera Técnica Industrial en la especialidad de Mecánica por la Universidad de Córdoba."
   },
   {
     "camara": "Senado",
@@ -7924,13 +8040,13 @@
     "partido": "PP",
     "grupo_parlamentario": "GRUPO PARLAMENTARIO POPULAR EN EL SENADO",
     "circunscripcion": "Melilla",
-    "estudios_raw": "",
-    "estudios_nivel": "No_consta",
+    "estudios_raw": "**Isabel María Moreno Mohamed holds a **Licenciatura en Derecho** (Law degree) from the **Facultad de Derecho, Universidad de Granada** (2007), an **Experta en Mediación Familiar** (Expert in Family Mediation) from the **Universidad Nacional de Educación a Distancia (UNED)** (2011), an **Experta en Agente de Igualdad de Oportunidades** (Expert in Equality Opportunities Agent) from **UNED** (2011), and a **Certificado de Aptitud Pedagógica (CAP)** (Teaching Aptitude Certificate) from the **Univer",
+    "estudios_nivel": "Universitario",
     "profesion_raw": "",
     "profesion_categoria": "Politica",
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19913&legis=15",
-    "source": "official"
+    "source": "researched"
   },
   {
     "camara": "Senado",

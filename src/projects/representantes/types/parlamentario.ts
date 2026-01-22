@@ -1,8 +1,16 @@
 /**
  * TypeScript types for the Parlamentarios España platform
  *
- * Data model based on XV Legislatura research data
+ * Data model supports multiple legislatures for historical comparison
  */
+
+// Legislature identifiers
+export type Legislature = 'I' | 'XV';
+
+export const LEGISLATURE_INFO: Record<Legislature, { name: string; years: string; roman: string }> = {
+  I: { name: 'I Legislatura', years: '1979-1982', roman: 'I' },
+  XV: { name: 'XV Legislatura', years: '2023-presente', roman: 'XV' },
+};
 
 // Chamber types
 export type Camara = 'Congreso' | 'Senado';

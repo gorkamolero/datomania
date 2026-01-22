@@ -13,11 +13,7 @@ import * as path from 'path';
 
 const DATA_PATH = path.join(__dirname, '..', 'data', 'parlamentarios_espana_xv.json');
 
-// Congreso open data page to find current JSON URL
-const CONGRESO_OPENDATA_URL = 'https://www.congreso.es/es/opendata/diputados';
-
-// Senado endpoints
-const SENADO_LIST_URL = 'https://www.senado.es/web/ficopendataservlet?tipoFich=10';
+// Senado individual ficha URL
 const SENADO_FICHA_URL = (cod: string) =>
   `https://www.senado.es/web/ficopendataservlet?tipoFich=1&cod=${cod}&legis=15`;
 
@@ -53,6 +49,7 @@ async function fetchWithUserAgent(url: string): Promise<string> {
     headers: {
       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
       'Accept': 'application/json, text/xml, */*',
+      'Accept-Encoding': 'identity',
     },
   });
 
@@ -64,13 +61,9 @@ async function fetchWithUserAgent(url: string): Promise<string> {
 }
 
 async function findCongresoJsonUrl(): Promise<string> {
-  // The JSON URL changes daily with timestamp
-  // We need to scrape the opendata page to find current URL
-  // For now, use a pattern that fetches today's file
   const today = new Date();
   const dateStr = today.toISOString().slice(0, 10).replace(/-/g, '');
 
-  // Try common time patterns
   const times = ['050007', '050006', '060007', '040007'];
 
   for (const time of times) {
@@ -109,38 +102,32 @@ function extractCDATA(xml: string, tag: string): string {
   return match ? match[1].trim() : '';
 }
 
-async function fetchSenadoData(): Promise<Map<string, { bio: string; nombre: string; partido: string; circunscripcion: string }>> {
-  console.log('Fetching Senado list...');
+/**
+ * Extract id1 from Senado url_ficha
+ * e.g. "...?id1=10148&legis=15" -> "10148"
+ */
+function extractSenadoId(urlFicha: string): string | null {
+  const match = urlFicha.match(/id1=(\d+)/);
+  return match ? match[1] : null;
+}
 
-  const listXml = await fetchWithUserAgent(SENADO_LIST_URL);
-
-  // Parse senators from XV legislatura
-  const senatorMap = new Map<string, { bio: string; nombre: string; partido: string; circunscripcion: string }>();
-
-  // Extract all senators with legislatura=15
-  const senatorRegex = /<senador>([\s\S]*?)<\/senador>/g;
-  let match;
-
-  const senadoresXV: { nombre: string; apellidos: string; cod?: string }[] = [];
-
-  while ((match = senatorRegex.exec(listXml)) !== null) {
-    const senatorXml = match[1];
-    const legislatura = extractCDATA(senatorXml, 'legislatura');
-
-    if (legislatura === '15') {
-      const nombre = extractCDATA(senatorXml, 'nombre');
-      const apellidos = extractCDATA(senatorXml, 'apellidos');
-      senadoresXV.push({ nombre, apellidos });
+/**
+ * Fetch biography from Senado XML for a single senator
+ */
+async function fetchSenadoBio(cod: string): Promise<string | null> {
+  try {
+    const url = SENADO_FICHA_URL(cod);
+    const xml = await fetchWithUserAgent(url);
+    
+    if (xml.length < 100) {
+      return null;
     }
+    
+    const bio = extractCDATA(xml, 'biografia');
+    return bio || null;
+  } catch {
+    return null;
   }
-
-  console.log(`Found ${senadoresXV.length} senators from XV legislatura`);
-
-  // Now we need to fetch individual XMLs for bios
-  // But we need the cod (ID) which isn't in the list
-  // We'll need to match by name with existing data
-
-  return senatorMap;
 }
 
 async function loadExistingData(): Promise<ParlamentarioData[]> {
@@ -175,7 +162,8 @@ async function main() {
   }
 
   // Update existing data with official bios
-  let updatedCount = 0;
+  let congresoUpdatedCount = 0;
+  let senadoUpdatedCount = 0;
 
   for (const p of existingData) {
     const key = normalizeNombre(p.nombre_completo);
@@ -185,17 +173,43 @@ async function main() {
       if (official && official.BIOGRAFIA) {
         p.bio_oficial = official.BIOGRAFIA;
         p.source = 'official';
-        updatedCount++;
+        congresoUpdatedCount++;
+      } else {
+        p.source = p.estudios_raw || p.profesion_raw ? 'researched' : 'official';
+      }
+    }
+  }
+
+  console.log(`Updated ${congresoUpdatedCount} diputados with official bios\n`);
+
+  // Fetch Senado bios from XML
+  console.log('Fetching Senado bios...');
+  const senadores = existingData.filter((p) => p.camara === 'Senado');
+  
+  for (let i = 0; i < senadores.length; i++) {
+    const p = senadores[i];
+    const cod = extractSenadoId(p.url_ficha);
+    
+    if (cod) {
+      const bio = await fetchSenadoBio(cod);
+      if (bio) {
+        p.bio_oficial = bio;
+        p.source = 'official';
+        senadoUpdatedCount++;
       } else {
         p.source = p.estudios_raw || p.profesion_raw ? 'researched' : 'official';
       }
     } else {
-      // Senado - mark as researched for now, need separate fetch for bios
       p.source = p.estudios_raw || p.profesion_raw ? 'researched' : 'official';
+    }
+
+    // Progress indicator
+    if ((i + 1) % 50 === 0) {
+      console.log(`  Processed ${i + 1}/${senadores.length} senators...`);
     }
   }
 
-  console.log(`Updated ${updatedCount} parlamentarios with official bios\n`);
+  console.log(`\nUpdated ${senadoUpdatedCount} senators with official bios\n`);
 
   // Save updated data
   fs.writeFileSync(DATA_PATH, JSON.stringify(existingData, null, 2));
