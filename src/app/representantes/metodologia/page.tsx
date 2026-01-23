@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Metodología Representantes - Fuentes y proceso',
-  description: 'Cómo recopilamos datos de 599 parlamentarios: APIs de Congreso.es y Senado.es, clasificación de educación y profesión, verificación cruzada.',
+  description: 'Cómo recopilamos datos de 642 parlamentarios: APIs de Congreso.es y Senado.es, clasificación de educación y profesión, verificación cruzada.',
 };
 
 export default function MetodologiaPage() {
@@ -162,13 +162,16 @@ export default function MetodologiaPage() {
           </h2>
           <div className="bg-foreground text-background p-6 space-y-3">
             <p>
-              <strong>Cron diario:</strong> Comprueba cambios en Congreso.es y Senado.es
+              <strong>Cron mensual:</strong> Sincroniza con APIs oficiales de Congreso y Senado
             </p>
             <p>
-              <strong>Detección:</strong> Nuevos parlamentarios o cambios en composición
+              <strong>Detección:</strong> Nuevos parlamentarios, bajas y cambios en composición
             </p>
             <p>
-              <strong>Investigación:</strong> Solo para nuevos perfiles sin datos educativos
+              <strong>Bajas:</strong> Senadores que causan baja se mantienen con <code className="text-main bg-background/20 px-1">estado: baja</code>
+            </p>
+            <p>
+              <strong>Investigación:</strong> Perplexity AI para perfiles sin datos educativos (cooldown 30 días)
             </p>
             <p>
               <strong>Endpoint:</strong>{' '}
@@ -194,7 +197,7 @@ export default function MetodologiaPage() {
               <div className="font-heading text-main text-2xl">XV</div>
               <div className="text-sm font-bold">2023-presente</div>
               <div className="text-xs text-muted-foreground mt-1">
-                599 parlamentarios. Legislatura actual.
+                642 parlamentarios (350 diputados + 273 senadores + 19 bajas). Legislatura actual.
               </div>
             </div>
           </div>
