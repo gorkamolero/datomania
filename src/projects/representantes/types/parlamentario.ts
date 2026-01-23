@@ -61,6 +61,8 @@ export interface ParlamentarioRaw {
   estado?: Estado;
   fecha_baja?: string;
   sustituido_por?: string;
+  // Research tracking - avoid re-researching failed lookups
+  last_researched?: string; // ISO date of last Perplexity attempt
 }
 
 /**
