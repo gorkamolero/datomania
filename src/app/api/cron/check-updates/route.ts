@@ -102,11 +102,75 @@ async function researchParlamentario(
   }
 }
 
+interface SenadoEntry {
+  nombre: string;
+  apellidos: string;
+  fullName: string;
+  procedLugar: string;
+  grupoNombre: string;
+}
+
+/**
+ * Fetch senators from Senado open data API (tipoFich=10)
+ * Returns all senators for Legislature XV
+ */
+async function fetchSenadoData(): Promise<SenadoEntry[]> {
+  const url = 'https://www.senado.es/web/ficopendataservlet?tipoFich=10';
+  const response = await fetch(url, {
+    headers: { 'Accept-Encoding': 'identity' },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Senado fetch failed: ${response.status}`);
+  }
+
+  const xml = await response.text();
+  const senators: SenadoEntry[] = [];
+
+  // Parse XML using regex (simple approach for CDATA content)
+  const senadorRegex = /<senador>[\s\S]*?<\/senador>/g;
+  let match;
+
+  while ((match = senadorRegex.exec(xml)) !== null) {
+    const senador = match[0];
+
+    const getValue = (field: string): string => {
+      const m = senador.match(
+        new RegExp(`<${field}><!\\[CDATA\\[([^\\]]*?)\\]\\]></${field}>`)
+      );
+      return m ? m[1] : '';
+    };
+
+    const legislatura = getValue('legislatura');
+    if (legislatura === '15') {
+      const nombre = getValue('nombre');
+      const apellidos = getValue('apellidos');
+      senators.push({
+        nombre,
+        apellidos,
+        fullName: `${apellidos}, ${nombre}`.toUpperCase(),
+        procedLugar: getValue('procedLugar'),
+        grupoNombre: getValue('grupoNombre'),
+      });
+    }
+  }
+
+  // Deduplicate by name
+  const unique = new Map<string, SenadoEntry>();
+  for (const s of senators) {
+    if (!unique.has(s.fullName)) {
+      unique.set(s.fullName, s);
+    }
+  }
+
+  return Array.from(unique.values());
+}
+
 /**
  * Monthly cron job to check for updates and research missing data
  *
  * Flow:
- * 1. Fetch current official roster from Congreso
+ * 1. Fetch current official roster from Congreso AND Senado
  * 2. Compare with existing data by name
  * 3. Identify new parliamentarians or those missing research
  * 4. Use Perplexity API to research missing education data
@@ -118,9 +182,26 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
+  // Check for skipResearch param (for quick checks)
+  const { searchParams } = new URL(request.url);
+  const skipResearch = searchParams.get('skipResearch') === 'true';
+
+  // Collect logs for response
+  const logs: string[] = [];
+  const log = (msg: string) => {
+    const timestamp = new Date().toISOString().slice(11, 23);
+    const entry = `[${timestamp}] ${msg}`;
+    logs.push(entry);
+    console.log(entry);
+  };
+
   try {
-    // 1. Fetch official Congreso data
+    log('Starting cron check-updates' + (skipResearch ? ' (skipResearch=true)' : ''));
+
+    // 1a. Fetch official Congreso data
+    log('Fetching Congreso data...');
     const congresoUrl = await findCongresoJsonUrl();
+    log(`Found Congreso URL: ${congresoUrl.split('/').pop()}`);
     const congresoResponse = await fetch(congresoUrl, {
       headers: { 'User-Agent': 'Mozilla/5.0 (compatible; DatomaniaBot/1.0)' },
     });
@@ -130,20 +211,55 @@ export async function GET(request: NextRequest) {
     }
 
     const congresoData = await congresoResponse.json();
+    log(`Congreso: ${congresoData.length} diputados`);
+
+    // 1b. Fetch official Senado data
+    log('Fetching Senado data...');
+    const senadoData = await fetchSenadoData();
+    log(`Senado: ${senadoData.length} senators (Legislature XV)`);
 
     // 2. Load existing data
+    log('Loading existing data...');
     const existingData = getParlamentarios();
-    const existingNames = new Set(
-      existingData.map((p) => normalizeNombre(p.nombre_completo))
+    const existingCongreso = existingData.filter((p) => p.camara === 'Congreso');
+    const existingSenado = existingData.filter((p) => p.camara === 'Senado');
+    const existingSenadoActivo = existingSenado.filter((p) => p.estado !== 'baja');
+    const existingSenadoBajas = existingSenado.filter((p) => p.estado === 'baja');
+    log(`Senado: ${existingSenadoActivo.length} activos, ${existingSenadoBajas.length} bajas`);
+
+    const existingCongresoNames = new Set(
+      existingCongreso.map((p) => normalizeNombre(p.nombre_completo))
+    );
+    const existingSenadoNames = new Set(
+      existingSenado.map((p) => normalizeNombre(p.nombre_completo))
     );
 
-    // 3. Find new parliamentarians
-    const newParlamentarios: string[] = [];
+    // 3a. Find new diputados (Congreso)
+    const newDiputados: string[] = [];
     for (const oficial of congresoData) {
       const normalizedName = normalizeNombre(oficial.NOMBRE);
-      if (!existingNames.has(normalizedName)) {
-        newParlamentarios.push(oficial.NOMBRE);
+      if (!existingCongresoNames.has(normalizedName)) {
+        newDiputados.push(oficial.NOMBRE);
       }
+    }
+
+    // 3b. Find new senators (Senado)
+    const newSenadores: string[] = [];
+    for (const oficial of senadoData) {
+      const normalizedName = normalizeNombre(oficial.fullName);
+      if (!existingSenadoNames.has(normalizedName)) {
+        newSenadores.push(oficial.fullName);
+      }
+    }
+
+    log(`Congreso: ${existingCongreso.length} existing, ${newDiputados.length} new`);
+    log(`Senado: ${existingSenado.length} existing, ${newSenadores.length} new`);
+
+    if (newDiputados.length > 0) {
+      log(`New diputados: ${newDiputados.slice(0, 5).join(', ')}${newDiputados.length > 5 ? '...' : ''}`);
+    }
+    if (newSenadores.length > 0) {
+      log(`New senators: ${newSenadores.slice(0, 5).join(', ')}${newSenadores.length > 5 ? '...' : ''}`);
     }
 
     // 4. Find those needing research
@@ -154,46 +270,63 @@ export async function GET(request: NextRequest) {
 
     // 5. Research missing data using Perplexity (if API key configured)
     const researchResults: ResearchResult[] = [];
-    
-    if (PERPLEXITY_API_KEY && needsResearch.length > 0) {
-      console.log(`Researching ${needsResearch.length} parlamentarios...`);
-      
+    log(`${needsResearch.length} parlamentarios need research`);
+
+    if (skipResearch) {
+      log('Skipping research (skipResearch=true)');
+    } else if (PERPLEXITY_API_KEY && needsResearch.length > 0) {
+      log(`Starting Perplexity research...`);
+
       for (let i = 0; i < needsResearch.length; i++) {
         const p = needsResearch[i];
-        
+
         // Rate limit: 2 seconds between requests
         if (i > 0) {
           await new Promise((resolve) => setTimeout(resolve, 2000));
         }
-        
+
         const result = await researchParlamentario(
           p.nombre_completo,
           p.camara,
           p.circunscripcion
         );
         researchResults.push(result);
-        
-        console.log(
+
+        log(
           `[${i + 1}/${needsResearch.length}] ${p.nombre_completo}: ${
             result.found ? result.estudios_nivel : 'not found'
           }`
         );
       }
+    } else if (!PERPLEXITY_API_KEY) {
+      log('PERPLEXITY_API_KEY not configured, skipping research');
     }
 
     // 6. Build result
     const successfulResearch = researchResults.filter((r) => r.found);
-    
+    const hasNewMembers = newDiputados.length > 0 || newSenadores.length > 0;
+
+    log(`Research complete: ${successfulResearch.length}/${researchResults.length} successful`);
+    log(`Action: ${hasNewMembers ? 'NEW_MEMBERS' : 'RESEARCH_COMPLETE'}`);
+
     const result = {
       timestamp: new Date().toISOString(),
-      officialCount: congresoData.length,
-      existingCount: existingData.filter((p) => p.camara === 'Congreso').length,
-      newParlamentarios,
+      congreso: {
+        officialCount: congresoData.length,
+        existingCount: existingCongreso.length,
+        newMembers: newDiputados,
+      },
+      senado: {
+        officialCount: senadoData.length,
+        existingCount: existingSenado.length,
+        newMembers: newSenadores,
+      },
       needsResearchCount: needsResearch.length,
       researchPerformed: researchResults.length > 0,
       researchSuccessful: successfulResearch.length,
-      researchResults: successfulResearch, // Only return successful ones
-      action: newParlamentarios.length > 0 ? 'NEW_MEMBERS' : 'RESEARCH_COMPLETE',
+      researchResults: successfulResearch,
+      action: hasNewMembers ? 'NEW_MEMBERS' : 'RESEARCH_COMPLETE',
+      logs,
     };
 
     // 7. Send to webhook if configured
@@ -212,9 +345,11 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(result);
   } catch (error) {
+    const errorMsg = error instanceof Error ? error.message : 'Unknown error';
+    logs.push(`[${new Date().toISOString().slice(11, 23)}] ERROR: ${errorMsg}`);
     console.error('Cron check-updates error:', error);
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'Unknown error' },
+      { error: errorMsg, logs },
       { status: 500 }
     );
   }
