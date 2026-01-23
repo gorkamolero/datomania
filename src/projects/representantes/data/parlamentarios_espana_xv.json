@@ -5285,7 +5285,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -5346,6 +5346,22 @@
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18086&legis=15",
     "source": "official",
     "bio_oficial": "Graduado en Derecho por la Universidad de Valladolid \nPrograma de Liderazgo Público en Emprendimiento e innovación por DEUSTO - ICADE\nPremio al Compromiso Universitario"
+  },
+  {
+    "camara": "Senado",
+    "nombre_completo": "ÁLVAREZ GARCÍA, MELANIA",
+    "partido": "PSOE",
+    "grupo_parlamentario": "Grupo Parlamentario Socialista",
+    "circunscripcion": "Asturias",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
   },
   {
     "camara": "Senado",
@@ -5475,7 +5491,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -5606,7 +5622,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -6147,6 +6163,22 @@
   },
   {
     "camara": "Senado",
+    "nombre_completo": "CLERIES I GONZÀLEZ, JOSEP LLUÍS",
+    "partido": "Junts",
+    "grupo_parlamentario": "Grupo Parlamentario Plural en el Senado",
+    "circunscripcion": "Cataluña",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
+  },
+  {
+    "camara": "Senado",
     "nombre_completo": "COLOMÉ GARCÍA, GABRIEL",
     "partido": "PSC",
     "grupo_parlamentario": "GRUPO PARLAMENTARIO SOCIALISTA",
@@ -6288,7 +6320,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -6304,6 +6336,22 @@
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=15565&legis=15",
     "source": "official",
     "bio_oficial": "--"
+  },
+  {
+    "camara": "Senado",
+    "nombre_completo": "DIEGO CASTELLANOS, MARÍA ELENA",
+    "partido": "PSOE",
+    "grupo_parlamentario": "Grupo Parlamentario Socialista",
+    "circunscripcion": "Salamanca",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
   },
   {
     "camara": "Senado",
@@ -6375,6 +6423,22 @@
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19895&legis=15",
     "source": "researched"
+  },
+  {
+    "camara": "Senado",
+    "nombre_completo": "ESCANDELL GRASES, ADELINA",
+    "partido": "ERC",
+    "grupo_parlamentario": "Grupo Parlamentario Izquierdas por la Independencia",
+    "circunscripcion": "Cataluña",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
   },
   {
     "camara": "Senado",
@@ -6512,6 +6576,22 @@
   },
   {
     "camara": "Senado",
+    "nombre_completo": "FERNÁNDEZ MOLINA, MARÍA TERESA",
+    "partido": "PSOE",
+    "grupo_parlamentario": "Grupo Parlamentario Socialista",
+    "circunscripcion": "Castilla-La Mancha",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
+  },
+  {
+    "camara": "Senado",
     "nombre_completo": "FERNÁNDEZ PÉREZ, FRANCISCO JOSÉ",
     "partido": "PP",
     "grupo_parlamentario": "GRUPO PARLAMENTARIO POPULAR EN EL SENADO",
@@ -6524,6 +6604,38 @@
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=15234&legis=15",
     "source": "official",
     "bio_oficial": "FARMACEUTICO"
+  },
+  {
+    "camara": "Senado",
+    "nombre_completo": "FERNÁNDEZ RODRÍGUEZ, ENRIQUE",
+    "partido": "PSOE",
+    "grupo_parlamentario": "Grupo Parlamentario Socialista",
+    "circunscripcion": "Asturias",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
+  },
+  {
+    "camara": "Senado",
+    "nombre_completo": "FERNÁNDEZ VARA, GUILLERMO",
+    "partido": "PSOE",
+    "grupo_parlamentario": "Grupo Parlamentario Socialista",
+    "circunscripcion": "Extremadura",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
   },
   {
     "camara": "Senado",
@@ -6580,6 +6692,22 @@
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19920&legis=15",
     "source": "researched"
+  },
+  {
+    "camara": "Senado",
+    "nombre_completo": "FURRIOL FORNELLS, PAU",
+    "partido": "ERC",
+    "grupo_parlamentario": "Grupo Parlamentario Izquierdas por la Independencia",
+    "circunscripcion": "Cataluña",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
   },
   {
     "camara": "Senado",
@@ -6753,7 +6881,23 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
+  },
+  {
+    "camara": "Senado",
+    "nombre_completo": "GIL GARCÍA, ANDER",
+    "partido": "PSOE",
+    "grupo_parlamentario": "Grupo Parlamentario Socialista",
+    "circunscripcion": "Burgos",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
   },
   {
     "camara": "Senado",
@@ -6797,7 +6941,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -6912,6 +7056,22 @@
     "fecha_alta": "23/07/2023",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=19832&legis=15",
     "source": "official"
+  },
+  {
+    "camara": "Senado",
+    "nombre_completo": "GRANADOS GALIANO, EVA MARÍA",
+    "partido": "PSOE",
+    "grupo_parlamentario": "Grupo Parlamentario Socialista",
+    "circunscripcion": "Cataluña",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
   },
   {
     "camara": "Senado",
@@ -7059,6 +7219,22 @@
   },
   {
     "camara": "Senado",
+    "nombre_completo": "IZQUIERDO RONCERO, JOSÉ JAVIER",
+    "partido": "PSOE",
+    "grupo_parlamentario": "Grupo Parlamentario Socialista",
+    "circunscripcion": "Valladolid",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
+  },
+  {
+    "camara": "Senado",
     "nombre_completo": "JEREZ JUAN, MIGUEL ÁNGEL",
     "partido": "PP",
     "grupo_parlamentario": "GRUPO PARLAMENTARIO POPULAR EN EL SENADO",
@@ -7099,6 +7275,22 @@
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?id1=18098&legis=15",
     "source": "official",
     "bio_oficial": "Abogado"
+  },
+  {
+    "camara": "Senado",
+    "nombre_completo": "LAMBÁN MONTAÑÉS, FRANCISCO JAVIER",
+    "partido": "PSOE",
+    "grupo_parlamentario": "Grupo Parlamentario Socialista",
+    "circunscripcion": "Aragón",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
   },
   {
     "camara": "Senado",
@@ -7378,6 +7570,22 @@
   },
   {
     "camara": "Senado",
+    "nombre_completo": "MARÍN MARTÍNEZ, NÚRIA",
+    "partido": "PSOE",
+    "grupo_parlamentario": "Grupo Parlamentario Socialista",
+    "circunscripcion": "Cataluña",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
+  },
+  {
+    "camara": "Senado",
     "nombre_completo": "MAROTO ARANZÁBAL, JAVIER IGNACIO",
     "partido": "PP",
     "grupo_parlamentario": "GRUPO PARLAMENTARIO POPULAR EN EL SENADO",
@@ -7548,7 +7756,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -7665,7 +7873,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -7680,7 +7888,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -7912,7 +8120,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -8187,6 +8395,22 @@
   },
   {
     "camara": "Senado",
+    "nombre_completo": "PUIG FERRER, JOAQUÍN FRANCISCO",
+    "partido": "PSOE",
+    "grupo_parlamentario": "Grupo Parlamentario Socialista",
+    "circunscripcion": "Valencianes",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
+  },
+  {
+    "camara": "Senado",
     "nombre_completo": "PUJOL BONELL, EDUARD",
     "partido": "JxCat",
     "grupo_parlamentario": "GRUPO PARLAMENTARIO PLURAL EN EL SENADO JUNTS PER CATALUNYA-COALICIÓN CANARIA-AGRUPACIÓN HERREÑA INDEPENDIENTE-BLOQUE NACIONALISTA GALEGO",
@@ -8212,7 +8436,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -8227,7 +8451,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -8242,7 +8466,39 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
+  },
+  {
+    "camara": "Senado",
+    "nombre_completo": "REMÍREZ APESTEGUÍA, JAVIER",
+    "partido": "PSOE",
+    "grupo_parlamentario": "Grupo Parlamentario Socialista",
+    "circunscripcion": "Navarra",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
+  },
+  {
+    "camara": "Senado",
+    "nombre_completo": "RENIU VILAMALA, JOSEP MARIA",
+    "partido": "ERC",
+    "grupo_parlamentario": "Grupo Parlamentario Izquierdas por la Independencia",
+    "circunscripcion": "Cataluña",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
   },
   {
     "camara": "Senado",
@@ -8257,7 +8513,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -8316,7 +8572,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -8375,7 +8631,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -8449,7 +8705,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -8565,7 +8821,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -8609,7 +8865,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -8641,6 +8897,38 @@
   },
   {
     "camara": "Senado",
+    "nombre_completo": "SÁNCHEZ MIRA, HÉCTOR",
+    "partido": "ERC",
+    "grupo_parlamentario": "Grupo Parlamentario Izquierdas por la Independencia",
+    "circunscripcion": "Cataluña",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
+  },
+  {
+    "camara": "Senado",
+    "nombre_completo": "SÁNCHEZ NAVARRO, AURELIA",
+    "partido": "PSOE",
+    "grupo_parlamentario": "Grupo Parlamentario Socialista",
+    "circunscripcion": "Castilla-La Mancha",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
+  },
+  {
+    "camara": "Senado",
     "nombre_completo": "SÁNCHEZ ROCA, INMACULADA",
     "partido": "PSOE",
     "grupo_parlamentario": "Grupo Parlamentario Socialista",
@@ -8652,7 +8940,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -8681,7 +8969,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -8710,7 +8998,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -8803,6 +9091,22 @@
   },
   {
     "camara": "Senado",
+    "nombre_completo": "SERRANO SIERRA, ROSA MARÍA",
+    "partido": "PSOE",
+    "grupo_parlamentario": "Grupo Parlamentario Socialista",
+    "circunscripcion": "Huesca",
+    "estudios_raw": "",
+    "estudios_nivel": "No_consta",
+    "profesion_raw": "",
+    "profesion_categoria": "No_consta",
+    "fecha_alta": "",
+    "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
+    "bio_oficial": "",
+    "source": "official",
+    "estado": "baja"
+  },
+  {
+    "camara": "Senado",
     "nombre_completo": "SIERRA GALLARDO, LEOPOLDO JERÓNIMO",
     "partido": "PP",
     "grupo_parlamentario": "GRUPO PARLAMENTARIO POPULAR EN EL SENADO",
@@ -8828,7 +9132,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",
@@ -8915,7 +9219,7 @@
     "fecha_alta": "",
     "url_ficha": "https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html?legis=15",
     "bio_oficial": "",
-    "source": "api_added"
+    "source": "official"
   },
   {
     "camara": "Senado",

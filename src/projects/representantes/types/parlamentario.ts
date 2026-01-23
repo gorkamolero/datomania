@@ -37,6 +37,9 @@ export type ProfesionCategoria =
 // Data source tracking
 export type DataSource = 'official' | 'researched';
 
+// Status for parliamentarians (active vs departed)
+export type Estado = 'activo' | 'baja';
+
 /**
  * Raw parlamentario data as stored in JSON
  */
@@ -54,6 +57,10 @@ export interface ParlamentarioRaw {
   url_ficha: string;
   bio_oficial?: string;
   source: DataSource;
+  // Status tracking for senators who left
+  estado?: Estado;
+  fecha_baja?: string;
+  sustituido_por?: string;
 }
 
 /**
