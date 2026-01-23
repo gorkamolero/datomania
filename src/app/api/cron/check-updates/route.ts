@@ -43,6 +43,7 @@ interface ResearchResult {
   estudios_raw?: string;
   estudios_nivel?: string;
   citations?: string[];
+  researched_at: string; // ISO timestamp for tracking
 }
 
 /**
@@ -53,8 +54,10 @@ async function researchParlamentario(
   camara: string,
   circunscripcion: string
 ): Promise<ResearchResult> {
+  const researched_at = new Date().toISOString();
+
   if (!PERPLEXITY_API_KEY) {
-    return { nombre, found: false };
+    return { nombre, found: false, researched_at };
   }
 
   const camaraLabel = camara === 'Senado' ? 'senator' : 'member of Congress';
@@ -75,7 +78,7 @@ async function researchParlamentario(
 
     if (!response.ok) {
       console.error(`Perplexity error for ${nombre}: ${response.status}`);
-      return { nombre, found: false };
+      return { nombre, found: false, researched_at };
     }
 
     const data = (await response.json()) as PerplexityResponse;
@@ -85,7 +88,7 @@ async function researchParlamentario(
       content.toLowerCase().includes('no educational information found') ||
       content.toLowerCase().includes('no information available')
     ) {
-      return { nombre, found: false };
+      return { nombre, found: false, researched_at };
     }
 
     const nivel = classifyEducation(content);
@@ -95,10 +98,11 @@ async function researchParlamentario(
       estudios_raw: content.slice(0, 500),
       estudios_nivel: nivel,
       citations: data.citations,
+      researched_at,
     };
   } catch (error) {
     console.error(`Research error for ${nombre}:`, error);
-    return { nombre, found: false };
+    return { nombre, found: false, researched_at };
   }
 }
 
@@ -262,15 +266,27 @@ export async function GET(request: NextRequest) {
       log(`New senators: ${newSenadores.slice(0, 5).join(', ')}${newSenadores.length > 5 ? '...' : ''}`);
     }
 
-    // 4. Find those needing research
-    const needsResearch = existingData.filter(
+    // 4. Find those needing research (skip recently researched - 30 day cooldown)
+    const RESEARCH_COOLDOWN_DAYS = 30;
+    const cooldownDate = new Date();
+    cooldownDate.setDate(cooldownDate.getDate() - RESEARCH_COOLDOWN_DAYS);
+
+    const allNeedResearch = existingData.filter(
       (p) =>
         p.estudios_nivel === 'No_consta' || p.profesion_categoria === 'No_consta'
     );
 
+    const needsResearch = allNeedResearch.filter((p) => {
+      if (!p.last_researched) return true; // Never researched
+      const lastResearchDate = new Date(p.last_researched);
+      return lastResearchDate < cooldownDate; // Cooldown expired
+    });
+
+    const skippedCount = allNeedResearch.length - needsResearch.length;
+
     // 5. Research missing data using Perplexity (if API key configured)
     const researchResults: ResearchResult[] = [];
-    log(`${needsResearch.length} parlamentarios need research`);
+    log(`${allNeedResearch.length} parlamentarios missing data, ${skippedCount} skipped (researched <${RESEARCH_COOLDOWN_DAYS}d ago), ${needsResearch.length} to research`);
 
     if (skipResearch) {
       log('Skipping research (skipResearch=true)');
@@ -321,10 +337,17 @@ export async function GET(request: NextRequest) {
         existingCount: existingSenado.length,
         newMembers: newSenadores,
       },
-      needsResearchCount: needsResearch.length,
-      researchPerformed: researchResults.length > 0,
-      researchSuccessful: successfulResearch.length,
-      researchResults: successfulResearch,
+      research: {
+        totalMissingData: allNeedResearch.length,
+        skippedRecentlyResearched: skippedCount,
+        attempted: researchResults.length,
+        successful: successfulResearch.length,
+        cooldownDays: RESEARCH_COOLDOWN_DAYS,
+      },
+      // All research attempts (use researched_at to update last_researched in data)
+      researchResults: researchResults,
+      // Convenience: just the successful ones with education data
+      successfulResults: successfulResearch,
       action: hasNewMembers ? 'NEW_MEMBERS' : 'RESEARCH_COMPLETE',
       logs,
     };
