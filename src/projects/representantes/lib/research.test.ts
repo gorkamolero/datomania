@@ -35,7 +35,7 @@ describe('Research Cron Job Integration Tests', () => {
 
     // Find a real parlamentario that needs education research
     parlamentarioNeedingResearch = allParlamentarios.find(
-      (p) => p.estudios_nivel === 'No_consta'
+      (p) => p.education_levels.normalized === 'No_consta'
     );
   });
 
@@ -65,9 +65,9 @@ describe('Research Cron Job Integration Tests', () => {
         console.log(`  Name: ${parlamentarioNeedingResearch.nombre_completo}`);
         console.log(`  Camara: ${parlamentarioNeedingResearch.camara}`);
         console.log(`  Circunscripcion: ${parlamentarioNeedingResearch.circunscripcion}`);
-        console.log(`  Current estudios_nivel: ${parlamentarioNeedingResearch.estudios_nivel}`);
+        console.log(`  Current education_levels.normalized: ${parlamentarioNeedingResearch.education_levels.normalized}`);
 
-        expect(parlamentarioNeedingResearch.estudios_nivel).toBe('No_consta');
+        expect(parlamentarioNeedingResearch.education_levels.normalized).toBe('No_consta');
         expect(needsEducationResearch(parlamentarioNeedingResearch)).toBe(true);
       }
     });
@@ -96,14 +96,14 @@ describe('Research Cron Job Integration Tests', () => {
       console.log('\n📋 Perplexity API Response:');
       console.log(`   Success: ${result.success}`);
       console.log(`   Found data: ${result.found}`);
-      console.log(`   Classified level: ${result.result.estudios_nivel || 'N/A'}`);
       console.log(`   Citations: ${result.result.citations.length}`);
       console.log(`\n   Raw response (truncated):\n   "${result.result.raw.slice(0, 500)}..."`);
 
       expect(result.success).toBe(true);
       expect(result.found).toBe(true);
-      expect(result.result.estudios_nivel).toBeDefined();
-      console.log(`   ✅ Found education level: ${result.result.estudios_nivel}`);
+      expect(result.result.raw).toBeDefined();
+      expect(result.result.raw.length).toBeGreaterThan(0);
+      console.log(`   ✅ Found education data in raw response`);
     }, 30000);
 
     it('returns no data for parlamentario with no public education info', async () => {
@@ -141,30 +141,31 @@ describe('Research Cron Job Integration Tests', () => {
     it('applyResearchResult does NOT overwrite existing education data', () => {
       // Find a parlamentario WITH education data
       const parlamentarioWithData = allParlamentarios.find(
-        (p) => p.estudios_nivel !== 'No_consta'
+        (p) => p.education_levels.normalized !== 'No_consta'
       );
 
       expect(parlamentarioWithData).toBeDefined();
 
       if (parlamentarioWithData) {
-        const originalLevel = parlamentarioWithData.estudios_nivel;
-        const originalRaw = parlamentarioWithData.estudios_raw;
+        const originalLevel = parlamentarioWithData.education_levels.normalized;
+        const originalSourcesCount = parlamentarioWithData.data_sources.length;
 
         console.log('\n🛡️  Testing data protection:');
         console.log(`   Original: ${parlamentarioWithData.nombre_completo}`);
-        console.log(`   estudios_nivel: ${originalLevel}`);
+        console.log(`   education_levels.normalized: ${originalLevel}`);
 
         // Attempt to overwrite with research result
         const result = applyResearchResult(parlamentarioWithData, {
-          estudios_raw: 'FAKE: Should not appear',
-          estudios_nivel: 'Doctorado',
+          field: 'estudios',
+          raw_text: 'FAKE: Should not appear',
+          citations: [],
         });
 
-        console.log(`   After applyResearchResult: ${result.estudios_nivel}`);
+        console.log(`   After applyResearchResult: ${result.education_levels.normalized}`);
 
         // CRITICAL: Original data must be preserved
-        expect(result.estudios_nivel).toBe(originalLevel);
-        expect(result.estudios_raw).toBe(originalRaw);
+        expect(result.education_levels.normalized).toBe(originalLevel);
+        expect(result.data_sources.length).toBe(originalSourcesCount);
         console.log('   ✅ Existing data was NOT overwritten');
       }
     });
@@ -172,30 +173,32 @@ describe('Research Cron Job Integration Tests', () => {
     it('applyResearchResult does NOT overwrite existing profession data', () => {
       // Find a parlamentario WITH profession data
       const parlamentarioWithData = allParlamentarios.find(
-        (p) => p.profesion_categoria !== 'No_consta'
+        (p) => p.data_sources.some(s => s.field === 'profesion' && s.raw_text && s.raw_text.trim() !== '')
       );
 
       expect(parlamentarioWithData).toBeDefined();
 
       if (parlamentarioWithData) {
-        const originalCategory = parlamentarioWithData.profesion_categoria;
-        const originalRaw = parlamentarioWithData.profesion_raw;
+        const originalSourcesCount = parlamentarioWithData.data_sources.length;
+        const originalProfessionSource = parlamentarioWithData.data_sources.find(s => s.field === 'profesion');
 
         console.log('\n🛡️  Testing profession data protection:');
         console.log(`   Original: ${parlamentarioWithData.nombre_completo}`);
-        console.log(`   profesion_categoria: ${originalCategory}`);
+        console.log(`   Profession: ${originalProfessionSource?.raw_text || 'N/A'}`);
 
         // Attempt to overwrite with research result
         const result = applyResearchResult(parlamentarioWithData, {
-          profesion_raw: 'FAKE: Should not appear',
-          profesion_categoria: 'Empresario',
+          field: 'profesion',
+          raw_text: 'FAKE: Should not appear',
+          citations: [],
         });
 
-        console.log(`   After applyResearchResult: ${result.profesion_categoria}`);
+        console.log(`   After applyResearchResult: ${result.data_sources.length} sources`);
 
         // CRITICAL: Original data must be preserved
-        expect(result.profesion_categoria).toBe(originalCategory);
-        expect(result.profesion_raw).toBe(originalRaw);
+        expect(result.data_sources.length).toBe(originalSourcesCount);
+        const newProfessionSource = result.data_sources.find(s => s.field === 'profesion');
+        expect(newProfessionSource?.raw_text).toBe(originalProfessionSource?.raw_text);
         console.log('   ✅ Existing profession data was NOT overwritten');
       }
     });
@@ -208,19 +211,22 @@ describe('Research Cron Job Integration Tests', () => {
 
       console.log('\n📝 Testing update of missing data:');
       console.log(`   Original: ${parlamentarioNeedingResearch.nombre_completo}`);
-      console.log(`   estudios_nivel: ${parlamentarioNeedingResearch.estudios_nivel}`);
+      console.log(`   education_levels.normalized: ${parlamentarioNeedingResearch.education_levels.normalized}`);
 
       const result = applyResearchResult(parlamentarioNeedingResearch, {
-        estudios_raw: 'Licenciado en Derecho por la Universidad de Valencia',
-        estudios_nivel: 'Universitario',
+        field: 'estudios',
+        raw_text: 'Licenciado en Derecho por la Universidad de Valencia',
+        citations: ['https://example.com'],
       });
 
-      console.log(`   After applyResearchResult: ${result.estudios_nivel}`);
+      console.log(`   After applyResearchResult: ${result.education_levels.normalized}`);
 
       // Should update because original was No_consta
-      expect(result.estudios_nivel).toBe('Universitario');
-      expect(result.estudios_raw).toBe('Licenciado en Derecho por la Universidad de Valencia');
-      expect(result.source).toBe('researched');
+      expect(result.education_levels.normalized).toBe('Licenciatura');
+      const perplexitySource = result.data_sources.find(s => s.source === 'perplexity' && s.field === 'estudios');
+      expect(perplexitySource).toBeDefined();
+      expect(perplexitySource?.raw_text).toBe('Licenciado en Derecho por la Universidad de Valencia');
+      expect(result.last_researched).toBeDefined();
       console.log('   ✅ Missing data was correctly updated');
     });
   });

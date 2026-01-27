@@ -35,9 +35,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  const professionSource = parlamentario.data_sources.find(s => s.field === 'profesion');
+  const profesionCategoria = professionSource?.extracted_value || 'No_consta';
+
   return {
     title: `${parlamentario.nombre_completo} - ${parlamentario.partido}`,
-    description: `${parlamentario.nombre_completo} (${parlamentario.partido}) - ${parlamentario.camara} por ${parlamentario.circunscripcion}. Estudios: ${parlamentario.estudios_nivel.replace(/_/g, ' ')}. Profesión: ${parlamentario.profesion_categoria.replace(/_/g, ' ')}.`,
+    description: `${parlamentario.nombre_completo} (${parlamentario.partido}) - ${parlamentario.camara} por ${parlamentario.circunscripcion}. Estudios: ${parlamentario.education_levels.normalized.replace(/_/g, ' ')}. Profesión: ${profesionCategoria.replace(/_/g, ' ')}.`,
   };
 }
 
@@ -60,13 +63,38 @@ const PROFESION_LABELS: Record<string, string> = {
   No_consta: 'No consta',
 };
 
-export default async function ParlamentarioPage({ params }: PageProps) {
-  const { slug } = await params;
+export default async function ParlamentarioPage(props: PageProps) {
+  const { slug } = await props.params;
   const parlamentario = getParlamentarioBySlug(slug);
 
   if (!parlamentario) {
     notFound();
   }
+
+  // Extract data from new data_sources structure
+  const educationSource = parlamentario.data_sources.find(s => s.field === 'estudios');
+  const professionSource = parlamentario.data_sources.find(s => s.field === 'profesion');
+  
+  // Map normalized education level to legacy label for display
+  const mapNormalizedToLegacyLevel = (normalized: string): string => {
+    const mapping: Record<string, string> = {
+      'Doctorado': 'Universitario',
+      'Master': 'Universitario',
+      'Licenciatura': 'Universitario',
+      'Grado': 'Universitario',
+      'FP_Grado_Superior': 'FP_Tecnico',
+      'FP_Grado_Medio': 'FP_Tecnico',
+      'Bachillerato': 'Secundario',
+      'ESO': 'Secundario',
+      'No_consta': 'No_consta',
+    };
+    return mapping[normalized] || 'No_consta';
+  };
+
+  const estudiosNivelLegacy = mapNormalizedToLegacyLevel(parlamentario.education_levels.normalized);
+  const estudiosRaw = educationSource?.raw_text;
+  const profesionCategoria = professionSource?.extracted_value || 'No_consta';
+  const profesionRaw = professionSource?.raw_text;
 
   return (
     <div className="min-h-screen py-8 md:py-12">
@@ -122,20 +150,20 @@ export default async function ParlamentarioPage({ params }: PageProps) {
                   Nivel clasificado
                 </p>
                 <p className="text-lg">
-                  {ESTUDIOS_LABELS[parlamentario.estudios_nivel]}
+                  {ESTUDIOS_LABELS[estudiosNivelLegacy]}
                 </p>
               </div>
-              {parlamentario.estudios_raw && (
+              {estudiosRaw && (
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">
                     Descripción completa
                   </p>
                   <p className="text-base leading-relaxed">
-                    {parlamentario.estudios_raw}
+                    {estudiosRaw}
                   </p>
                 </div>
               )}
-              {!parlamentario.estudios_raw && (
+              {!estudiosRaw && (
                 <p className="text-muted-foreground italic">
                   No hay información adicional disponible.
                 </p>
@@ -157,20 +185,20 @@ export default async function ParlamentarioPage({ params }: PageProps) {
                   Categoría clasificada
                 </p>
                 <p className="text-lg">
-                  {PROFESION_LABELS[parlamentario.profesion_categoria]}
+                  {PROFESION_LABELS[profesionCategoria]}
                 </p>
               </div>
-              {parlamentario.profesion_raw && (
+              {profesionRaw && (
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">
                     Descripción completa
                   </p>
                   <p className="text-base leading-relaxed">
-                    {parlamentario.profesion_raw}
+                    {profesionRaw}
                   </p>
                 </div>
               )}
-              {!parlamentario.profesion_raw && (
+              {!profesionRaw && (
                 <p className="text-muted-foreground italic">
                   No hay información adicional disponible.
                 </p>

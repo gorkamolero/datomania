@@ -10,6 +10,7 @@ import { EducationBarChart } from '@/components/charts/education-bar-chart';
 import { ProfessionPieChart } from '@/components/charts/profession-pie-chart';
 import { PartyDistribution } from '@/components/charts/party-distribution';
 import { ParlamentariosTable } from './parlamentarios/parlamentarios-table';
+import { DataExplanationBox } from '@/components/data-explanation-box';
 import { computeStatsFromData } from './lib/compute-stats';
 import type { Parlamentario, Legislature } from '@/projects/representantes/types/parlamentario';
 import { LEGISLATURE_INFO } from '@/projects/representantes/types/parlamentario';
@@ -51,6 +52,55 @@ export function RepresentantesTabs({
     () => parlamentarios.filter((p) => p.camara === 'Congreso'),
     [parlamentarios]
   );
+
+  // Compute data explanation stats (aggregating both legislatures)
+  const dataExplanationStats = useMemo(() => {
+    const xvParlamentarios = dataByLegislature.XV.parlamentarios;
+    const iParlamentarios = dataByLegislature.I.parlamentarios;
+
+    // XV Legislature breakdown
+    const xvCongresoActive = xvParlamentarios.filter(
+      (p) => p.camara === 'Congreso' && (p.estado === 'activo' || !p.estado)
+    ).length;
+    const xvSenadoActive = xvParlamentarios.filter(
+      (p) => p.camara === 'Senado' && (p.estado === 'activo' || !p.estado)
+    ).length;
+    const xvSenadoBaja = xvParlamentarios.filter(
+      (p) => p.camara === 'Senado' && p.estado === 'baja'
+    ).length;
+
+    // Total coverage across both legislatures
+    const allParlamentarios = [...xvParlamentarios, ...iParlamentarios];
+    const totalEntries = allParlamentarios.length;
+
+    // Education coverage
+    const educationWithData = allParlamentarios.filter(
+      (p) => p.education_levels.normalized !== 'No_consta'
+    ).length;
+
+    // Profession coverage
+    const professionWithData = allParlamentarios.filter((p) => {
+      const professionSource = p.data_sources.find((s) => s.field === 'profesion');
+      return professionSource && professionSource.raw_text && professionSource.raw_text.trim() !== '';
+    }).length;
+
+    return {
+      totalEntries,
+      xvTotal: xvParlamentarios.length,
+      xvCongresoActive,
+      xvSenadoActive,
+      xvSenadoBaja,
+      iTotal: iParlamentarios.length,
+      educationCoverage: {
+        withData: educationWithData,
+        withoutData: totalEntries - educationWithData,
+      },
+      professionCoverage: {
+        withData: professionWithData,
+        withoutData: totalEntries - professionWithData,
+      },
+    };
+  }, [dataByLegislature]);
 
   const universitarios =
     stats.por_estudios_nivel.Universitario +
@@ -172,6 +222,9 @@ export function RepresentantesTabs({
                 Haz clic en un escaño para ver el perfil del parlamentario
               </p>
             </div>
+
+            {/* Data Explanation Box */}
+            <DataExplanationBox stats={dataExplanationStats} />
           </div>
         </TabsContent>
 
