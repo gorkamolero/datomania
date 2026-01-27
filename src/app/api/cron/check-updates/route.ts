@@ -40,6 +40,8 @@ interface PerplexityResponse {
 interface ResearchResult {
   nombre: string;
   found: boolean;
+  // NOTE: These fields use old naming for backwards compatibility with webhook consumers
+  // New code should use the research.ts functions which use data_sources and education_levels
   estudios_raw?: string;
   estudios_nivel?: string;
   citations?: string[];
@@ -273,7 +275,8 @@ export async function GET(request: NextRequest) {
 
     const allNeedResearch = existingData.filter(
       (p) =>
-        p.estudios_nivel === 'No_consta' || p.profesion_categoria === 'No_consta'
+        p.education_levels.normalized === 'No_consta' ||
+        !p.data_sources.some(s => s.field === 'profesion' && s.raw_text && s.raw_text.trim() !== '')
     );
 
     const needsResearch = allNeedResearch.filter((p) => {

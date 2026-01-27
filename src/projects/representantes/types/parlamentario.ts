@@ -34,8 +34,65 @@ export type ProfesionCategoria =
   | 'Politica'
   | 'No_consta';
 
-// Data source tracking
+// Data source tracking (DEPRECATED - use data_sources array instead)
 export type DataSource = 'official' | 'researched';
+
+// Multi-source data tracking
+export type DataSourceType = 'congreso' | 'senado' | 'perplexity';
+export type DataFieldType = 'estudios' | 'profesion';
+
+/**
+ * Tracks a single piece of data from a specific source
+ */
+export interface DataSourceEntry {
+  source: DataSourceType;
+  field: DataFieldType;
+  raw_text: string;
+  extracted_at: string; // ISO timestamp
+  extracted_value?: string; // normalized category
+  citations?: string[]; // URLs or references
+}
+
+// Normalized education levels (current Spanish education system)
+export type EstudiosNivelNormalized =
+  | 'ESO' // Educación Secundaria Obligatoria (until 16)
+  | 'Bachillerato' // Post-secondary (16-18)
+  | 'FP_Grado_Medio' // Vocational training - medium level
+  | 'FP_Grado_Superior' // Vocational training - advanced level
+  | 'Grado' // University degree (post-Bologna, 4 years)
+  | 'Licenciatura' // University degree (pre-Bologna, 5 years)
+  | 'Master' // Master's degree
+  | 'Doctorado' // PhD
+  | 'No_consta'; // No data available
+
+// Simplified education categories for broad analysis
+export type EstudiosSimplificado = 'Obligatoria' | 'Postobligatoria' | 'Universitaria';
+
+/**
+ * Three-level education representation:
+ * 1. Original: What they declared (raw text)
+ * 2. Normalized: Mapped to current education system
+ * 3. Simplified: Broad category (obligatoria/postobligatoria/universitaria)
+ */
+export interface EducationLevels {
+  original: string;
+  normalized: EstudiosNivelNormalized;
+  simplified: EstudiosSimplificado;
+}
+
+/**
+ * Education inference from profession
+ * Used when education data is missing but profession suggests education level
+ */
+export interface EducationInference {
+  inferred_education: string;
+  inference_rule: 'profession_requires_degree' | 'occupation_implies_level';
+  confidence: number; // 0-1
+  applied: boolean; // Whether inference has been applied to education_levels
+  reviewed_by: string | null;
+  reviewed_at: string | null; // ISO timestamp
+  approved: boolean | null;
+}
 
 // Status for parliamentarians (active vs departed)
 export type Estado = 'activo' | 'baja';
@@ -49,19 +106,26 @@ export interface ParlamentarioRaw {
   partido: string;
   grupo_parlamentario: string;
   circunscripcion: string;
-  estudios_raw: string | null;
-  estudios_nivel: EstudiosNivel;
-  profesion_raw: string | null;
-  profesion_categoria: ProfesionCategoria;
+
+  // Multi-source tracking
+  data_sources: DataSourceEntry[];
+
+  // Three-level education normalization
+  education_levels: EducationLevels;
+
+  // Education inference tracking (optional - only if inference was made)
+  education_inference?: EducationInference;
+
+  // Timestamps and links
   fecha_alta: string;
   url_ficha: string;
-  bio_oficial?: string;
-  source: DataSource;
+
   // Status tracking for senators who left
   estado?: Estado;
   fecha_baja?: string;
   sustituido_por?: string;
-  // Research tracking - avoid re-researching failed lookups
+
+  // Research tracking - avoid re-researching failed lookups (30-day cooldown)
   last_researched?: string; // ISO date of last Perplexity attempt
 }
 
@@ -124,4 +188,30 @@ export interface ParlamentariosListResponse {
   pagina: number;
   por_pagina: number;
   total_paginas: number;
+}
+
+/**
+ * Data quality validation report
+ */
+export interface DataQualityIssue {
+  nombre_completo: string;
+  issue: string;
+  severity: 'high' | 'medium' | 'low';
+}
+
+export interface DataQualityReport {
+  total: number;
+  unique_names: number;
+  active: number;
+  baja: number;
+  baja_missing_metadata: number; // fecha_baja or sustituido_por is null
+  coverage: {
+    education_complete: number;
+    education_missing: number;
+    profession_complete: number;
+    profession_missing: number;
+    both_complete: number;
+  };
+  conflicts: DataQualityIssue[]; // Sources disagree
+  suspicious: DataQualityIssue[]; // Inconsistent data
 }

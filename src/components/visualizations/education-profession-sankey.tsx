@@ -66,10 +66,30 @@ export function EducationProfessionSankey({
     const profMap = new Map<ProfesionCategoria, number>();
 
     parlamentarios.forEach((p) => {
-      const key = `${p.estudios_nivel}→${p.profesion_categoria}`;
+      // Map from new structure to old for visualization
+      const mapNormalizedToLegacy = (normalized: string): EstudiosNivel => {
+        const mapping: Record<string, EstudiosNivel> = {
+          'Doctorado': 'Universitario',
+          'Master': 'Universitario',
+          'Licenciatura': 'Universitario',
+          'Grado': 'Universitario',
+          'FP_Grado_Superior': 'FP_Tecnico',
+          'FP_Grado_Medio': 'FP_Tecnico',
+          'Bachillerato': 'Secundario',
+          'ESO': 'Secundario',
+          'No_consta': 'No_consta',
+        };
+        return mapping[normalized] || 'No_consta';
+      };
+
+      const estudiosNivel = mapNormalizedToLegacy(p.education_levels.normalized);
+      const professionSource = p.data_sources.find(s => s.field === 'profesion');
+      const profesionCategoria = (professionSource?.extracted_value || 'No_consta') as ProfesionCategoria;
+
+      const key = `${estudiosNivel}→${profesionCategoria}`;
       flowMap.set(key, (flowMap.get(key) || 0) + 1);
-      eduMap.set(p.estudios_nivel, (eduMap.get(p.estudios_nivel) || 0) + 1);
-      profMap.set(p.profesion_categoria, (profMap.get(p.profesion_categoria) || 0) + 1);
+      eduMap.set(estudiosNivel, (eduMap.get(estudiosNivel) || 0) + 1);
+      profMap.set(profesionCategoria, (profMap.get(profesionCategoria) || 0) + 1);
     });
 
     const flows: FlowData[] = [];

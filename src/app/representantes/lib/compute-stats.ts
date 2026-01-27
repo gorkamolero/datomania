@@ -14,6 +14,24 @@ export interface ComputedStats {
   };
 }
 
+/**
+ * Map new normalized education levels to legacy simplified categories for stats
+ */
+function mapNormalizedToLegacyLevel(normalized: string): EstudiosNivel {
+  const mapping: Record<string, EstudiosNivel> = {
+    'Doctorado': 'Universitario',
+    'Master': 'Universitario',
+    'Licenciatura': 'Universitario',
+    'Grado': 'Universitario',
+    'FP_Grado_Superior': 'FP_Tecnico',
+    'FP_Grado_Medio': 'FP_Tecnico',
+    'Bachillerato': 'Secundario',
+    'ESO': 'Secundario',
+    'No_consta': 'No_consta',
+  };
+  return mapping[normalized] || 'No_consta';
+}
+
 export function computeStatsFromData(parlamentarios: Parlamentario[]): ComputedStats {
   const stats: ComputedStats = {
     total: parlamentarios.length,
@@ -48,17 +66,30 @@ export function computeStatsFromData(parlamentarios: Parlamentario[]): ComputedS
     // Cámara
     stats.por_camara[p.camara]++;
 
-    // Estudios
-    stats.por_estudios_nivel[p.estudios_nivel]++;
-    if (p.estudios_nivel !== 'No_consta') {
+    // Estudios - map from new normalized levels to old simplified categories
+    const educationLevel = mapNormalizedToLegacyLevel(p.education_levels.normalized);
+    if (educationLevel in stats.por_estudios_nivel) {
+      stats.por_estudios_nivel[educationLevel]++;
+    } else {
+      stats.por_estudios_nivel['No_consta']++;
+    }
+
+    if (p.education_levels.normalized !== 'No_consta') {
       stats.cobertura.estudios_con_datos++;
     } else {
       stats.cobertura.estudios_sin_datos++;
     }
 
-    // Profesión
-    stats.por_profesion_categoria[p.profesion_categoria]++;
-    if (p.profesion_categoria !== 'No_consta') {
+    // Profesión - get from data_sources
+    const professionSource = p.data_sources.find(s => s.field === 'profesion');
+    const profesionCategoria = professionSource?.extracted_value as ProfesionCategoria | undefined;
+    if (profesionCategoria && profesionCategoria in stats.por_profesion_categoria) {
+      stats.por_profesion_categoria[profesionCategoria]++;
+    } else {
+      stats.por_profesion_categoria['No_consta']++;
+    }
+
+    if (professionSource && professionSource.raw_text && professionSource.raw_text.trim() !== '') {
       stats.cobertura.profesion_con_datos++;
     } else {
       stats.cobertura.profesion_sin_datos++;

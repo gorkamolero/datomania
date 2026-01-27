@@ -123,13 +123,14 @@ export function filterParlamentarios(
   }
 
   if (filters.estudios_nivel) {
-    result = result.filter((p) => p.estudios_nivel === filters.estudios_nivel);
+    result = result.filter((p) => p.education_levels.normalized === filters.estudios_nivel);
   }
 
   if (filters.profesion_categoria) {
-    result = result.filter(
-      (p) => p.profesion_categoria === filters.profesion_categoria
-    );
+    result = result.filter((p) => {
+      const professionSource = p.data_sources.find(s => s.field === 'profesion');
+      return professionSource?.extracted_value === filters.profesion_categoria;
+    });
   }
 
   if (filters.circunscripcion) {
@@ -187,28 +188,29 @@ export function computeStats(legislature: Legislature = DEFAULT_LEGISLATURE): Ed
   for (const p of parlamentarios) {
     por_camara[p.camara]++;
 
-    // Map education levels
-    if (p.estudios_nivel in por_estudios_nivel) {
-      por_estudios_nivel[p.estudios_nivel]++;
+    // Map new normalized education levels to old simplified categories
+    const educationLevel = mapNormalizedToLegacyLevel(p.education_levels.normalized);
+    if (educationLevel in por_estudios_nivel) {
+      por_estudios_nivel[educationLevel]++;
     } else {
-      // Handle legacy data with different category names
-      const mapped = mapEducationLevel(p.estudios_nivel);
-      por_estudios_nivel[mapped]++;
+      por_estudios_nivel['No_consta']++;
     }
 
-    // Map profession categories
-    if (p.profesion_categoria in por_profesion_categoria) {
-      por_profesion_categoria[p.profesion_categoria]++;
+    // Get profession category from data_sources
+    const professionSource = p.data_sources.find(s => s.field === 'profesion');
+    const profesionCategoria = professionSource?.extracted_value as ProfesionCategoria | undefined;
+    if (profesionCategoria && profesionCategoria in por_profesion_categoria) {
+      por_profesion_categoria[profesionCategoria]++;
     } else {
       por_profesion_categoria['No_consta']++;
     }
 
     por_partido[p.partido] = (por_partido[p.partido] || 0) + 1;
 
-    if (p.estudios_nivel !== 'No_consta') {
+    if (p.education_levels.normalized !== 'No_consta') {
       estudios_con_datos++;
     }
-    if (p.profesion_categoria !== 'No_consta') {
+    if (professionSource && professionSource.raw_text && professionSource.raw_text.trim() !== '') {
       profesion_con_datos++;
     }
   }
@@ -230,18 +232,21 @@ export function computeStats(legislature: Legislature = DEFAULT_LEGISLATURE): Ed
 }
 
 /**
- * Map education level strings to standard categories
+ * Map new normalized education levels to legacy simplified categories for stats
  */
-function mapEducationLevel(level: string): EstudiosNivel {
+function mapNormalizedToLegacyLevel(normalized: string): EstudiosNivel {
   const mapping: Record<string, EstudiosNivel> = {
     'Doctorado': 'Universitario',
     'Master': 'Universitario',
-    'Universitario': 'Universitario',
-    'FP': 'FP_Tecnico',
+    'Licenciatura': 'Universitario',
+    'Grado': 'Universitario',
+    'FP_Grado_Superior': 'FP_Tecnico',
+    'FP_Grado_Medio': 'FP_Tecnico',
     'Bachillerato': 'Secundario',
-    'Secundaria': 'Secundario',
+    'ESO': 'Secundario',
+    'No_consta': 'No_consta',
   };
-  return mapping[level] || 'No_consta';
+  return mapping[normalized] || 'No_consta';
 }
 
 /**

@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Metodología Representantes - Fuentes y proceso',
-  description: 'Cómo recopilamos datos de 642 parlamentarios: APIs de Congreso.es y Senado.es, clasificación de educación y profesión, verificación cruzada.',
+  description: 'Cómo recopilamos datos de 1.257 parlamentarios: APIs de Congreso.es y Senado.es, clasificación de educación y profesión, verificación cruzada.',
 };
 
 export default function MetodologiaPage() {
@@ -180,7 +180,270 @@ export default function MetodologiaPage() {
           </div>
         </section>
 
-        {/* Legislaturas */}
+        {/* Por qué 1.257 */}
+        <section className="mb-12">
+          <h2 className="text-xl font-heading uppercase tracking-tight mb-4">
+            Por qué 1.257 parlamentarios
+          </h2>
+          <div className="bg-card border-2 border-border p-6 shadow-[4px_4px_0px_0px_#000] space-y-4">
+            <p className="text-muted-foreground">
+              Nuestro dataset incluye parlamentarios de dos legislaturas históricamente significativas:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              <div className="bg-muted border border-border p-4">
+                <div className="font-heading text-main text-2xl">I Legislatura</div>
+                <div className="text-sm font-bold">1979-1982</div>
+                <div className="text-xs text-muted-foreground mt-2 space-y-1">
+                  <p><strong>350</strong> diputados</p>
+                  <p><strong>265</strong> senadores</p>
+                  <p className="border-t border-border pt-1 mt-2"><strong>615</strong> total</p>
+                </div>
+                <p className="text-xs text-muted-foreground mt-2">
+                  Primera legislatura democrática tras la Transición.
+                </p>
+              </div>
+              <div className="bg-muted border border-border p-4">
+                <div className="font-heading text-main text-2xl">XV Legislatura</div>
+                <div className="text-sm font-bold">2023-presente</div>
+                <div className="text-xs text-muted-foreground mt-2 space-y-1">
+                  <p><strong>350</strong> diputados</p>
+                  <p><strong>273</strong> senadores activos</p>
+                  <p><strong>19</strong> senadores (bajas)</p>
+                  <p className="border-t border-border pt-1 mt-2"><strong>642</strong> total</p>
+                </div>
+                <p className="text-xs text-muted-foreground mt-2">
+                  Legislatura actual, actualizada mensualmente.
+                </p>
+              </div>
+            </div>
+            <div className="bg-foreground text-background p-4 mt-4">
+              <p className="font-bold">615 + 642 = 1.257 parlamentarios</p>
+              <p className="text-sm mt-1">
+                Permitiendo comparación histórica: primera democracia vs. actualidad.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Calidad de datos */}
+        <section className="mb-12">
+          <h2 className="text-xl font-heading uppercase tracking-tight mb-4">
+            Calidad de Datos
+          </h2>
+          <div className="bg-muted border-2 border-border p-6 space-y-4">
+            <p>
+              Cada parlamentario pasa por un proceso de <strong>validación automática</strong> que detecta:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-card border border-border p-4">
+                <h4 className="font-bold text-sm mb-2">Duplicados</h4>
+                <p className="text-xs text-muted-foreground">
+                  Detectamos entradas duplicadas por nombre exacto y por similitud fonética.
+                </p>
+              </div>
+              <div className="bg-card border border-border p-4">
+                <h4 className="font-bold text-sm mb-2">Conflictos entre fuentes</h4>
+                <p className="text-xs text-muted-foreground">
+                  Cuando Congreso, Senado y Perplexity reportan datos diferentes para el mismo campo.
+                </p>
+              </div>
+              <div className="bg-card border border-border p-4">
+                <h4 className="font-bold text-sm mb-2">Inconsistencias lógicas</h4>
+                <p className="text-xs text-muted-foreground">
+                  Profesiones que requieren título pero educación aparece como &quot;No consta&quot;.
+                </p>
+              </div>
+              <div className="bg-card border border-border p-4">
+                <h4 className="font-bold text-sm mb-2">Metadatos de bajas</h4>
+                <p className="text-xs text-muted-foreground">
+                  Senadores marcados como &quot;baja&quot; deben tener fecha y sustituto registrado.
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-muted-foreground mt-4">
+              El sistema genera un <strong>informe de calidad</strong> con métricas de cobertura (% de datos completos) y lista de conflictos a revisar.
+            </p>
+          </div>
+        </section>
+
+        {/* Tracking multi-fuente */}
+        <section className="mb-12">
+          <h2 className="text-xl font-heading uppercase tracking-tight mb-4">
+            Tracking Multi-Fuente
+          </h2>
+          <div className="bg-card border-2 border-border p-6 shadow-[4px_4px_0px_0px_#000] space-y-4">
+            <p>
+              Cada dato de educación y profesión se registra con su <strong>fuente original</strong>.
+              Un parlamentario puede tener múltiples entradas de diferentes fuentes:
+            </p>
+            <div className="grid grid-cols-3 gap-4 mt-4">
+              <div className="bg-muted border border-border p-3 text-center">
+                <code className="text-xs text-main block">congreso</code>
+                <div className="text-xs text-muted-foreground mt-1">API Open Data</div>
+              </div>
+              <div className="bg-muted border border-border p-3 text-center">
+                <code className="text-xs text-main block">senado</code>
+                <div className="text-xs text-muted-foreground mt-1">XML Fichas</div>
+              </div>
+              <div className="bg-muted border border-border p-3 text-center">
+                <code className="text-xs text-main block">perplexity</code>
+                <div className="text-xs text-muted-foreground mt-1">Investigación IA</div>
+              </div>
+            </div>
+            <div className="bg-muted p-4 mt-4 font-mono text-xs overflow-x-auto">
+              <pre>{`{
+  "data_sources": [
+    {
+      "source": "congreso",
+      "field": "estudios",
+      "raw_text": "Licenciado en Derecho",
+      "extracted_at": "2025-01-15T10:30:00Z"
+    },
+    {
+      "source": "perplexity",
+      "field": "profesion",
+      "raw_text": "Abogado del Estado",
+      "extracted_at": "2025-01-20T14:00:00Z",
+      "citations": ["https://..."]
+    }
+  ]
+}`}</pre>
+            </div>
+            <p className="text-xs text-muted-foreground">
+              Esto permite auditar de dónde viene cada dato y detectar conflictos cuando las fuentes no coinciden.
+            </p>
+          </div>
+        </section>
+
+        {/* Normalización educativa */}
+        <section className="mb-12">
+          <h2 className="text-xl font-heading uppercase tracking-tight mb-4">
+            Normalización Educativa (3 niveles)
+          </h2>
+          <div className="bg-muted border-2 border-border p-6 space-y-4">
+            <p>
+              España ha tenido múltiples sistemas educativos. Normalizamos todo a <strong>tres niveles</strong>:
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm mt-4 border-collapse">
+                <thead>
+                  <tr className="border-b-2 border-border">
+                    <th className="text-left p-2 font-heading">Nivel</th>
+                    <th className="text-left p-2 font-heading">Descripción</th>
+                    <th className="text-left p-2 font-heading">Ejemplo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-border">
+                    <td className="p-2"><code className="text-main">original</code></td>
+                    <td className="p-2 text-muted-foreground">Texto exacto de la fuente</td>
+                    <td className="p-2 text-xs">&quot;Licenciado en Derecho por la UCM&quot;</td>
+                  </tr>
+                  <tr className="border-b border-border">
+                    <td className="p-2"><code className="text-main">normalized</code></td>
+                    <td className="p-2 text-muted-foreground">Sistema educativo actual</td>
+                    <td className="p-2 text-xs">&quot;Licenciatura&quot;</td>
+                  </tr>
+                  <tr className="border-b border-border">
+                    <td className="p-2"><code className="text-main">simplified</code></td>
+                    <td className="p-2 text-muted-foreground">Categoría amplia</td>
+                    <td className="p-2 text-xs">&quot;Universitaria&quot;</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="mt-6">
+              <h4 className="font-bold text-sm mb-3">Mapeo histórico</h4>
+              <p className="text-xs text-muted-foreground mb-3">
+                Reconocemos terminología de diferentes épocas:
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
+                <div className="bg-card border border-border p-2">
+                  <div className="font-bold">Pre-1970</div>
+                  <div className="text-muted-foreground">Bachillerato Elemental</div>
+                </div>
+                <div className="bg-card border border-border p-2">
+                  <div className="font-bold">1970-1990</div>
+                  <div className="text-muted-foreground">EGB, BUP, COU, FP</div>
+                </div>
+                <div className="bg-card border border-border p-2">
+                  <div className="font-bold">1990-2006</div>
+                  <div className="text-muted-foreground">ESO, Bachillerato, FP</div>
+                </div>
+                <div className="bg-card border border-border p-2">
+                  <div className="font-bold">Pre-Bolonia</div>
+                  <div className="text-muted-foreground">Licenciado, Diplomado</div>
+                </div>
+              </div>
+            </div>
+            <div className="mt-4">
+              <h4 className="font-bold text-sm mb-3">Categorías normalizadas</h4>
+              <div className="grid grid-cols-3 gap-2 text-xs">
+                {[
+                  { cat: 'Obligatoria', levels: ['ESO'] },
+                  { cat: 'Postobligatoria', levels: ['Bachillerato', 'FP Medio', 'FP Superior'] },
+                  { cat: 'Universitaria', levels: ['Grado', 'Licenciatura', 'Máster', 'Doctorado'] },
+                ].map((group) => (
+                  <div key={group.cat} className="bg-card border border-border p-2">
+                    <div className="font-bold text-main">{group.cat}</div>
+                    <div className="text-muted-foreground">{group.levels.join(', ')}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Reglas de inferencia */}
+        <section className="mb-12">
+          <h2 className="text-xl font-heading uppercase tracking-tight mb-4">
+            Inferencia Educación-Profesión
+          </h2>
+          <div className="bg-card border-2 border-border p-6 shadow-[4px_4px_0px_0px_#000] space-y-4">
+            <p>
+              Cuando falta el dato de educación pero conocemos la profesión, podemos <strong>inferir</strong> el nivel educativo requerido.
+            </p>
+            <div className="bg-muted p-4 mt-4">
+              <h4 className="font-bold text-sm mb-3">Reglas de inferencia</h4>
+              <div className="space-y-2 text-sm">
+                {[
+                  { prof: 'Abogado/a', edu: 'Licenciado en Derecho', conf: '95%' },
+                  { prof: 'Médico/a', edu: 'Licenciado en Medicina', conf: '95%' },
+                  { prof: 'Enfermero/a', edu: 'Diplomado en Enfermería', conf: '90%' },
+                  { prof: 'Arquitecto/a', edu: 'Arquitectura', conf: '90%' },
+                  { prof: 'Ingeniero/a', edu: 'Ingeniería', conf: '80%' },
+                  { prof: 'Catedrático/a', edu: 'Doctorado', conf: '70%' },
+                ].map((rule) => (
+                  <div key={rule.prof} className="flex items-center gap-2">
+                    <span className="text-muted-foreground">{rule.prof}</span>
+                    <span className="text-main">→</span>
+                    <span>{rule.edu}</span>
+                    <span className="text-xs text-muted-foreground ml-auto">({rule.conf})</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-foreground text-background p-4 mt-4">
+              <p className="text-sm">
+                <strong>Las inferencias no se aplican automáticamente.</strong> Se almacenan con su nivel de confianza para revisión humana antes de incorporarse al dataset.
+              </p>
+            </div>
+            <div className="bg-muted p-4 mt-4 font-mono text-xs overflow-x-auto">
+              <pre>{`{
+  "education_inference": {
+    "inferred_education": "Licenciado en Derecho",
+    "inference_rule": "profession_requires_degree",
+    "confidence": 0.95,
+    "applied": false,
+    "reviewed_by": null,
+    "approved": null
+  }
+}`}</pre>
+            </div>
+          </div>
+        </section>
+
+        {/* Legislaturas (moved to end) */}
         <section className="mb-12">
           <h2 className="text-xl font-heading uppercase tracking-tight mb-4">
             Legislaturas Disponibles
