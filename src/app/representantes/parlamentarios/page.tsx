@@ -5,7 +5,7 @@ import { ParlamentariosTable } from './parlamentarios-table';
 export const metadata: Metadata = {
   title: 'Lista de Parlamentarios - Buscar y Filtrar',
   description:
-    'Busca cualquier parlamentario español. Filtra por partido, cámara, circunscripción, nivel educativo. 599 perfiles con datos verificados.',
+    'Busca cualquier parlamentario español. Filtra por partido, cámara, circunscripción, nivel educativo. 1.257 perfiles con datos verificados.',
 };
 
 export default function ParlamentariosPage() {

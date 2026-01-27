@@ -86,13 +86,21 @@ export function getParlamentarios(legislature: Legislature = DEFAULT_LEGISLATURE
 }
 
 /**
- * Get a single parlamentario by slug (searches default legislature)
+ * Get a single parlamentario by slug
+ * If legislature specified, searches only that one.
+ * Otherwise searches all legislatures (XV first, then I).
  */
 export function getParlamentarioBySlug(
   slug: string,
-  legislature: Legislature = DEFAULT_LEGISLATURE
+  legislature?: Legislature
 ): Parlamentario | undefined {
-  return getParlamentarios(legislature).find((p) => p.slug === slug);
+  if (legislature) {
+    return getParlamentarios(legislature).find((p) => p.slug === slug);
+  }
+  // Search both legislatures
+  const fromXV = getParlamentarios('XV').find((p) => p.slug === slug);
+  if (fromXV) return fromXV;
+  return getParlamentarios('I').find((p) => p.slug === slug);
 }
 
 /**

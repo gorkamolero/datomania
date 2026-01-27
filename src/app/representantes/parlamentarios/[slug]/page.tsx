@@ -16,10 +16,12 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-// Generate static paths for all parlamentarios
+// Generate static paths for all parlamentarios (both legislatures)
 export async function generateStaticParams() {
-  const parlamentarios = getParlamentarios();
-  return parlamentarios.map((p) => ({
+  const parlamentariosXV = getParlamentarios('XV');
+  const parlamentariosI = getParlamentarios('I');
+  const allParlamentarios = [...parlamentariosXV, ...parlamentariosI];
+  return allParlamentarios.map((p) => ({
     slug: p.slug,
   }));
 }
