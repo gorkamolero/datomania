@@ -1,0 +1,153 @@
+session "Datomania Sprints 3-6 Completion"
+
+# Sprint 3: API & Export Enhancement
+agent api_developer:
+  """
+  Update the CSV export route at src/app/api/representantes/export/route.ts
+
+  The data structure changed. Old fields (estudios_raw, estudios_nivel, profesion_raw,
+  profesion_categoria, source, bio_oficial) are GONE. New fields are:
+  - data_sources: array of {source, field, raw_text, extracted_at, extracted_value, citations?}
+  - education_levels: {original, normalized, simplified}
+
+  Update CSV_HEADERS to include:
+  - Identity: nombre_completo, camara, partido, grupo_parlamentario, circunscripcion, fecha_alta, estado, fecha_baja, sustituido_por
+  - Education 3 levels: estudios_original, estudios_normalized, estudios_simplified
+  - Profession: profesion_raw (from data_sources), profesion_categoria
+  - Data provenance: estudios_fuentes (comma-separated sources), profesion_fuentes
+  - Inference fields: educacion_inferida, inferencia_aplicada, inferencia_aprobada, inferencia_confianza
+  - Links: url_ficha
+
+  Update parlamentariosToCSV function to extract values from new structure.
+  Update parseFilters to work with new types.
+
+  After updating, run: pnpm build && pnpm lint
+  Fix any errors. Zero warnings policy.
+  """
+
+agent api_docs_creator:
+  """
+  Create API documentation page at src/app/representantes/api-docs/page.tsx
+
+  Include sections:
+  1. Overview - What data is available (1,257 parlamentarios across 2 legislatures)
+  2. Endpoints:
+     - GET /api/representantes/parlamentarios - List with filters
+     - GET /api/representantes/export - Download CSV/JSON
+     - GET /api/representantes/stats - Aggregate statistics
+  3. Data Schema - Explain all fields including new data_sources and education_levels
+  4. Education Levels - Explain 3-level system (original, normalized, simplified)
+  5. Data Sources - Explain congreso/senado/perplexity sources
+  6. Examples - Code samples in JavaScript/Python
+
+  Use the project's neobrutalist design system (see existing pages for style).
+  Include working code examples that users can copy-paste.
+
+  After creating, run: pnpm build && pnpm lint
+  """
+
+# Sprint 4: UI Updates
+agent ui_developer:
+  """
+  Create DataExplanationBox component at src/components/data-explanation-box.tsx
+
+  Show:
+  - Total entries: 1,257 (642 XV + 615 I)
+  - Legislature XV: 623 active (350 Congreso + 273 Senado) + 19 baja = 642
+  - Legislature I: 615 total
+  - Data coverage statistics
+
+  Include tooltips explaining:
+  - Why 292 Senado entries (273 active + 19 baja)
+  - What "No_consta" means
+  - Data sources (official vs researched via Perplexity)
+
+  Use project's UI components (see src/components/ui/ for examples).
+  Add the component to src/app/representantes/representantes-tabs.tsx in the Resumen tab.
+
+  Add download buttons to the page:
+  - "Descargar CSV" → /api/representantes/export?format=csv
+  - "Documentación API" → /representantes/api-docs
+
+  After creating, run: pnpm build && pnpm lint
+  """
+
+agent metodologia_updater:
+  """
+  Update src/app/representantes/metodologia/page.tsx
+
+  Add new sections:
+  - Data Quality: Explain validation process
+  - Multi-Source Tracking: Explain how we track Congreso/Senado/Perplexity separately
+  - Education Normalization: Explain 3-level system and historical mapping
+  - Inference Rules: Explain how we infer education from profession
+  - Why 1,257?: Explain breakdown across legislatures
+
+  Keep the existing content but expand with these new sections.
+  Match the existing page style.
+
+  After updating, run: pnpm build && pnpm lint
+  """
+
+# Sprint 5: Inference Review System (internal)
+agent inference_reviewer:
+  """
+  Create internal inference review page at src/app/representantes/review-inferences/page.tsx
+
+  This is for INTERNAL use only (father's validation workflow).
+
+  Features:
+  - List all parlamentarios with education_inference present
+  - Show: name, profession, inferred education, confidence
+  - Actions: Approve, Reject, Modify
+  - Filter: by confidence level, by approval status
+  - Bulk actions: Approve all >95% confidence
+
+  Create API routes:
+  - GET /api/representantes/inferences - List inferences
+  - PUT /api/representantes/inferences/[id] - Update inference
+
+  Use project's UI components for the table/forms.
+  Make it functional but simple (internal tool).
+
+  After creating, run: pnpm build && pnpm lint
+  """
+
+# Sprint 6: Integration & Polish
+agent integrator:
+  """
+  Final integration and polish:
+
+  1. Update research-worker at src/projects/representantes/lib/research.ts
+     - Ensure it populates data_sources array when saving Perplexity results
+     - Add timestamp to source entry
+     - Calculate education_levels from result
+
+  2. Run full test suite: pnpm test:run
+     - All 119+ tests must pass
+
+  3. Run lint: pnpm lint
+     - Zero warnings, zero errors
+
+  4. Run build: pnpm build
+     - Must succeed
+
+  5. Verify data integrity:
+     - 1,257 total entries preserved
+     - All have data_sources arrays
+     - All have education_levels objects
+
+  Report any issues found.
+  """
+
+# Execution flow - run sprints in parallel where possible
+parallel:
+  run api_developer
+  run api_docs_creator
+
+parallel:
+  run ui_developer
+  run metodologia_updater
+
+run inference_reviewer
+run integrator

@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2025-01-22T00:00:00.000Z",
+  "lastUpdated": "2025-01-27T00:00:00.000Z",
   "legislature": "XV",
-  "totalParlamentarios": 599,
+  "totalParlamentarios": 1257,
   "sources": {
     "congreso": "https://www.congreso.es/opendata",
     "senado": "https://www.senado.es/web/ficopencuestam/opendata"
