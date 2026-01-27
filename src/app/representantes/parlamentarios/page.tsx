@@ -2,11 +2,14 @@ import { Metadata } from 'next';
 import { getParlamentarios, getCircunscripciones, getPartidosFromData } from '@/projects/representantes/lib/data';
 import { ParlamentariosTable } from './parlamentarios-table';
 
-export const metadata: Metadata = {
-  title: 'Lista de Parlamentarios - Buscar y Filtrar',
-  description:
-    'Busca cualquier parlamentario español. Filtra por partido, cámara, circunscripción, nivel educativo. 1.257 perfiles con datos verificados.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const total = getParlamentarios('I').length + getParlamentarios('XV').length;
+  const formatted = total.toLocaleString('es-ES');
+  return {
+    title: 'Lista de Parlamentarios - Buscar y Filtrar',
+    description: `Busca cualquier parlamentario español. Filtra por partido, cámara, circunscripción, nivel educativo. ${formatted} perfiles con datos verificados.`,
+  };
+}
 
 export default function ParlamentariosPage() {
   const parlamentarios = getParlamentarios();
